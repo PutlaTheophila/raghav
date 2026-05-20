@@ -1,0 +1,54 @@
+{
+  "name": "Raghavendar Medishetty",
+  "title": "Assistant Professor, Department of Chemistry",
+  "role": "Principal Investigator",
+  "email": "raghavendar@iitbhilai.ac.in",
+  "image": "../assets/raghav.png",
+  "institution": "IIT Bhilai",
+  "tags": [
+    "Solid-State Photochemistry",
+    "Crystal Engineering",
+    "Molecular Crystals"
+  ],
+  "biography": [
+    "Professor Raghavendar Medishetty is a leading researcher in the field of functional molecular crystals. His work focuses on how light-driven structural transformations can be harnessed for mechanical motion and tunable optical properties.",
+    "At IIT Bhilai, he leads the Medishetty Group, mentoring a diverse team of PhD and Master’s scholars. His research contributions have been widely recognized in journals like Chemical Communications and Inorganic Chemistry."
+  ],
+  "education": [
+    {
+      "degree": "PhD",
+      "university": "National University of Singapore (NUS)"
+    },
+    {
+      "degree": "PostDoc",
+      "university": "University of Liverpool, UK"
+    }
+  ],
+  "professionalappointments":[
+    {
+        "place":"IIT Bhilai",
+        "position":"Professor"
+    }
+  ],
+  "researchFocus": [
+    "Smart Actuators",
+    "Photomechanical Motion",
+    "Dynamic Molecular Crystals"
+  ],
+  "selectedPublications": [
+    {
+      "authors": "A Afzal, M Ahmad, AA Kumar, R Medishetty, et al.",
+      "title": "A multifunctional [H2BTC] 2−.[Zn (H2O) 6] 2+ hydrogen-bonded coordination network",
+      "journal": "Polyhedron",
+      "year": "2025",
+      "link": "#"
+    },
+    {
+      "authors": "U Kurakula, S Naaz, S Roy, R Medishetty, et al.",
+      "title": "Light-driven structural transformations in isotypical Cd (ii) complexes",
+      "journal": "Chemical Communications",
+      "year": "2025",
+      "link": "#"
+    }
+  ]
+}

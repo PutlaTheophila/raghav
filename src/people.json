@@ -1,0 +1,394 @@
+{
+  "Postdoctoral Fellows": [
+    {
+      "id": "1",
+      "name": "Dr. Anupama Sahu",
+      "email": "",
+      "degree": "Postdoctoral Researcher",
+      "description": "Dr. Anupama Sahu holds a PhD from NIT Rourkela in metallurgical and materials engineering. Her research focuses on anode materials for batteries, contributing to advancements in energy storage technologies.",
+      "education": {
+        "phd": "NIT Rourkela - Metallurgical and Materials Engineering"
+      },
+      "research": "Anode materials for batteries",
+      "image": "../assets/profiles/anupama.jpg",
+      "publications": []
+    }
+  ],
+  "PhD Students": [
+    {
+      "id": "2",
+      "name": "Aditya Choudhary",
+      "email": "adityac@iitbhilai.ac.in",
+      "degree": "MSc-PhD dual degree student, PMRF fellow",
+      "description": "Aditya Choudhary is a dedicated MSc-PhD dual degree student and PMRF fellow at IIT Bhilai, specializing in solid-state photochemistry. His research focuses on exploring the optical properties and photochemical behaviors of crystalline materials. He has authored 6 publications (2023-2025) in prestigious journals including Chemical Communications and Journal of Physical Chemistry Letters. Best Poster Award recipient at NSC-51, VNIT Nagpur (Dec 2024).",
+      "education": {
+        "bsc": "Dakshin Kamrup College",
+        "msc": "IIT Bhilai",
+        "phd": "IIT Bhilai (ongoing)"
+      },
+      "research": "Solid-state photochemistry and optical properties",
+      "image": "../assets/profiles/aditya.jpg",
+      "publications": [
+        "A. Ekka, U. Kurakula, A. Choudhury, A. Mishra, A. Faye, N. R. Halcovitch & R. Medishetty, Light-driven flagella-like motion of coordination compound single crystals, Chem. Comm., 2023, DOI: 10.1039/D3CC00333G",
+        "S. Khan, B. Dutta, S. Naaz, A. Choudhury, P. A. Cazade, E. Kiely, S. Guerin, R. Medishetty & M. H. Mir, Regulating photosalient behavior in dynamic metal-organic crystals, Communications Chemistry, 2023, DOI: 10.1038/s42004-023-00951-0",
+        "J. An, J. Oh, U. Kurakula, D. H. Lee, A. Choudhury, E. Lee, R. Medishetty & I. H. Park, Solid-State Structural Transformation in Zn(II) Metal\u2013Organic Frameworks in Single-Crystal-to-Single-Crystal Fashion, Nanomaterials, 2023, DOI: 10.3390/nano13162319",
+        "S. Khan, P. Das, S. Naaz, P. Brand\u00e3o, A. Choudhury, R. Medishetty, P. P. Ray & M. H. Mir, A dual-functional 2D coordination polymer exhibiting photomechanical and electrically conductive behaviours, Dalton Transactions, 2023, DOI: 10.1039/D3DT02728G",
+        "A. Ekka, A. Choudhury, M. Samanta, A. Deshmukh, N. R. Halcovitch, I. H. Park & R. Medishetty, Solid-State [2+2] Photoreaction of Isostructural Cd(II) Metal Complexes and Solid-State Fluorescence, Molecules, 29(2):351, 2024, DOI: 10.3390/molecules29020351",
+        "A. Choudhury, N. Prasad, T. Banana, P. S. Lal, D. S. Hughes, N. R. Halcovitch, Md Mehboob Alam, S. Vempati & R. Medishetty, Stepwise Photoreactions and Photosalient Effects in Isostructural Donor\u2013Acceptor Molecular Complexes with Tunable Optical Properties, J. Phys. Chem. Lett., 16(27):7083\u20137089, 2025, DOI: 10.1021/acs.jpclett.5c01282"
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Uma Kurakula",
+      "email": "",
+      "degree": "PhD Scholar",
+      "description": "Uma Kurakula is a PhD Scholar at IIT Bhilai working on inorganic and metal-organic solid state materials. She completed her M.Sc. from IIT Bhilai and B.Sc. from Kakatiya University. She has authored 5 publications (2023-2025) in top journals including Chemistry Communications and Crystal Growth & Design.",
+      "education": {
+        "bsc": "Kakatiya University",
+        "msc": "IIT Bhilai",
+        "phd": "IIT Bhilai (ongoing)"
+      },
+      "research": "Inorganic and metal-organic solid state materials",
+      "image": "../assets/profiles/uma.jpg",
+      "publications": [
+        "A. Ekka, U. Kurakula, A. Choudhury, A. Mishra, A. Faye, N. R. Halcovitch & R. Medishetty, Light-driven flagella-like motion of coordination compound single crystals, Chem. Comm., 2023, DOI: 10.1039/D3CC00333G",
+        "R. Medishetty, A. Ekka, A. Mishra & U. Kurakula, Solid-State [2+2] Photocycloaddition Reactions in Coordination Polymers and Metal-Organic Frameworks, Book chapter",
+        "J. An, J. Oh, U. Kurakula, D. H. Lee, A. Choudhury, E. Lee, R. Medishetty & I. H. Park, Solid-State Structural Transformation in Zn(II) Metal\u2013Organic Frameworks in Single-Crystal-to-Single-Crystal Fashion, Nanomaterials, 2023, DOI: 10.3390/nano13162319",
+        "U. Kurakula, A. Ekka, B. Dutta, N. R. Halcovitch, M. H. Mir & R. Medishetty, Photoreactive Zn(II) Coordination Compounds: Exploring Biomimetic Mechanical Motion and Photosalient Behavior, Cryst. Growth Des., 24(17):7066\u20137074, 2024, DOI: 10.1021/acs.cgd.4c00720",
+        "U. Kurakula, Sanobar Naaz, Sourav Roy, Samim Khan, Abdul Malik Puthan Peedikakkal, Raghavender Medishetty & Mohammad Hedayetullah Mir, Light-driven structural transformations in isotypical Cd(II) complexes: stereoselectivity and photosalient motion, Chem. Commun., 2025, DOI: 10.1039/D5CC01076D"
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Anamika Gogoi",
+      "email": "",
+      "degree": "PhD Scholar",
+      "description": "Anamika Gogoi is a PhD Scholar researching inorganic and metal-organic solid state materials. She holds an M.Sc. from NIT Rourkela and B.Sc. from Jorhat Institute of Technology. She has contributed to 2 publications (2023) in RSC Advances and CrystEngComm.",
+      "education": {
+        "bsc": "Jorhat Institute of Technology",
+        "msc": "NIT Rourkela",
+        "phd": "IIT Bhilai (ongoing)"
+      },
+      "research": "Inorganic and metal-organic solid state materials",
+      "image": "../assets/profiles/anamika.jpg",
+      "publications": [
+        "A. Gogoi, D. Dutta, B. G. Hern\u00e1ndez & S. K. Dey, Anion-exchange facilitated selective extraction of sulfate and phosphate by overcoming the Hofmeister bias, RSC Adv., 2023, DOI: 10.1039/D3RA01771K",
+        "D. Dutta, A. Gogoi, R. Dutta, S. S. Harmalkar, P. Lama & S. K. Dey, C-H hydrogen bond and halogen bond directed self-assembly of ethereal podands and C-X\u00b7\u00b7\u00b7F\u2212/HF2\u2212 halogen bonding in solution, CrystEngComm, 2023, DOI: 10.1039/D3CE00599B"
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Devendra Dewangan",
+      "email": "",
+      "degree": "PhD Scholar",
+      "description": "Devendra Dewangan is a PhD Scholar focusing on solid state photochemistry and energy storage materials. He completed his M.Sc. from IIT Bhilai and B.Sc. from Guru Ghasidas Vishwavidyalaya. He has authored 2 publications (2025) in Polyhedron and ACS Applied Bio Materials.",
+      "education": {
+        "bsc": "Guru Ghasidas Vishwavidyalaya",
+        "msc": "IIT Bhilai",
+        "phd": "IIT Bhilai (ongoing)"
+      },
+      "research": "Solid state photochemistry and energy storage materials",
+      "image": "../assets/profiles/devendra.jpg",
+      "publications": [
+        "A. Afzal, M. Ahmad, N. Haq, A. A. Kumar, D. Dewangan, R. Medishetty & K. A Siddiqui, A multifunctional [H2BTC]2\u2212.[Zn(H2O)6]2+ hydrogen-bonded coordination network: Efficient detection of 2,4-D amine herbicide and photodegradation of RB dye, Polyhedron, 281:117718, 2025, DOI: 10.1016/j.poly.2025.117718",
+        "P. Sharma, M. Ahmad, N. Haq, D. Dewangan, R. Medishetty, A. K. Astakala, N. Lee & K. A. Siddiqui, Cu-MOF@ TMB Integrated Test Strips for Naked Eye Colorimetric Detection of a Critical Biomarker for Metabolic and Renal Disorders, ACS Appl. Bio Mater., 2025, DOI: 10.1021/acsabm.5c01198"
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Abothu Shanmukha Rao",
+      "email": "",
+      "degree": "PhD Scholar",
+      "description": "Abothu Shanmukha Rao is a PhD Scholar at IIT Bhilai. He completed his M.Sc. from Andhra University and B.Sc. from Silver Jubilee Government Degree College.",
+      "education": {
+        "bsc": "Silver Jubilee Government Degree College",
+        "msc": "Andhra University",
+        "phd": "IIT Bhilai (ongoing)"
+      },
+      "research": "Materials Science",
+      "image": "../assets/profiles/shanmukha.jpg",
+      "publications": []
+    },
+    {
+      "id": "7",
+      "name": "Yuganti Bai",
+      "email": "",
+      "degree": "PhD Scholar",
+      "description": "Yuganti Bai is a PhD Scholar at IIT Bhilai. She completed both her B.Sc. and M.Sc. from Govt. E.V.P.G. College Korba.",
+      "education": {
+        "bsc": "Govt. E.V.P.G. College Korba",
+        "msc": "Govt. E.V.P.G. College Korba",
+        "phd": "IIT Bhilai (ongoing)"
+      },
+      "research": "Materials Science",
+      "image": "../assets/profiles/yuganti.jpg",
+      "publications": []
+    },
+    {
+      "id": "8",
+      "name": "Subhash Kumar Chakradhari",
+      "email": "",
+      "degree": "PhD Scholar",
+      "description": "Subhash Kumar Chakradhari is a PhD Scholar at IIT Bhilai. He completed his M.Sc. from Pt. Ravishankar Shukla University and B.Sc. from Govt. V.Y.T. College.",
+      "education": {
+        "bsc": "Govt. V.Y.T. College",
+        "msc": "Pt. Ravishankar Shukla University",
+        "phd": "IIT Bhilai (ongoing)"
+      },
+      "research": "Materials Science",
+      "image": "../assets/profiles/subhash.jpg",
+      "publications": []
+    }
+  ],
+  "MSc Students": [
+    {
+      "id": "9",
+      "name": "Ashish Verma",
+      "email": "",
+      "degree": "M.Sc. Thesis Student",
+      "description": "Ashish Verma is pursuing his M.Sc. thesis work at the Medishetty Laboratory. He completed his B.Sc. from University of Lucknow.",
+      "education": {
+        "bsc": "University of Lucknow",
+        "msc": "IIT Bhilai (ongoing)"
+      },
+      "research": "Materials Science",
+      "image": "../assets/profiles/ashish-verma.jpg",
+      "publications": []
+    },
+    {
+      "id": "10",
+      "name": "Saumya Ranjan",
+      "email": "",
+      "degree": "M.Sc. Thesis Student",
+      "description": "Saumya Ranjan is pursuing his M.Sc. thesis work at the Medishetty Laboratory. He completed his B.Sc. from Banaras Hindu University.",
+      "education": {
+        "bsc": "Banaras Hindu University",
+        "msc": "IIT Bhilai (ongoing)"
+      },
+      "research": "Materials Science",
+      "image": "../assets/profiles/saumya.jpg",
+      "publications": []
+    }
+  ],
+  "Internship Students": [
+    {
+      "id": "11",
+      "name": "Prem Sagar Panda",
+      "Current position": "M.Sc student, Guru Ghasidas Vishwavidyalaya Bilaspur (Intern May-June 2025)",
+      "image": "../assets/profiles/prem-panda.jpg"
+    },
+    {
+      "id": "12",
+      "name": "Akanksha Jaiswal",
+      "Current position": "MSc student, University of Allahabad (Intern May-June 2025)",
+      "image": "../assets/profiles/akanksha-jaiswal.jpg"
+    },
+    {
+      "id": "13",
+      "name": "Nilesh Behra",
+      "Current position": "MSc student, NIT Raipur (Intern May-June 2025)",
+      "image": "../assets/profiles/nilesh-behra.jpg"
+    },
+    {
+      "id": "14",
+      "name": "Snehaisis Das",
+      "Current position": "MSc student, NIT Raipur (Intern May-June 2025)",
+      "image": "../assets/profiles/snehaisis-das.jpg"
+    },
+    {
+      "id": "15",
+      "name": "Sahil Kar",
+      "Current position": "Integrated B.Tech-M.Tech student, ICT Mumbai ICT-IOCB (Intern May-June 2025)",
+      "image": "../assets/profiles/sahil-kar.jpg"
+    },
+    {
+      "id": "16",
+      "name": "Sindhu P S",
+      "Current position": "Integrated MSc Chemistry student, Amrita Vishwa Vidyapeetham (Intern May-June 2025)",
+      "image": "../assets/profiles/sindhu-ps.jpg"
+    }
+  ],
+  "Alumni": {
+    "Postdoctoral Fellows": [],
+    "PhD Students": [
+      {
+        "id": "17",
+        "name": "Dr. Akansha Ekka",
+        "email": "",
+        "degree": "PhD from IIT Bhilai (2025)",
+        "description": "Dr. Akansha Ekka successfully defended her doctoral dissertation in May 2025. She completed her M.Sc. and B.Sc. from Guru Ghasidas Vishwavidyalaya. Her research focused on solid-state photochemistry and optical properties.",
+        "education": {
+          "bsc": "Guru Ghasidas Vishwavidyalaya",
+          "msc": "Guru Ghasidas Vishwavidyalaya",
+          "phd": "IIT Bhilai"
+        },
+        "research": "Solid-state photochemistry and optical properties",
+        "image": "../assets/profiles/akansha-ekka.jpg"
+      }
+    ],
+    "MSc Students": [
+      {
+        "id": "19",
+        "name": "Sweta Kumari",
+        "email": "",
+        "degree": "M.Sc. Alumni",
+        "description": "Former M.Sc. student from Medishetty Laboratory. B.Sc. from Sri Venkateswara College, University of Delhi.",
+        "education": {
+          "bsc": "Sri Venkateswara College, University of Delhi",
+          "msc": "IIT Bhilai"
+        },
+        "research": "Materials Science",
+        "image": "../assets/profiles/sweta.jpg"
+      },
+      {
+        "id": "20",
+        "name": "Meena Sahu",
+        "email": "",
+        "degree": "M.Sc. Alumni",
+        "description": "Former M.Sc. student from Medishetty Laboratory. Integrated M.Sc. from Pt. Ravishankar Shukla University.",
+        "education": {
+          "msc": "Pt. Ravishankar Shukla University (Integrated)"
+        },
+        "research": "Materials Science",
+        "image": "../assets/profiles/meena.jpg"
+      },
+      {
+        "id": "21",
+        "name": "Nalini Shandil",
+        "email": "",
+        "degree": "M.Sc. Alumni",
+        "description": "Former M.Sc. student from Medishetty Laboratory. Integrated M.Sc. from Pt. Ravishankar Shukla University.",
+        "education": {
+          "msc": "Pt. Ravishankar Shukla University (Integrated)"
+        },
+        "research": "Materials Science",
+        "image": "../assets/profiles/nalini.jpg"
+      },
+      {
+        "id": "22",
+        "name": "Reena Kanwar",
+        "email": "",
+        "degree": "M.Sc. Alumni",
+        "description": "Former M.Sc. student from Medishetty Laboratory. Integrated M.Sc. from Pt. Ravishankar Shukla University.",
+        "education": {
+          "msc": "Pt. Ravishankar Shukla University (Integrated)"
+        },
+        "research": "Materials Science",
+        "image": "../assets/profiles/reena.jpg"
+      },
+      {
+        "id": "23",
+        "name": "Anshumika Mishra",
+        "email": "",
+        "degree": "MSc/Project Student Alumni",
+        "description": "Graduate student at Centre for Nano Science & Nano Technology, Bhubaneswar, Odisha. Contributed 2 publications (2023) during project work.",
+        "education": {
+          "msc": "Project Student at IIT Bhilai"
+        },
+        "research": "Materials Science",
+        "image": "../assets/profiles/anshumika.jpg"
+      },
+      {
+        "id": "24",
+        "name": "Madhumita Samanta",
+        "email": "",
+        "degree": "Project Student Alumni",
+        "description": "Former project student. B.Sc. from Midnapore College (autonomous), M.Sc. from NIT Rourkela. Contributed 1 publication in Molecules (2024).",
+        "education": {
+          "bsc": "Midnapore College (autonomous)",
+          "msc": "NIT Rourkela"
+        },
+        "research": "Materials Science",
+        "image": "../assets/profiles/madhumita.jpg"
+      },
+      {
+        "id": "25",
+        "name": "Adarsh Sinha",
+        "email": "",
+        "degree": "MSc/Project Student Alumni",
+        "description": "Currently pursuing PhD at DRDO. Former project student at Medishetty Laboratory.",
+        "education": {
+          "msc": "Project Student at IIT Bhilai"
+        },
+        "research": "Materials Science",
+        "image": "../assets/profiles/adarsh.jpg"
+      },
+      {
+        "id": "26",
+        "name": "Akshay Kumari",
+        "email": "",
+        "degree": "MSc Alumni",
+        "description": "Currently pursuing graduate studies at IISc Bangalore. Former M.Sc. student at IIT Bhilai.",
+        "education": {
+          "msc": "IIT Bhilai"
+        },
+        "research": "Materials Science",
+        "image": "../assets/profiles/akshay.jpg"
+      }
+    ],
+    "Visiting Researchers": [
+      {
+        "id": "18",
+        "name": "Dr. Nirmala Sharma",
+        "email": "",
+        "degree": "Visiting Researcher (ISRF Fellow)",
+        "description": "Assistant Professor at Amrit Campus, Tribhuvan University, Kathmandu, Nepal. Former visiting researcher at IIT Bhilai under Indian Science and Research Fellowship (ISRF).",
+        "education": {
+          "position": "Assistant Professor, Tribhuvan University"
+        },
+        "research": "Materials Science",
+        "image": "../assets/profiles/nirmala.jpg"
+      }
+    ],
+    "Internship Students": [
+      {
+        "id": "27",
+        "name": "Parakh Chand Sahu",
+        "Current position": "B.Tech student (Metallurgical and Materials Engineering), NIT Raipur (Intern May-June 2024)",
+        "image": "../assets/profiles/parakh-sahu.jpg"
+      },
+      {
+        "id": "28",
+        "name": "Rohit Kumar",
+        "Current position": "B.Sc. student, Govt. V.Y.T. PG. Auto. College Durg, Chhattisgarh (Intern May-June 2024)",
+        "image": "../assets/profiles/rohit-kumar.jpg"
+      },
+      {
+        "id": "29",
+        "name": "Sushrut Arun Morey",
+        "Current position": "B.Tech student (Metallurgical and Materials Engineering), VNIT Nagpur (Intern May-June 2024)",
+        "image": "../assets/profiles/sushrut-morey.jpg"
+      },
+      {
+        "id": "30",
+        "name": "Abhishek Yadav",
+        "Current position": "B.Tech student (Metallurgical and Materials Engineering), NIT Raipur (Intern May-June 2024)",
+        "image": "../assets/profiles/abhishek-yadav.jpg"
+      },
+      {
+        "id": "31",
+        "name": "Pyarija S. Lal",
+        "Current position": "Integrated Masters student, NISER Bhubaneswar",
+        "image": "../assets/profiles/pyarija-lal.jpg"
+      },
+      {
+        "id": "32",
+        "name": "Ayushi Deshmukh",
+        "Current position": "Former Intern",
+        "image": "https://ui-avatars.com/api/?name=Ayushi+Deshmukh&background=A31F34&color=fff&size=280&bold=true"
+      },
+      {
+        "id": "33",
+        "name": "Anusha Sunkam",
+        "Current position": "Former Intern",
+        "image": "https://ui-avatars.com/api/?name=Anusha+Sunkam&background=A31F34&color=fff&size=280&bold=true"
+      },
+      {
+        "id": "34",
+        "name": "Sai Sushma Kumari",
+        "Current position": "Former Intern",
+        "image": "https://ui-avatars.com/api/?name=Sai+Sushma+Kumari&background=A31F34&color=fff&size=280&bold=true"
+      }
+    ]
+  }
+}

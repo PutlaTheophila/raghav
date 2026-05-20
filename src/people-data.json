@@ -1,0 +1,106 @@
+{
+  "faculty": {
+    "name": "Dr. Raghavender Medishetty",
+    "position": "Assistant Professor, Department of Chemistry",
+    "additionalRole": "Head of Department (Materials Science and Metallurgical Engineering)",
+    "office": "Science Building (SD1), Level 3, Room 411",
+    "email": "[email protected]",
+    "phone": "+91-771-255-1300, Extension 6142",
+    "cv": "Available",
+    "googleScholar": "Available",
+    "orcid": "Available"
+  },
+  "phdStudents": [
+    {
+      "name": "Aditya Choudhary",
+      "type": "MSc-PhD dual degree",
+      "fellowship": "PMRF fellow",
+      "education": "B.Sc. from Dakshin Kamrup College",
+      "research": "Solid-state photochemistry and optical properties",
+      "publications": 6
+    },
+    {
+      "name": "Uma Kurakula",
+      "type": "PhD Scholar",
+      "education": "B.Sc. from Kakatiya University; M.Sc. from IIT Bhilai",
+      "research": "Inorganic and metal-organic solid state materials",
+      "publications": 5
+    },
+    {
+      "name": "Anamika Gogoi",
+      "type": "PhD Scholar",
+      "education": "B.Sc. from Jorhat Institute of Technology; M.Sc. from NIT Rourkela",
+      "research": "Inorganic and metal-organic solid state materials",
+      "publications": 2
+    },
+    {
+      "name": "Devendra Dewangan",
+      "type": "PhD Scholar",
+      "education": "B.Sc. from Guru Ghasidas Vishwavidyalaya; M.Sc. from IIT Bhilai",
+      "research": "Solid state photochemistry and energy storage materials",
+      "publications": 2
+    },
+    {
+      "name": "Abothu Shanmukha Rao",
+      "type": "PhD Scholar",
+      "education": "B.Sc. from Silver Jubilee Government Degree College; M.Sc. from Andhra University"
+    },
+    {
+      "name": "Yuganti Bai",
+      "type": "PhD Scholar",
+      "education": "B.Sc. and M.Sc. from Govt. E.V.P.G. College Korba"
+    },
+    {
+      "name": "Subhash Kumar Chakradhari",
+      "type": "PhD Scholar",
+      "education": "B.Sc. from Govt. V.Y.T. College; M.Sc. from Pt. Ravishankar Shukla University"
+    }
+  ],
+  "postdocs": [
+    {
+      "name": "Dr. Anupama Sahu",
+      "education": "PhD from NIT Rourkela in metallurgical and materials engineering",
+      "research": "Anode materials for batteries"
+    }
+  ],
+  "mscStudents": [
+    {
+      "name": "Ashish Verma",
+      "education": "B.Sc. from University of Lucknow"
+    },
+    {
+      "name": "Saumya Ranjan",
+      "education": "B.Sc. from Banaras Hindu University"
+    }
+  ],
+  "alumni": [
+    {
+      "name": "Dr. Akansha Ekka",
+      "degree": "PhD from IIT Bhilai",
+      "education": "M.Sc. and B.Sc. from Guru Ghasidas Vishwavidyalaya",
+      "research": "Solid-state photochemistry and optical properties"
+    },
+    {
+      "name": "Nirmala Sharma",
+      "position": "Assistant Professor at Amrit Campus, Tribhuvan University, Kathmandu, Nepal",
+      "note": "Visiting researcher with Indian Science Research fellowship"
+    },
+    {
+      "name": "Anshumika Mishra",
+      "current": "Graduate student at Centre for Nano Science & Nano Technology, Bhubaneswar"
+    },
+    {
+      "name": "Madhumita Samanta",
+      "type": "Project student",
+      "education": "B.Sc. from Midnapore College; M.Sc. from NIT Rourkela"
+    },
+    {
+      "name": "Adarsh Sinha",
+      "current": "PhD with DRDO"
+    },
+    {
+      "name": "Akshay Kumari",
+      "current": "Graduate student at IISc Bangalore"
+    }
+  ]
+}

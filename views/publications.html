@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Explore research publications from Medishetty Laboratory at IIT Bhilai.">
+  <title>Publications | Medishetty Lab</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    /* --- THEME ENGINE VARIABLES --- */
+    :root[data-theme="light"] {
+        --bg-color: #FCFCFA;
+        --text-main: #1F2937;
+        --text-muted: #4B5563;
+        --card-bg: #FFFFFF;
+        --card-border: #E5E7EB;
+        --nav-bg: rgba(255, 255, 255, 0.95);
+        --maroon: #A31F34;
+        --hero-bg: linear-gradient(to right, #111, #222);
+        --img-bg: #fcfcfc;
+        --nav-text-top: #FFFFFF; /* White text at top of hero */
+    }
+
+    :root[data-theme="dark"] {
+        --bg-color: #0F0F10;
+        --text-main: #EEEEEE;
+        --text-muted: #AAAAAA;
+        --card-bg: #1A1A1B;
+        --card-border: #2A2A2B;
+        --nav-bg: rgba(15, 15, 16, 0.95);
+        --maroon: #C52B44;
+        --hero-bg: linear-gradient(to right, #000, #111);
+        --img-bg: #ffffff;
+        --nav-text-top: #FFFFFF;
+    }
+
+    body {
+      font-family: 'Public Sans', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    h1, h2, h3, .serif { font-family: 'Crimson Pro', serif; }
+
+    /* --- NAVBAR FIX --- */
+    #navbar {
+      position: fixed; top: 0; width: 100%; height: 80px;
+      z-index: 1000; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      color: var(--nav-text-top); /* Force white at top */
+    }
+
+    #navbar.scrolled {
+      background-color: var(--nav-bg);
+      height: 70px;
+      color: var(--text-main); /* Flips to theme color on scroll */
+      box-shadow: 0 4px 30px rgba(0,0,0,0.05);
+      backdrop-filter: blur(10px);
+    }
+
+    /* Page Header */
+    .page-header {
+      background: var(--hero-bg);
+      padding: 140px 0 80px; /* Increased top padding to avoid nav overlap */
+      border-bottom: 5px solid var(--maroon);
+    }
+
+    /* Publication Card */
+    .publication-card {
+      position: relative;
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      display: flex;
+      flex-direction: row;
+      overflow: visible;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .publication-card:hover {
+      border-color: var(--maroon);
+      box-shadow: 0 12px 24px -10px rgba(0,0,0,0.2);
+      transform: translateY(-4px);
+    }
+
+    /* Numbered badge over each card */
+    .pub-number {
+      position: absolute;
+      top: -18px;
+      left: -18px;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--maroon);
+      color: #FFFFFF;
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      border: 3px solid var(--bg-color);
+      box-shadow: 0 6px 14px -4px rgba(163, 31, 52, 0.45);
+      z-index: 2;
+      letter-spacing: 0.02em;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .publication-card:hover .pub-number {
+      transform: scale(1.08) rotate(-3deg);
+    }
+
+    @media (max-width: 850px) {
+      .pub-number {
+        top: -16px;
+        left: 16px;
+        width: 48px;
+        height: 48px;
+        font-size: 1.15rem;
+      }
+    }
+
+    .pub-content {
+      flex: 1.2;
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .pub-image-container {
+      flex: 0.8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background-color: var(--img-bg);
+      border-left: 1px solid var(--card-border);
+    }
+
+    .pub-image-container img {
+      width: 100%;
+      height: auto;
+      max-height: 220px;
+      object-fit: contain;
+    }
+
+    .pub-year-badge {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--maroon);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .read-link {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--maroon);
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    @media (max-width: 850px) {
+      .publication-card { flex-direction: column; }
+      .pub-image-container { border-left: none; border-top: 1px solid var(--card-border); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar"></nav>
+
+  <header class="page-header">
+    <div class="container max-w-6xl mx-auto px-6">
+      <div class="inline-block px-3 py-1 bg-[#A31F34] text-white text-[10px] font-bold tracking-widest uppercase mb-4">Scientific Contributions</div>
+      <h1 class="text-5xl md:text-6xl text-white font-bold serif">Publications</h1>
+      <p class="text-gray-400 mt-6 max-w-2xl text-lg leading-relaxed italic">
+        "A chronicle of our research journey in crystal engineering and photomechanical materials."
+      </p>
+    </div>
+  </header>
+
+  <main class="container max-w-6xl mx-auto px-6 py-20">
+    <div id="publications-list" class="flex flex-col gap-10">
+      <div class="py-20 text-center">
+        <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-[#A31F34] mb-4"></div>
+        <p class="opacity-50 italic">Synchronizing publication database...</p>
+      </div>
+    </div>
+
+    <div class="mt-20 pt-10 border-t border-[var(--card-border)] flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-sm opacity-50">For full-text requests, please contact the corresponding author.</p>
+      <a href="/medishetty/index.html" class="text-xs font-bold uppercase tracking-widest" style="color: var(--maroon)">Return to Home</a>
+    </div>
+  </main>
+
+  <footer id="footer"></footer>
+
+  <script>
+    // --- COMPONENT LOADER & THEME ENGINE ---
+    function loadComponent(id, path) {
+      fetch(path).then(r => r.text()).then(html => {
+        document.getElementById(id).innerHTML = html;
+        if(id === 'navbar') initThemeEngine();
+      });
+    }
+
+    function initThemeEngine() {
+      const savedTheme = localStorage.getItem('lab-theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      
+      const btns = [document.getElementById('themeBtn'), document.getElementById('themeBtnMobile')];
+      btns.forEach(btn => {
+        if(btn) {
+          btn.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const target = current === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', target);
+            localStorage.setItem('lab-theme', target);
+            updateToggleIcons(target);
+          });
+        }
+      });
+      updateToggleIcons(savedTheme);
+    }
+
+    function updateToggleIcons(theme) {
+      const btns = [document.getElementById('themeBtn'), document.getElementById('themeBtnMobile')];
+      const sun = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>`;
+      const moon = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+      btns.forEach(btn => { if(btn) btn.innerHTML = (theme === 'dark' ? sun : moon); });
+    }
+
+    // --- SCROLL LOGIC ---
+    window.addEventListener('scroll', () => {
+        const nav = document.getElementById('navbar');
+        if (window.scrollY > 50) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
+    });
+
+    // --- PUBLICATION RENDERER (LOCAL JSON) ---
+    fetch('../src/publications.json')
+      .then(r => r.json())
+      .then(pubs => pubs)
+      .then(pubs => {
+        const list = document.getElementById('publications-list');
+        list.innerHTML = '';
+        const total = pubs.length;
+        pubs.forEach((p, i) => {
+          const card = document.createElement('div');
+          card.className = 'publication-card';
+          const doiLink = p.doi ? `https://doi.org/${p.doi}` : '#';
+          const pubNumber = total - i;
+          card.innerHTML = `
+            <div class="pub-number">${pubNumber}</div>
+            <div class="pub-content">
+              <span class="pub-year-badge">${p.year}</span>
+              <h3 class="pub-title serif text-2xl font-bold mb-4">
+                <a href="${doiLink}" target="_blank" class="hover:text-[var(--maroon)] transition-colors">${p.title}</a>
+              </h3>
+              <p class="pub-authors">${p.authors}</p>
+              <p class="text-sm italic opacity-60 mb-6">${p.journal}, ${p.year}</p>
+              <div class="mt-auto">
+                <a href="${doiLink}" target="_blank" class="read-link">View Full Article <span>→</span></a>
+              </div>
+            </div>
+            <div class="pub-image-container">
+              <img src="${p.image || '/medishetty/assets/default-pub.png'}" alt="Abstract" onerror="this.style.display='none'">
+            </div>
+          `;
+          list.appendChild(card);
+        });
+      });
+
+    loadComponent('navbar', '../components/navbar.html');
+    loadComponent('footer', '../components/footer.html');
+
+    // --- MOBILE MENU HANDLER ---
+    document.addEventListener("click", function(e){
+        // OPEN / CLOSE MENU
+        if(e.target.id === "mobile-toggle-trigger"){
+            const menu = document.getElementById("mobile-menu");
+            if(menu){
+                menu.classList.toggle("active");
+            }
+        }
+
+        // CLOSE MENU WHEN LINK CLICKED
+        if(e.target.closest("#mobile-menu a")){
+            const menu = document.getElementById("mobile-menu");
+            if(menu){
+                menu.classList.remove("active");
+            }
+        }
+    });
+  </script>
+</body>
+</html>

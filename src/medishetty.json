@@ -1,0 +1,42 @@
+
+{
+  "name": "Dr. Raghavender Medishetty",
+  "position": "Assistant Professor",
+  "title": "Assistant Professor, Department of Chemistry & Head of Department (Materials Science and Metallurgical Engineering)",
+  "affiliation": "Indian Institute of Technology Bhilai",
+  "bio": "Dr. Raghavender Medishetty leads the SOMO Laboratory at IIT Bhilai, focusing on inorganic and metal-organic materials design. His research addresses global challenges through materials science and photochemistry, with emphasis on solid-state materials and devices for light-driven micromachines, photo-physical and nonlinear optics. He is recognized globally as a top 2% cited scientist and has published extensively in prestigious journals including Angewandte Chemie, Journal of Physical Chemistry Letters, and Chemical Communications.",
+  "education": [
+    "PhD from National University of Singapore",
+    "Research Experience at Technical University of Munich, Germany"
+  ],
+  "research": "Development of crystalline materials (inorganic, organic, and metal-organic compounds) for photochemistry, semiconducting materials, and energy solutions. Two main research thrusts: (1) Solid-state photochemistry and molecular actuators using cycloaddition reactions to convert light into mechanical movement, and (2) Battery materials and degradation mechanisms for metal-ion battery systems.",
+  "contact": {
+    "email": "[email protected]",
+    "phone": "+91-771-255-1300, Extension 6142",
+    "office": "Science Building (SD1), Level 3, Room 411",
+    "institution": "IIT Bhilai, Chhattisgarh, India 491001"
+  },
+  "achievements": [
+    "Top 2% cited scientist globally",
+    "Publications in Angewandte Chemie, JACS, Chemical Reviews, Advanced Materials",
+    "SERB and IIT Bhilai institutional funding recipient"
+  ],
+  "portfolio": [
+    {
+      "title": "Light-Driven Molecular Actuators",
+      "description": "Development of photosalient crystals that convert light energy into mechanical motion through solid-state photochemistry.",
+      "link": "https://medishetty.weebly.com/research.html"
+    },
+    {
+      "title": "Metal-Organic Framework Photonics",
+      "description": "Multi-photon absorption, nonlinear optics, upconversion and lasing in metal-organic frameworks.",
+      "link": "https://medishetty.weebly.com/publications.html"
+    },
+    {
+      "title": "Battery Materials Research",
+      "description": "Understanding degradation mechanisms in metal-ion batteries to extend operational lifetime for electric vehicles and energy storage.",
+      "link": "https://medishetty.weebly.com/research.html"
+    }
+  ],
+  "image": "../assets/raghav.png"
+}

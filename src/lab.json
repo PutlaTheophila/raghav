@@ -1,0 +1,40 @@
+{
+  "instruments": [
+    {
+      "id": "01",
+      "title": "UV-Vis Spectrophotometer",
+      "description": "Essential for measuring absorbance and transmittance to characterize photoactive materials.",
+      "image": "../assets/machine.png"
+    },
+    {
+      "id": "02",
+      "title": "High-Speed Centrifuge",
+      "description": "Precision component separation by density, critical for advanced sample preparation.",
+      "image": "../assets/machine.png"
+    },
+    {
+      "id": "03",
+      "title": "Precision Analytical Balance",
+      "description": "Provides mass measurements with sub-milligram accuracy for reagent handling.",
+      "image": "../assets/machine.png"
+    },
+    {
+      "id": "04",
+      "title": "Controlled Fume Hood",
+      "description": "High-ventilation workspace for safe chemical handling and vapor management.",
+      "image": "../assets/machine.png"
+    },
+    {
+      "id": "05",
+      "title": "Advanced Microscopy",
+      "description": "Detailed structural observation of crystals at molecular and cellular scales.",
+      "image": "../assets/machine.png"
+    },
+    {
+      "id": "06",
+      "title": "Magnetic Stirring Systems",
+      "description": "Uniform solution mixing using regulated magnetic fields for consistent reaction kinetics.",
+      "image": "../assets/machine.png"
+    }
+  ]
+}

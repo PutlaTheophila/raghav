@@ -1,0 +1,126 @@
+<style>
+.navbar-inner{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 2rem;
+  height:80px;
+}
+
+.nav-item{
+  padding:0.5rem 0.75rem;
+  color:inherit;
+  font-weight:600;
+  font-size:0.85rem;
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+  text-decoration:none;
+  transition:color 0.25s ease;
+}
+
+.nav-item:hover{
+  color:var(--maroon);
+}
+
+/* MOBILE MENU */
+
+#mobile-menu{
+  position:fixed;
+  top:80px;
+  left:0;
+  width:100%;
+  background-color:var(--card-bg);
+  border-bottom:2px solid var(--maroon);
+  z-index:9999;
+
+  transform:translateY(-20px);
+  opacity:0;
+  visibility:hidden;
+  transition:all 0.3s ease;
+}
+
+#mobile-menu.active{
+  transform:translateY(0);
+  opacity:1;
+  visibility:visible;
+}
+
+#mobile-menu a{
+  display:block;
+  padding:1.25rem 2rem;
+  font-weight:600;
+  text-decoration:none;
+  border-bottom:1px solid var(--card-border);
+  color:var(--text-main);
+  transition:color 0.25s ease;
+}
+
+#mobile-menu a:hover{
+  color:var(--maroon);
+}
+
+.theme-toggle-btn{
+  background:none;
+  border:1px solid currentColor;
+  padding:6px;
+  border-radius:50%;
+  cursor:pointer;
+}
+</style>
+
+
+<div class="navbar-inner">
+
+  <!-- Logo -->
+  <div class="flex items-center">
+    <img src="/medishetty/assets/iitbhilai-logo.png" class="h-8 mr-3">
+    <a href="/medishetty/index.html"
+       style="font-size:20px;font-weight:bold;text-decoration:none;color:inherit;">
+       Medishetty Lab
+    </a>
+  </div>
+
+
+  <!-- Desktop Menu -->
+  <nav class="hidden md:flex items-center">
+
+    <a href="/medishetty/index.html" class="nav-item">Home</a>
+    <a href="/medishetty/views/raghavendar.html" class="nav-item">Raghavendar</a>
+    <a href="/medishetty/views/people.html" class="nav-item">People</a>
+    <a href="/medishetty/views/lab.html" class="nav-item">Lab</a>
+    <a href="/medishetty/views/publications.html" class="nav-item">Publications</a>
+    <a href="/medishetty/views/gallery.html" class="nav-item">Gallery</a>
+
+    <button id="themeBtn" class="theme-toggle-btn">☾</button>
+
+  </nav>
+
+
+  <!-- Mobile Controls -->
+  <div class="md:hidden flex items-center">
+
+    <button id="themeBtnMobile" class="theme-toggle-btn mr-3">☾</button>
+
+    <button id="mobile-toggle-trigger"
+            style="font-size:28px;background:none;border:none;cursor:pointer;">
+      ☰
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- MOBILE MENU -->
+
+<div id="mobile-menu">
+
+  <a href="/medishetty/index.html">Home</a>
+  <a href="/medishetty/views/raghavendar.html">Raghavendar</a>
+  <a href="/medishetty/views/people.html">People</a>
+  <a href="/medishetty/views/lab.html">Lab</a>
+  <a href="/medishetty/views/publications.html">Publications</a>
+  <a href="/medishetty/views/gallery.html">Gallery</a>
+
+</div>

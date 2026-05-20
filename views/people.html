@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Meet the researchers of Professor Raghavendar's Lab at IIT Bhilai.">
+  <title>People | Medishetty Lab</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    /* --- THEME ENGINE VARIABLES --- */
+    :root[data-theme="light"] {
+        --bg-color: #FCFCFA;
+        --text-main: #1F2937;
+        --text-muted: #4B5563;
+        --card-bg: #FFFFFF;
+        --card-border: #E5E7EB;
+        --nav-bg: rgba(255, 255, 255, 0.95);
+        --nav-text: #1F2937;
+        --maroon: #A31F34;
+        --hero-bg: linear-gradient(to right, #111, #222);
+        --nav-text-top: #FFFFFF;
+    }
+
+    :root[data-theme="dark"] {
+        --bg-color: #0F0F10;
+        --text-main: #EEEEEE;
+        --text-muted: #AAAAAA;
+        --card-bg: #1A1A1B;
+        --card-border: #2A2A2B;
+        --nav-bg: rgba(15, 15, 16, 0.95);
+        --nav-text: #FFFFFF;
+        --maroon: #C52B44;
+        --hero-bg: linear-gradient(to right, #000, #111);
+        --nav-text-top: #FFFFFF;
+    }
+
+    body {
+      font-family: 'Public Sans', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    h1, h2, h3, .serif { font-family: 'Crimson Pro', serif; }
+
+    /* --- NAVBAR (Synchronized) --- */
+    #navbar {
+      position: fixed; top: 0; width: 100%; height: 80px;
+      z-index: 1000; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      color: var(--nav-text-top);
+    }
+
+    #navbar.scrolled {
+      background-color: var(--nav-bg);
+      height: 70px;
+      color: var(--nav-text) !important;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.05);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    #navbar.scrolled a, #navbar.scrolled button { color: var(--nav-text) !important; }
+    #navbar a, #navbar button { color: inherit; transition: color 0.3s; }
+
+    /* Page Header */
+    .page-header {
+      background: var(--hero-bg);
+      padding: 140px 0 80px;
+      border-bottom: 5px solid var(--maroon);
+    }
+
+    /* Person Card */
+    .person-detail-card {
+      display: flex; flex-direction: row; align-items: flex-start; gap: 2rem;
+      background: var(--card-bg); 
+      border: 1px solid var(--card-border); 
+      padding: 2rem; margin-bottom: 2rem; transition: all 0.3s ease;
+    }
+    .person-detail-card:hover { border-color: var(--maroon); box-shadow: 0 10px 25px -10px rgba(0,0,0,0.2); }
+    .person-detail-card img { width: 180px; height: 220px; object-fit: cover; flex-shrink: 0; border: 1px solid var(--card-border); }
+    
+    /* Intern Grid */
+    .intern-card { 
+        background: var(--card-bg); 
+        border: 1px solid var(--card-border); 
+        text-align: center; transition: 0.3s; 
+        overflow: hidden;
+    }
+    .intern-card:hover { border-color: var(--maroon); }
+    .intern-card img { width: 100%; height: 200px; object-fit: cover; }
+    .intern-card .info { padding: 1rem; }
+
+    .section-title {
+      font-size: 2.2rem; font-weight: 700; color: var(--text-main);
+      margin: 4rem 0 2rem; border-left: 4px solid var(--maroon); padding-left: 1.5rem;
+    }
+
+    @media (max-width: 640px) {
+      .person-detail-card { flex-direction: column; text-align: center; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar" class="flex items-center"></nav>
+
+  <header class="page-header">
+    <div class="container max-w-6xl mx-auto px-6">
+      <div class="inline-block px-3 py-1 bg-[#A31F34] text-white text-[10px] font-bold tracking-widest uppercase mb-4">Research Team</div>
+      <h1 class="text-5xl md:text-6xl text-white font-bold serif">People</h1>
+      <p class="text-gray-400 mt-4 max-w-2xl italic">Live data synced from laboratory records.</p>
+    </div>
+  </header>
+
+  <main class="container max-w-6xl mx-auto px-6 py-12">
+    <div id="people-list">
+      <div class="py-20 text-center">
+        <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-[#A31F34] mb-4"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer"></footer>
+
+<script>
+    // --- COMPONENT LOADER & THEME SYNC ---
+    function loadComponent(id, path) {
+      fetch(path)
+        .then(r => r.ok ? r.text() : Promise.reject())
+        .then(html => {
+          document.getElementById(id).innerHTML = html;
+          if(id === 'navbar') initThemeEngine();
+        });
+    }
+
+    function initThemeEngine() {
+      const savedTheme = localStorage.getItem('lab-theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      
+      const btns = [document.getElementById('themeBtn'), document.getElementById('themeBtnMobile')];
+      btns.forEach(btn => {
+        if(btn) {
+          btn.replaceWith(btn.cloneNode(true)); // Remove old listeners
+          const newBtn = document.getElementById(btn.id);
+          newBtn.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const target = current === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', target);
+            localStorage.setItem('lab-theme', target);
+            updateToggleIcons(target);
+          });
+        }
+      });
+      updateToggleIcons(savedTheme);
+    }
+
+    function updateToggleIcons(theme) {
+      const btns = [document.getElementById('themeBtn'), document.getElementById('themeBtnMobile')];
+      const sun = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>`;
+      const moon = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+      btns.forEach(btn => { if(btn) btn.innerHTML = (theme === 'dark' ? sun : moon); });
+    }
+
+    // --- SCROLL LOGIC ---
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 50) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    });
+
+    // --- LOCAL JSON LOGIC ---
+    async function loadPeople() {
+      const container = document.getElementById('people-list');
+      try {
+        const response = await fetch('../src/people.json');
+        const data = await response.json();
+        
+        container.innerHTML = ''; 
+
+        const createFullCard = (p) => {
+          const edu = [];
+          if (p.education?.bsc) edu.push(`<strong>BSc:</strong> ${p.education.bsc}`);
+          if (p.education?.msc) edu.push(`<strong>MSc:</strong> ${p.education.msc}`);
+          if (p.education?.phd) edu.push(`<strong>PhD:</strong> ${p.education.phd}`);
+
+          const card = document.createElement('div');
+          card.className = 'person-detail-card';
+          card.innerHTML = `
+            <img src="${p.image || '../assets/peerson.png'}" alt="${p.name}" loading="lazy">
+            <div class="info">
+              <h4 class="serif text-3xl font-bold">${p.name}</h4>
+              ${p.email ? `<p style="color: var(--maroon)" class="font-bold text-sm mb-2">${p.email}</p>` : ''}
+              <p class="font-semibold opacity-80 mb-2">${p.degree || ''}</p>
+              ${edu.length ? `<div class="text-sm opacity-60 mb-4">${edu.join('<br>')}</div>` : ''}
+              ${p.research ? `<p class="text-sm mb-3"><strong>Research Focus:</strong> ${p.research}</p>` : ''}
+              <p class="text-sm opacity-70 italic mb-6">"${p.description || 'Researcher at Medishetty Lab'}"</p>
+              <a href="./person-details.html?id=${p.id}" style="color: var(--maroon); border-color: var(--maroon)" class="inline-block text-xs font-bold uppercase tracking-widest border-b-2 pb-1 hover:bg-[#A31F34] hover:text-white hover:px-3 hover:py-2 hover:border-transparent transition-all">View Full Profile</a>
+            </div>
+          `;
+          return card;
+        };
+
+        const createInternCard = (p) => {
+          const card = document.createElement('div');
+          card.className = 'intern-card';
+          card.innerHTML = `
+            <img src="${p.image || '../assets/peerson.png'}" alt="${p.name}">
+            <div class="info">
+              <h4 class="serif text-xl font-bold">${p.name}</h4>
+              <p class="text-xs opacity-60 uppercase tracking-tighter">${p['Current position'] || 'Intern'}</p>
+            </div>
+          `;
+          return card;
+        };
+
+        const renderSection = (title, items, isIntern = false) => {
+          if (!items || items.length === 0) return;
+          const sec = document.createElement('div');
+          sec.innerHTML = `<h3 class="section-title">${title}</h3>`;
+          const contentWrapper = document.createElement('div');
+          
+          if (isIntern) {
+            contentWrapper.className = 'grid grid-cols-2 md:grid-cols-4 gap-6';
+            items.forEach(p => contentWrapper.appendChild(createInternCard(p)));
+          } else {
+            items.forEach(p => contentWrapper.appendChild(createFullCard(p)));
+          }
+          sec.appendChild(contentWrapper);
+          container.appendChild(sec);
+        };
+
+        renderSection('Postdoctoral Fellows', data['Postdoctoral Fellows']);
+        renderSection('PhD Students', data['PhD Students']);
+        renderSection('MSc Students', data['MSc Students']);
+        renderSection('Research Interns', data['Internship Students'], true);
+
+        if (data.Alumni) {
+          const divider = document.createElement('h2');
+          divider.className = 'text-center text-4xl font-bold serif opacity-30 mt-24 mb-12 border-t pt-16';
+          divider.innerText = "Lab Alumni";
+          container.appendChild(divider);
+
+          renderSection('Postdoctoral Alumni', data.Alumni['Postdoctoral Fellows']);
+          renderSection('PhD Alumni', data.Alumni['PhD Students']);
+          renderSection('MSc Alumni', data.Alumni['MSc Students']);
+          renderSection('Past Interns', data.Alumni['Internship Students'], true);
+        }
+
+      } catch (err) {
+        console.error("Sync error:", err);
+        container.innerHTML = `<p class="text-center py-20 opacity-50">Sync Failed. Please check records later.</p>`;
+      }
+    }
+
+    loadComponent('navbar', '../components/navbar.html');
+    loadComponent('footer', '../components/footer.html');
+    document.addEventListener('DOMContentLoaded', loadPeople);
+
+    // --- MOBILE MENU HANDLER ---
+    document.addEventListener("click", function(e){
+        // OPEN / CLOSE MENU
+        if(e.target.id === "mobile-toggle-trigger"){
+            const menu = document.getElementById("mobile-menu");
+            if(menu){
+                menu.classList.toggle("active");
+            }
+        }
+
+        // CLOSE MENU WHEN LINK CLICKED
+        if(e.target.closest("#mobile-menu a")){
+            const menu = document.getElementById("mobile-menu");
+            if(menu){
+                menu.classList.remove("active");
+            }
+        }
+    });
+</script>
+</body>
+</html>

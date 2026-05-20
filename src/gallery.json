@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Advanced Microscopy",
+    "category": "Infrastructure",
+    "description": "High-precision imaging for material analysis and crystal characterization.",
+    "image": "../assets/team.png"
+  },
+  {
+    "title": "Team Collaboration",
+    "category": "Team",
+    "description": "Researchers discussing recent breakthroughs in nanotechnology.",
+    "image": "../assets/team3.png"
+  },
+  {
+    "title": "Synthesis Setup",
+    "category": "Research",
+    "description": "Preparing high-purity coordination polymers in the specialized lab area.",
+    "image": "../assets/team.png"
+  },
+  {
+    "title": "Crystal Engineering",
+    "category": "Research",
+    "description": "Observation of light-responsive molecular crystals.",
+    "image": "../assets/team.png"
+  },
+  {
+    "title": "Group Seminar",
+    "category": "Lab Life",
+    "description": "Celebrating a successful publication milestone with the team.",
+    "image": "../assets/team3.png"
+  }
+]

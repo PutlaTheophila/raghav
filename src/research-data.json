@@ -1,0 +1,41 @@
+{
+  "overview": "Development of Inorganic and Metal-Organic materials addressing global challenges through materials science and photochemistry",
+  "researchThrusts": [
+    {
+      "id": 1,
+      "title": "Photo-chemistry and Molecular Actuators",
+      "description": "Solid-state materials combining organic and metal-organic components using cycloaddition reactions ([2+2] and [4+4] dimerization) as primary tools for material transformation",
+      "application": "Converting light energy into mechanical movement through the photosalient effect, enabling development of molecular photoactuators",
+      "keyPublications": [
+        "Light-driven flagella-like motion of coordination compound single crystals",
+        "Photomechanical effects in coordination polymers",
+        "Photosalient to non-salient behavior transitions"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Battery Materials and Degradation Mechanisms",
+      "description": "Metal-ion battery systems (lithium-ion, sodium-ion, and variants) with focus on understanding degradation mechanisms limiting battery lifespan",
+      "application": "Developing strategies for extending operational lifetime in electric vehicles and power storage systems",
+      "keyAreas": [
+        "Anode materials development",
+        "Degradation mechanism studies",
+        "Energy storage optimization"
+      ]
+    }
+  ],
+  "fundingSupport": [
+    "SERB (Science and Engineering Research Board)",
+    "IIT Bhilai institutional funding"
+  ],
+  "researchKeywords": [
+    "Solid-state photochemistry",
+    "Metal-organic frameworks",
+    "Photosalient effect",
+    "Molecular actuators",
+    "Battery materials",
+    "Cycloaddition reactions",
+    "Light-driven materials",
+    "Energy storage"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "undergraduateCourses": [
+    {
+      "code": "IC201",
+      "title": "Environmental Studies",
+      "description": "Explores chemicals harmful to the environment across soil, water, and air ecosystems"
+    },
+    {
+      "code": "IC106",
+      "title": "Chemistry Lab",
+      "description": "Provides foundational training in chemistry laboratory techniques for undergraduate students"
+    }
+  ],
+  "graduateCourses": [
+    {
+      "code": "CY503",
+      "title": "Coordination Chemistry",
+      "description": "Covers basic coordination chemistry to advanced coordination chemistry"
+    },
+    {
+      "code": "CY506",
+      "title": "Inorganic Chemistry Practical",
+      "description": "Laboratory course teaching synthetic protocols and techniques in inorganic chemistry"
+    },
+    {
+      "code": "CY512",
+      "title": "Thermal and Photo Chemistry",
+      "description": "Addresses pericyclic chemistry and photochemistry principles"
+    },
+    {
+      "code": "CY604",
+      "title": "Solid State Chemistry",
+      "description": "Covers X-ray diffraction, space groups and application of solid-state materials"
+    },
+    {
+      "code": "CY611",
+      "title": "Energy Storage Materials - A Brief Overview",
+      "description": "Introduces energy storage material concepts"
+    },
+    {
+      "code": "CY619",
+      "title": "Industrial Inorganic Chemistry",
+      "description": "Examines metal extraction from ores and fertilizer preparation methods"
+    }
+  ]
+}

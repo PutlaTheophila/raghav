@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medishetty Group | IIT Bhilai</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* --- DYNAMIC THEME ENGINE --- */
+        :root[data-theme="light"] {
+            --bg-color: #FDFDFD;
+            --text-main: #1A1A1A;
+            --text-muted: #666666;
+            --card-bg: #FFFFFF;
+            --card-border: #EEEEEE;
+            --nav-bg: rgba(255, 255, 255, 0.95);
+            --maroon: #A31F34;
+            --hero-text: #FFFFFF;
+        }
+
+        :root[data-theme="dark"] {
+            --bg-color: #0F0F10;
+            --text-main: #EEEEEE;
+            --text-muted: #AAAAAA;
+            --card-bg: #1A1A1B;
+            --card-border: #2A2A2B;
+            --nav-bg: rgba(15, 15, 16, 0.95);
+            --maroon: #C52B44;
+            --hero-text: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-main);
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+        .serif { font-family: 'Crimson Pro', serif; }
+
+        #navbar {
+            position: fixed; top: 0; width: 100%; height: 85px;
+            z-index: 1000; transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            color: var(--hero-text); 
+        }
+        #navbar.scrolled {
+            background-color: var(--nav-bg);
+            height: 70px;
+            color: var(--text-main);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh; width: 100%;
+            display: flex; 
+            align-items: flex-end; 
+            justify-content: flex-start;
+            background-color: #000; 
+            overflow: hidden;
+            color: var(--hero-text);
+        }
+
+        .hero-img {
+            position: absolute; inset: 0;
+            width: 100%; height: 100%;
+            object-fit: cover; 
+            filter: brightness(0.7) contrast(1.05); 
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 45%, transparent 100%);
+            z-index: 2;
+        }
+
+        .hero-content { 
+            position: relative; 
+            z-index: 10; 
+            max-width: 800px; 
+            padding: 0 0 5rem 5rem; 
+            text-align: left;
+        }
+
+        .hero-title { 
+            font-size: clamp(2.5rem, 6vw, 4.5rem); 
+            line-height: 1.05; 
+            margin-bottom: 1.5rem; 
+            font-weight: 700; 
+            letter-spacing: -0.03em; 
+        }
+
+        .hero-accent { width: 50px; height: 3px; background-color: var(--maroon); margin-bottom: 1.5rem; }
+
+        .btn-maroon {
+            background-color: var(--maroon); color: #fff;
+            padding: 1rem 2rem; font-weight: 700; font-size: 0.75rem;
+            text-transform: uppercase; letter-spacing: 0.15em;
+            display: inline-block; transition: 0.3s;
+        }
+        .btn-maroon:hover { transform: translateY(-3px); filter: brightness(1.2); }
+
+        /* --- MILESTONE CARDS --- */
+        .news-card {
+            background: var(--card-bg); 
+            border: 1px solid var(--card-border);
+            display: grid; grid-template-columns: 180px 1fr;
+            transition: 0.4s; margin-bottom: 2rem;
+        }
+        .news-card:hover { border-color: var(--maroon); transform: translateY(-5px); }
+        
+        .date-box { 
+            background: rgba(128,128,128,0.03); 
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            border-right: 1px solid var(--card-border);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content { padding: 0 2rem 4rem 2rem; }
+            .news-card { grid-template-columns: 1fr; }
+            .date-box { border-right: none; border-bottom: 1px solid var(--card-border); padding: 1.5rem; }
+        }
+    </style>
+</head>
+
+<body>
+    <header id="navbar"></header>
+
+    <section class="hero">
+        <img src="./assets/team3.png" alt="Lab Team" class="hero-img">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-accent"></div>
+            <p class="uppercase tracking-[0.5em] text-[10px] font-bold mb-4 opacity-80">Medishetty (SOMO) Laboratory</p>
+            <h1 class="hero-title serif">Welcome to the <span style="font-style: italic; font-weight: 300; opacity: 0.9;">Medishetty's</span> <br> Group at IIT Bhilai!</h1>
+            <p class="text-lg opacity-70 font-light max-w-lg mb-8 leading-relaxed">Development of crystalline materials for photochemistry, semiconducting materials, and energy solutions. Solid-state materials and devices for light-driven micromachines, photo-physical and nonlinear optics.</p>
+            <a href="#news" class="btn-maroon">Explore Milestones</a>
+        </div>
+    </section>
+
+    <main id="news" class="container mx-auto py-32 px-6">
+        <h2 class="serif text-5xl mb-16">Laboratory Milestones</h2>
+        <div id="milestone-container" class="news-grid">
+            <div class="py-20 text-center">
+              <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-[#A31F34] mb-4"></div>
+              <p class="opacity-50 italic">Synchronizing with laboratory records...</p>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer"></footer>
+    
+    <script>
+        // --- DATA FETCHER (LOCAL JSON) ---
+        async function loadMilestones() {
+            try {
+                const response = await fetch('./src/achievements-data.json');
+                const data = await response.json();
+                const container = document.getElementById('milestone-container');
+                container.innerHTML = ''; // Clear loader
+
+                // Combine recent achievements and faculty achievements
+                const milestones = [
+                    ...data.recentAchievements.map(item => ({
+                        id: item.id,
+                        date: item.date,
+                        category: item.category,
+                        title: item.title,
+                        description: item.description,
+                        link: '#',
+                        isPublication: false
+                    })),
+                    ...data.facultyAchievements.map((item, index) => ({
+                        id: data.recentAchievements.length + index + 1,
+                        date: '2024-2026',
+                        category: 'Achievement',
+                        title: item.title,
+                        description: item.description,
+                        link: '#',
+                        isPublication: false
+                    }))
+                ];
+
+                milestones.forEach(item => {
+                    const article = document.createElement('article');
+                    article.className = 'news-card';
+                    article.innerHTML = `
+                        <div class="date-box">
+                            <span class="text-4xl font-bold serif" style="color: var(--maroon)">${item.id}</span>
+                            <span class="text-[10px] uppercase tracking-widest opacity-50 font-bold">${item.date}</span>
+                        </div>
+                        <div class="p-10">
+                            <span class="text-[10px] font-bold uppercase tracking-widest" style="color: var(--maroon)">${item.category}</span>
+                            <h3 class="serif text-2xl mt-4 mb-4">${item.title}</h3>
+                            <p class="opacity-70 text-sm font-light leading-relaxed mb-6">${item.description}</p>
+                            <a href="${item.link}" class="text-[10px] font-bold uppercase border-b-2 pb-1" style="border-color: var(--maroon)">
+                                ${item.isPublication ? 'Read Publication' : 'Learn More'}
+                            </a>
+                        </div>
+                    `;
+                    container.appendChild(article);
+                });
+            } catch (error) {
+                console.error("Error loading milestones:", error);
+                document.getElementById('milestone-container').innerHTML = "<p class='opacity-50'>Records temporarily unavailable.</p>";
+            }
+        }
+
+        // --- COMPONENT LOADER ---
+        function loadComponent(id, path) {
+            fetch(path)
+                .then(r => r.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                    if(id === 'navbar') initThemeEngine();
+                });
+        }
+
+        // --- THEME ENGINE ---
+        function initThemeEngine() {
+            const savedTheme = localStorage.getItem('lab-theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            const btns = [document.getElementById('themeBtn'), document.getElementById('themeBtnMobile')];
+            btns.forEach(btn => {
+                if(btn) {
+                    btn.addEventListener('click', () => {
+                        const current = document.documentElement.getAttribute('data-theme');
+                        const target = current === 'light' ? 'dark' : 'light';
+                        document.documentElement.setAttribute('data-theme', target);
+                        localStorage.setItem('lab-theme', target);
+                        updateIcons(target);
+                    });
+                }
+            });
+            updateIcons(savedTheme);
+        }
+
+        function updateIcons(theme) {
+            const btns = [document.getElementById('themeBtn'), document.getElementById('themeBtnMobile')];
+            const sunIcon = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>`;
+            const moonIcon = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+            btns.forEach(btn => { if(btn) btn.innerHTML = (theme === 'dark' ? sunIcon : moonIcon); });
+        }
+
+        // --- SCROLL EFFECTS ---
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 80) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+
+        loadComponent('navbar', './components/navbar.html');
+        loadComponent('footer', './components/footer.html');
+        loadMilestones();
+
+        // --- MOBILE MENU HANDLER ---
+        document.addEventListener("click", function(e){
+            // OPEN / CLOSE MENU
+            if(e.target.id === "mobile-toggle-trigger"){
+                const menu = document.getElementById("mobile-menu");
+                if(menu){
+                    menu.classList.toggle("active");
+                }
+            }
+
+            // CLOSE MENU WHEN LINK CLICKED
+            if(e.target.closest("#mobile-menu a")){
+                const menu = document.getElementById("mobile-menu");
+                if(menu){
+                    menu.classList.remove("active");
+                }
+            }
+        });
+    </script>
+</body>
+</html>

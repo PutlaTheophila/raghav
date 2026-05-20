@@ -1,0 +1,37 @@
+{
+  "researchFacilities": [
+    {
+      "name": "Field Emission Scanning Electron Microscope (FESEM)",
+      "description": "Advanced microscopy for high-resolution surface imaging"
+    },
+    {
+      "name": "Sputter Coater",
+      "description": "Sample preparation equipment for coating specimens"
+    },
+    {
+      "name": "Powder X-Ray Diffraction (PXRD)",
+      "description": "Crystallographic analysis instrument for material characterization"
+    },
+    {
+      "name": "Atomic Force Microscope (AFM)",
+      "description": "Nanoscale imaging and surface property measurement tool"
+    },
+    {
+      "name": "Nuclear Magnetic Resonance Spectrometer (NMR)",
+      "description": "Spectroscopic analysis for molecular structure determination"
+    },
+    {
+      "name": "High-Resolution Transmission Electron Microscope (HRTEM)",
+      "description": "Ultra-high magnification microscopy for atomic-scale observation"
+    },
+    {
+      "name": "High-Speed Confocal Laser Scanning Microscope with Incubator Facility",
+      "description": "Advanced optical microscopy with live-cell imaging capability"
+    },
+    {
+      "name": "Ultra-High-Performance Liquid Chromatography with High-Resolution Mass Spectrometer (UHPLC-HRMS)",
+      "description": "Analytical chemistry instrument for compound separation and identification"
+    }
+  ],
+  "note": "These facilities are accessible research resources available through IIT Bhilai's central facility"
+}

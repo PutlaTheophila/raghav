@@ -1,0 +1,35 @@
+{
+  "publications": [
+    {
+      "id": 54,
+      "authors": "Choudhury, A., Singh, S., Kurakula, U., Vempati, S., & Medishetty, R.",
+      "year": 2026,
+      "title": "Design of a Photoactuator Based on a Photosalient Crystal Driven by Solid-State [2+2] Cycloaddition",
+      "journal": "Angew. Chem. Int. Ed.",
+      "reference": "e7436035",
+      "doi": "10.1002/anie.7436035",
+      "category": "Photochemistry"
+    },
+    {
+      "id": 53,
+      "authors": "Shukla, V., Ahmad, M., Haq, N., Dewangan, D., Medishetty, R., et al.",
+      "year": 2026,
+      "title": "Zn(II) Metal–Organic Framework as an Efficient Platform for Oxytocin Monitoring",
+      "journal": "Chem. Asian J.",
+      "reference": "21, e70675",
+      "doi": "10.1002/asia.70675",
+      "category": "MOF Applications"
+    },
+    {
+      "id": 52,
+      "authors": "Kannan, T. S., Kurakula, U., Medishetty, R., & Kole, G. K.",
+      "year": 2026,
+      "title": "Photochromic, Thermosalient, Photophysical Properties of Multifunctional Organic Materials",
+      "journal": "J. Phys. Chem. Lett.",
+      "reference": "17(7), 2000-2009",
+      "doi": "10.1021/acs.jpclett.5c03952",
+      "category": "Photochemistry"
+    }
+  ],
+  "totalPublications": 54
+}

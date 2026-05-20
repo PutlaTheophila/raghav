@@ -1,0 +1,31 @@
+{
+  "milestones": [
+    {
+      "id": "01",
+      "date": "Oct 2025",
+      "category": "Chemical Communications",
+      "title": "Light-driven flagella-like motion of coordination compound single crystals",
+      "description": "Demonstrating unprecedented flagella-like motion in coordination polymers under light stimulation, opening new blueprints for micro-actuators.",
+      "link": "#",
+      "isPublication": true
+    },
+    {
+      "id": "02",
+      "date": "Aug 2025",
+      "category": "Inorganic Chemistry",
+      "title": "Photo-responsive Coordination Networks for Gas Storage",
+      "description": "A study on how light-induced structural changes can modulate the pore size of MOFs for controlled gas release.",
+      "link": "#",
+      "isPublication": true
+    },
+    {
+      "id": "03",
+      "date": "Jun 2025",
+      "category": "Lab News",
+      "title": "Medishetty Lab Welcomes New PhD Scholars",
+      "description": "The group continues to expand with three new researchers joining the team to explore solid-state photochemistry.",
+      "link": "./pages/people.html",
+      "isPublication": false
+    }
+  ]
+}

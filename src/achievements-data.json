@@ -1,0 +1,51 @@
+{
+  "recentAchievements": [
+    {
+      "id": 1,
+      "date": "May 2025",
+      "type": "PhD Defense",
+      "student": "Ms. Akansha Ekka",
+      "title": "Ph.D. Thesis Defense Success",
+      "description": "Successfully defended her doctoral dissertation and earned her doctorate degree",
+      "category": "Academic Milestone"
+    },
+    {
+      "id": 2,
+      "date": "December 2024",
+      "type": "Award",
+      "student": "Mr. Aditya Choudhary",
+      "title": "Best Poster Award at National Seminar",
+      "description": "Best Poster Award at 51st National Seminar on Crystallography (NSC-51), VNIT Nagpur",
+      "category": "Conference Recognition"
+    }
+  ],
+  "facultyAchievements": [
+    {
+      "title": "Top 2% Cited Scientist Globally",
+      "recipient": "Dr. Raghavender Medishetty",
+      "description": "Listed among the top 2% most cited scientists globally"
+    },
+    {
+      "title": "Publications in Prestigious Journals",
+      "description": "54 publications including in Angewandte Chemie, JACS, Chemical Reviews, Advanced Materials, Chemical Society Reviews"
+    },
+    {
+      "title": "Research Funding",
+      "description": "SERB grants and IIT Bhilai institutional funding for research programs"
+    }
+  ],
+  "labMilestones": [
+    {
+      "title": "Prime Minister's Research Fellowship Selection",
+      "description": "Students awarded prestigious PMRF fellowship"
+    },
+    {
+      "title": "INSPIRE Fellowship Recipients",
+      "description": "Multiple students received INSPIRE fellowship for research"
+    },
+    {
+      "title": "Doctoral Degree Completions",
+      "description": "Successful PhD completions from the laboratory"
+    }
+  ]
+}
