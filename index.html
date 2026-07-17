@@ -3,234 +3,1093 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medishetty Group | IIT Bhilai</title>
-    
+    <meta name="description" content="Medishetty (SOMO) Laboratory at IIT Bhilai — Research in solid-state photochemistry, molecular crystals, photomechanical materials, and energy storage.">
+    <title>Medishetty Group | IIT Bhilai — Solid-State Photochemistry & Molecular Materials</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lottie-web@5.12.2/build/player/lottie.min.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
 
     <style>
-        /* --- DYNAMIC THEME ENGINE --- */
+        /* === THEME ENGINE ============================================ */
         :root[data-theme="light"] {
-            --bg-color: #FDFDFD;
-            --text-main: #1A1A1A;
-            --text-muted: #666666;
+            --bg-color: #FFFFFF;
+            --bg-alt: #F5F4FA;
+            --text-main: #111418;
+            --text-muted: #5E5A72;
             --card-bg: #FFFFFF;
-            --card-border: #EEEEEE;
-            --nav-bg: rgba(255, 255, 255, 0.95);
-            --maroon: #A31F34;
+            --card-border: #E6E4F0;
+            --nav-bg: rgba(255, 255, 255, 0.92);
+            --maroon: #4D407D;
+            --maroon-soft: rgba(77, 64, 125, 0.08);
             --hero-text: #FFFFFF;
+            --grid-line: rgba(0,0,0,0.04);
         }
-
         :root[data-theme="dark"] {
-            --bg-color: #0F0F10;
-            --text-main: #EEEEEE;
-            --text-muted: #AAAAAA;
-            --card-bg: #1A1A1B;
-            --card-border: #2A2A2B;
-            --nav-bg: rgba(15, 15, 16, 0.95);
-            --maroon: #C52B44;
+            --bg-color: #0F0D16;
+            --bg-alt: #151221;
+            --text-main: #ECECEC;
+            --text-muted: #A29DB8;
+            --card-bg: #181525;
+            --card-border: #2A2540;
+            --nav-bg: rgba(15, 13, 22, 0.92);
+            --maroon: #8A83AC;
+            --maroon-soft: rgba(138, 131, 172, 0.12);
             --hero-text: #FFFFFF;
+            --grid-line: rgba(255,255,255,0.04);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--bg-color); 
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
             color: var(--text-main);
             transition: background-color 0.4s ease, color 0.4s ease;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
         }
-        .serif { font-family: 'Crimson Pro', serif; }
+        .serif { font-family: 'Crimson Pro', serif; letter-spacing: -0.01em; }
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; display: block; }
 
+        /* === PAGE LOADER (LOTTIE) ==================================== */
+        #page-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background-color: var(--bg-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            transition: opacity 0.7s ease, visibility 0.7s ease;
+        }
+        #page-loader.is-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        #lottie-loader {
+            width: 220px;
+            height: 220px;
+        }
+        .loader-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--maroon);
+        }
+        body.is-loading { overflow: hidden; }
+
+        /* === NAVBAR ================================================== */
         #navbar {
-            position: fixed; top: 0; width: 100%; height: 85px;
-            z-index: 1000; transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            color: var(--hero-text); 
+            position: fixed; top: 0; width: 100%; height: 80px;
+            z-index: 1000;
+            transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            color: var(--hero-text);
         }
         #navbar.scrolled {
             background-color: var(--nav-bg);
-            height: 70px;
+            height: 66px;
             color: var(--text-main);
-            box-shadow: 0 4px 30px rgba(0,0,0,0.05);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(45,35,80,0.10);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--card-border);
         }
 
+        /* === HERO ==================================================== */
         .hero {
             position: relative;
-            height: 100vh; width: 100%;
-            display: flex; 
-            align-items: flex-end; 
-            justify-content: flex-start;
-            background-color: #000; 
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-end;
+            background-color: #000;
             overflow: hidden;
             color: var(--hero-text);
         }
-
         .hero-img {
             position: absolute; inset: 0;
             width: 100%; height: 100%;
-            object-fit: cover; 
-            filter: brightness(0.7) contrast(1.05); 
+            object-fit: cover;
+            filter: brightness(0.55) contrast(1.05) saturate(0.95);
             z-index: 1;
+            transform: scale(1.05);
+            animation: heroZoom 18s ease-in-out infinite alternate;
         }
+        @keyframes heroZoom { to { transform: scale(1.12); } }
 
+        /* Hero background video */
+        .hero-video-wrap {
+            position: absolute; inset: 0;
+            z-index: 1;
+            overflow: hidden;
+            background-color: #000;
+        }
+        .hero-video-wrap iframe {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 100vw;
+            height: 56.25vw;
+            min-height: 100vh;
+            min-width: 177.78vh;
+            transform: translate(-50%, -50%);
+            border: 0;
+            pointer-events: none;
+            filter: brightness(0.55) contrast(1.05) saturate(0.95);
+        }
         .hero-overlay {
             position: absolute; inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 45%, transparent 100%);
+            background:
+                linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.45) 45%, rgba(0,0,0,0.15) 100%),
+                linear-gradient(120deg, rgba(77,64,125,0.18) 0%, transparent 60%);
             z-index: 2;
         }
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 3rem 6rem 3rem;
+        }
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 0.85rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        .hero-eyebrow::before {
+            content: '';
+            width: 36px; height: 1px;
+            background-color: var(--maroon);
+        }
+        .hero-title {
+            font-size: clamp(2.4rem, 5.5vw, 4.6rem);
+            line-height: 1.02;
+            font-weight: 700;
+            letter-spacing: -0.035em;
+            max-width: 900px;
+            margin-bottom: 1.5rem;
+        }
+        .hero-title em {
+            font-style: italic;
+            font-weight: 400;
+            opacity: 0.85;
+        }
+        .hero-sub {
+            font-size: 1.05rem;
+            line-height: 1.65;
+            opacity: 0.78;
+            max-width: 620px;
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+        }
+        .hero-cta-group { display: flex; flex-wrap: wrap; gap: 1rem; }
 
-        .hero-content { 
-            position: relative; 
-            z-index: 10; 
-            max-width: 800px; 
-            padding: 0 0 5rem 5rem; 
+        .btn-primary {
+            background: linear-gradient(135deg, #4D407D 0%, #6C5FA0 100%);
+            color: #fff;
+            padding: 0.95rem 1.9rem;
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            display: inline-flex; align-items: center; gap: 0.7rem;
+            transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow: 0 10px 26px -10px rgba(77,64,125,0.55);
+        }
+        .btn-primary:hover { transform: translateY(-2px); filter: brightness(1.1); box-shadow: 0 16px 34px -12px rgba(77,64,125,0.65); }
+
+        .btn-ghost {
+            background: transparent;
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.4);
+            padding: 0.95rem 1.9rem;
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            display: inline-flex; align-items: center; gap: 0.7rem;
+            transition: 0.3s;
+        }
+        .btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 1.5rem; left: 50%;
+            transform: translateX(-50%);
+            z-index: 5;
+            color: #fff;
+            font-size: 0.65rem;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            opacity: 0.6;
+            display: flex; flex-direction: column;
+            align-items: center; gap: 0.5rem;
+        }
+        .scroll-indicator::after {
+            content: '';
+            width: 1px; height: 30px;
+            background: linear-gradient(to bottom, #fff, transparent);
+            animation: scrollPulse 2s ease infinite;
+        }
+        @keyframes scrollPulse { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+        /* === STATS BAR =============================================== */
+        .stats-bar {
+            background-color: var(--bg-alt);
+            border-top: 1px solid var(--card-border);
+            border-bottom: 1px solid var(--card-border);
+        }
+        .stats-grid {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        .stat-item {
+            padding: 2.5rem 2rem;
             text-align: left;
-        }
-
-        .hero-title { 
-            font-size: clamp(2.5rem, 6vw, 4.5rem); 
-            line-height: 1.05; 
-            margin-bottom: 1.5rem; 
-            font-weight: 700; 
-            letter-spacing: -0.03em; 
-        }
-
-        .hero-accent { width: 50px; height: 3px; background-color: var(--maroon); margin-bottom: 1.5rem; }
-
-        .btn-maroon {
-            background-color: var(--maroon); color: #fff;
-            padding: 1rem 2rem; font-weight: 700; font-size: 0.75rem;
-            text-transform: uppercase; letter-spacing: 0.15em;
-            display: inline-block; transition: 0.3s;
-        }
-        .btn-maroon:hover { transform: translateY(-3px); filter: brightness(1.2); }
-
-        /* --- MILESTONE CARDS --- */
-        .news-card {
-            background: var(--card-bg); 
-            border: 1px solid var(--card-border);
-            display: grid; grid-template-columns: 180px 1fr;
-            transition: 0.4s; margin-bottom: 2rem;
-        }
-        .news-card:hover { border-color: var(--maroon); transform: translateY(-5px); }
-        
-        .date-box { 
-            background: rgba(128,128,128,0.03); 
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
             border-right: 1px solid var(--card-border);
+            position: relative;
+        }
+        .stat-item:last-child { border-right: none; }
+        .stat-number {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--maroon);
+            letter-spacing: -0.04em;
+            margin-bottom: 0.5rem;
+        }
+        .stat-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 600;
+            color: var(--text-muted);
         }
 
+        /* === SECTION COMMON ========================================== */
+        section.scroll-section { padding: 7rem 0; }
+        .container-wide {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+        .section-label {
+            display: inline-flex; align-items: center; gap: 0.85rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--maroon);
+            margin-bottom: 1.25rem;
+        }
+        .section-label::before {
+            content: '';
+            width: 28px; height: 1px;
+            background-color: var(--maroon);
+        }
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 1.25rem;
+        }
+        .section-sub {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            max-width: 720px;
+            font-weight: 300;
+        }
+
+        /* === PI INTRO ================================================ */
+        .pi-section {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        .pi-image-wrap {
+            position: relative;
+            aspect-ratio: 4 / 5;
+        }
+        .pi-image-wrap::before {
+            content: '';
+            position: absolute;
+            top: 1.25rem; left: 1.25rem;
+            width: 100%; height: 100%;
+            border: 1px solid var(--maroon);
+            z-index: 0;
+        }
+        .pi-image {
+            position: relative;
+            z-index: 1;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            filter: grayscale(0.05);
+        }
+        .pi-quote {
+            font-family: 'Crimson Pro', serif;
+            font-style: italic;
+            font-size: 1.3rem;
+            line-height: 1.5;
+            color: var(--text-muted);
+            border-left: 2px solid var(--maroon);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+        }
+        .pi-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.75rem 2.5rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--card-border);
+        }
+        .pi-meta-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--maroon);
+            margin-bottom: 0.4rem;
+        }
+        .pi-meta-value { font-size: 0.92rem; color: var(--text-main); font-weight: 500; }
+
+        /* === RESEARCH THRUSTS ======================================== */
+        .research-section {
+            background-color: var(--bg-alt);
+            position: relative;
+        }
+        .research-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+        .research-section > * { position: relative; }
+        .thrust-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 3.5rem;
+        }
+        .thrust-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 2.75rem;
+            transition: 0.4s cubic-bezier(0.4,0,0.2,1);
+            position: relative;
+            overflow: hidden;
+        }
+        .thrust-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 0; height: 3px;
+            background-color: var(--maroon);
+            transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+        }
+        .thrust-card:hover::before { width: 100%; }
+        .thrust-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px -20px rgba(45,35,80,0.20);
+        }
+        .thrust-num {
+            font-family: 'Crimson Pro', serif;
+            font-size: 0.85rem;
+            color: var(--maroon);
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+        }
+        .thrust-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.55rem;
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+        .thrust-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .thrust-keywords {
+            display: flex; flex-wrap: wrap; gap: 0.5rem;
+            margin-top: 1.25rem;
+            padding-top: 1.25rem;
+            border-top: 1px dashed var(--card-border);
+        }
+        .keyword-pill {
+            font-size: 0.7rem;
+            padding: 0.35rem 0.8rem;
+            background-color: var(--maroon-soft);
+            color: var(--maroon);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        /* === VIDEO SHOWCASE ========================================== */
+        .video-section { position: relative; }
+        .video-wrap {
+            position: relative;
+            margin-top: 3.5rem;
+            border: 1px solid var(--card-border);
+            background-color: #000;
+            box-shadow: 0 30px 60px -30px rgba(45,35,80,0.38);
+            overflow: hidden;
+        }
+        .video-wrap::before {
+            content: '';
+            position: absolute;
+            top: -1px; left: -1px;
+            width: 60px; height: 60px;
+            border-top: 2px solid var(--maroon);
+            border-left: 2px solid var(--maroon);
+            z-index: 2;
+            pointer-events: none;
+        }
+        .video-wrap::after {
+            content: '';
+            position: absolute;
+            bottom: -1px; right: -1px;
+            width: 60px; height: 60px;
+            border-bottom: 2px solid var(--maroon);
+            border-right: 2px solid var(--maroon);
+            z-index: 2;
+            pointer-events: none;
+        }
+        .video-aspect {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+        }
+        .video-aspect iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%; height: 100%;
+            border: 0;
+        }
+        .video-caption {
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 1rem;
+            margin-top: 1.5rem;
+            padding-top: 1.25rem;
+            border-top: 1px dashed var(--card-border);
+        }
+        .video-caption-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--maroon);
+        }
+        .video-caption-meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* === FEATURED PUBLICATIONS =================================== */
+        .pub-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3.5rem;
+        }
+        .pub-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            display: flex; flex-direction: column;
+            transition: 0.4s cubic-bezier(0.4,0,0.2,1);
+            overflow: hidden;
+        }
+        .pub-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--maroon);
+            box-shadow: 0 18px 40px -20px rgba(45,35,80,0.22);
+        }
+        .pub-media {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 80% 10%, rgba(77,64,125,0.07), transparent 55%),
+                var(--bg-alt);
+        }
+        .pub-img {
+            width: 100%; aspect-ratio: 4 / 3;
+            object-fit: contain;
+            object-position: center;
+            padding: 1rem;
+            transition: transform 0.6s ease;
+        }
+        .pub-card:hover .pub-img { transform: scale(1.03); }
+        .pub-book-badge {
+            position: absolute;
+            right: 1rem;
+            bottom: 1rem;
+            width: 64px;
+            display: block;
+            border-radius: 4px;
+            outline: 3px solid var(--card-bg);
+            box-shadow: 0 12px 26px -10px rgba(19,16,32,0.45);
+            transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), box-shadow 0.45s ease;
+        }
+        .pub-book-badge img {
+            width: 100%;
+            display: block;
+            border-radius: inherit;
+        }
+        .pub-card:hover .pub-book-badge {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 18px 34px -12px rgba(19,16,32,0.5);
+        }
+        .pub-body { padding: 1.75rem; flex: 1; display: flex; flex-direction: column; }
+        .pub-meta {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--maroon);
+            font-weight: 700;
+            margin-bottom: 0.85rem;
+            display: flex; justify-content: space-between;
+        }
+        .pub-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            line-height: 1.35;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+        .pub-authors {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-top: auto;
+            line-height: 1.5;
+        }
+
+        /* === MILESTONES (timeline) =================================== */
+        .milestone-list { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 3.5rem; }
+        .news-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            display: grid; grid-template-columns: 200px 1fr auto;
+            transition: 0.4s;
+            align-items: stretch;
+        }
+        .news-card:hover {
+            border-color: var(--maroon);
+            transform: translateX(4px);
+            box-shadow: 0 10px 30px -15px rgba(45,35,80,0.18);
+        }
+        .news-date-box {
+            background: var(--maroon-soft);
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            border-right: 1px solid var(--card-border);
+            padding: 1.5rem;
+        }
+        .news-date-box .num {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--maroon);
+            line-height: 1;
+        }
+        .news-date-box .date-text {
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+        .news-body { padding: 2rem 2.25rem; }
+        .news-category {
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            font-weight: 700;
+            color: var(--maroon);
+            text-transform: uppercase;
+            margin-bottom: 0.65rem;
+        }
+        .news-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.65rem;
+            line-height: 1.25;
+            letter-spacing: -0.01em;
+        }
+        .news-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        .news-arrow {
+            display: flex; align-items: center;
+            padding: 0 2rem;
+            color: var(--maroon);
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+        .news-card:hover .news-arrow { transform: translateX(6px); }
+
+        /* === TEAM PREVIEW ============================================ */
+        .team-section {
+            background-color: var(--bg-alt);
+            border-top: 1px solid var(--card-border);
+            border-bottom: 1px solid var(--card-border);
+        }
+        .team-header {
+            display: flex; justify-content: space-between; align-items: flex-end;
+            flex-wrap: wrap; gap: 2rem;
+            margin-bottom: 3.5rem;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        .team-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 1.75rem;
+            text-align: left;
+            transition: 0.4s;
+        }
+        .team-card:hover { border-color: var(--maroon); transform: translateY(-3px); }
+        .team-name {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.35rem;
+            letter-spacing: -0.01em;
+        }
+        .team-role {
+            font-size: 0.72rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--maroon);
+            margin-bottom: 0.85rem;
+        }
+        .team-research {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+
+        /* === CTA JOIN ================================================ */
+        .cta-section {
+            background-color: #0F0D16;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -20%; right: -10%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(77,64,125,0.25), transparent 70%);
+            pointer-events: none;
+        }
+        .cta-inner {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        .cta-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+        }
+        .cta-sub {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+            max-width: 560px;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+        .cta-contact-block {
+            border-left: 2px solid var(--maroon);
+            padding-left: 2rem;
+        }
+        .cta-contact-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 0.5rem;
+        }
+        .cta-contact-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.15rem;
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            word-break: break-word;
+        }
+
+        /* === ANIMATIONS ============================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.is-visible { opacity: 1; transform: none; }
+
+        /* === RESPONSIVE ============================================== */
+        @media (max-width: 1024px) {
+            .pi-section { grid-template-columns: 1fr; gap: 3rem; }
+            .pi-image-wrap { max-width: 420px; }
+            .thrust-grid, .team-grid { grid-template-columns: repeat(2, 1fr); }
+            .pub-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .stat-item:nth-child(2) { border-right: none; }
+            .stat-item:nth-child(1), .stat-item:nth-child(2) { border-bottom: 1px solid var(--card-border); }
+            .cta-inner { grid-template-columns: 1fr; gap: 3rem; }
+        }
         @media (max-width: 768px) {
-            .hero-content { padding: 0 2rem 4rem 2rem; }
-            .news-card { grid-template-columns: 1fr; }
-            .date-box { border-right: none; border-bottom: 1px solid var(--card-border); padding: 1.5rem; }
+            section.scroll-section { padding: 5rem 0; }
+            .container-wide { padding: 0 1.5rem; }
+            .hero-content { padding: 0 1.5rem 4rem 1.5rem; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .stat-item { border-right: none; border-bottom: 1px solid var(--card-border); }
+            .stat-item:last-child { border-bottom: none; }
+            .thrust-grid, .pub-grid, .team-grid { grid-template-columns: 1fr; }
+            .news-card { grid-template-columns: 110px 1fr; }
+            .news-arrow { display: none; }
+            .news-body { padding: 1.5rem; }
         }
     </style>
 </head>
 
-<body>
+<body class="is-loading">
+    <!-- ============== PAGE LOADER ============== -->
+    <div id="page-loader">
+        <div id="lottie-loader"></div>
+        <div class="loader-label">Medishetty Lab · Loading</div>
+    </div>
+
     <header id="navbar"></header>
 
+    <!-- ============== HERO ============== -->
     <section class="hero">
-        <img src="./assets/team3.png" alt="Lab Team" class="hero-img">
+        <div class="hero-video-wrap">
+            <iframe id="hero-yt"
+                src="https://www.youtube-nocookie.com/embed/ljPwO-a7g9E?autoplay=1&mute=1&loop=1&playlist=ljPwO-a7g9E&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&disablekb=1&iv_load_policy=3"
+                title="Medishetty Lab Showcase"
+                allow="autoplay; encrypted-media; picture-in-picture"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+        </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <div class="hero-accent"></div>
-            <p class="uppercase tracking-[0.5em] text-[10px] font-bold mb-4 opacity-80">Medishetty (SOMO) Laboratory</p>
-            <h1 class="hero-title serif">Welcome to the <span style="font-style: italic; font-weight: 300; opacity: 0.9;">Medishetty's</span> <br> Group at IIT Bhilai!</h1>
-            <p class="text-lg opacity-70 font-light max-w-lg mb-8 leading-relaxed">Development of crystalline materials for photochemistry, semiconducting materials, and energy solutions. Solid-state materials and devices for light-driven micromachines, photo-physical and nonlinear optics.</p>
-            <a href="#news" class="btn-maroon">Explore Milestones</a>
+            <p class="hero-eyebrow">Medishetty (SOMO) Laboratory · IIT Bhilai</p>
+            <h1 class="hero-title serif">
+                Engineering molecular crystals<br>
+                that <em>respond to light.</em>
+            </h1>
+            <p class="hero-sub">
+                We design solid-state materials at the intersection of crystal engineering and
+                photochemistry — translating photon energy into mechanical motion, modulating
+                optical behaviour, and advancing next-generation energy materials.
+            </p>
+            <div class="hero-cta-group">
+                <a href="./views/research.html" class="btn-primary">Explore Research <span>→</span></a>
+                <a href="./views/publications.html" class="btn-ghost">View Publications</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">Scroll</div>
+    </section>
+
+    <!-- ============== STATS BAR ============== -->
+    <section class="stats-bar">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number" data-count="54">54</div>
+                <div class="stat-label">Peer-Reviewed Publications</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">Top 2%</div>
+                <div class="stat-label">Globally Cited Scientist</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-count="7">7</div>
+                <div class="stat-label">PhD Scholars Mentored</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">SERB</div>
+                <div class="stat-label">Active Research Grants</div>
+            </div>
         </div>
     </section>
 
-    <main id="news" class="container mx-auto py-32 px-6">
-        <h2 class="serif text-5xl mb-16">Laboratory Milestones</h2>
-        <div id="milestone-container" class="news-grid">
-            <div class="py-20 text-center">
-              <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-[#A31F34] mb-4"></div>
-              <p class="opacity-50 italic">Synchronizing with laboratory records...</p>
+    <!-- ============== PI INTRODUCTION ============== -->
+    <section class="scroll-section">
+        <div class="container-wide">
+            <div class="pi-section">
+                <div class="pi-image-wrap reveal">
+                    <img src="./assets/raghav.png" alt="Dr. Raghavender Medishetty" class="pi-image">
+                </div>
+                <div class="reveal">
+                    <p class="section-label">Principal Investigator</p>
+                    <h2 class="section-title serif">Dr. Raghavender Medishetty</h2>
+                    <p class="section-sub">
+                        Assistant Professor, Department of Chemistry · Head, Department of
+                        Materials Science and Metallurgical Engineering, IIT Bhilai.
+                    </p>
+                    <blockquote class="pi-quote">
+                        "Crystals are not static objects — they breathe, twist, and leap under
+                        the right stimulus. Our work is about giving them purpose."
+                    </blockquote>
+                    <div class="pi-meta-grid">
+                        <div>
+                            <div class="pi-meta-label">PhD</div>
+                            <div class="pi-meta-value">National University of Singapore</div>
+                        </div>
+                        <div>
+                            <div class="pi-meta-label">Postdoctoral</div>
+                            <div class="pi-meta-value">University of Liverpool, UK</div>
+                        </div>
+                        <div>
+                            <div class="pi-meta-label">Recognition</div>
+                            <div class="pi-meta-value">Top 2% Cited Scientist (Elsevier/Stanford)</div>
+                        </div>
+                        <div>
+                            <div class="pi-meta-label">Research Focus</div>
+                            <div class="pi-meta-value">Photomechanical · MOFs · Energy Materials</div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="./views/raghavender.html" class="btn-primary">
+                            Full Profile <span>→</span>
+                        </a>
+                        <a href="mailto:raghavender@iitbhilai.ac.in" style="color: var(--maroon); font-weight: 600; font-size: 0.85rem; align-self: center; text-decoration: underline; text-underline-offset: 4px;">
+                            raghavender@iitbhilai.ac.in
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-    </main>
+    </section>
+
+    <!-- ============== RESEARCH THRUSTS ============== -->
+    <section class="scroll-section research-section">
+        <div class="container-wide">
+            <div class="reveal" style="max-width: 720px;">
+                <p class="section-label">Research Programme</p>
+                <h2 class="section-title serif">Two thrusts, one philosophy: <em>materials that do work.</em></h2>
+                <p class="section-sub">
+                    The group operates at the convergence of solid-state photochemistry and
+                    inorganic materials design — pursuing both fundamental questions and
+                    application-driven outcomes for actuation and energy storage.
+                </p>
+            </div>
+            <div class="thrust-grid">
+                <article class="thrust-card reveal">
+                    <div class="thrust-num">01 / Photomechanical Crystals</div>
+                    <h3 class="thrust-title">Photo-chemistry & Molecular Actuators</h3>
+                    <p class="thrust-desc">
+                        Solid-state organic and metal-organic systems engineered around
+                        cycloaddition reactions ([2+2], [4+4]) to convert photon energy into
+                        mechanical motion via the photosalient effect — toward light-driven
+                        micromachines and adaptive materials.
+                    </p>
+                    <div class="thrust-keywords">
+                        <span class="keyword-pill">Photosalient Effect</span>
+                        <span class="keyword-pill">[2+2] Cycloaddition</span>
+                        <span class="keyword-pill">Single-Crystal Motion</span>
+                    </div>
+                </article>
+                <article class="thrust-card reveal">
+                    <div class="thrust-num">02 / Energy Materials</div>
+                    <h3 class="thrust-title">Battery Materials & Degradation</h3>
+                    <p class="thrust-desc">
+                        Metal-ion battery chemistries — lithium-ion, sodium-ion and emerging
+                        variants — with a structural focus on understanding the degradation
+                        pathways that bound lifetime, performance, and safety in real-world
+                        deployment.
+                    </p>
+                    <div class="thrust-keywords">
+                        <span class="keyword-pill">Anode Materials</span>
+                        <span class="keyword-pill">Li-ion / Na-ion</span>
+                        <span class="keyword-pill">Lifetime Studies</span>
+                    </div>
+                </article>
+            </div>
+            <div style="margin-top: 3rem; text-align: center;">
+                <a href="./views/research.html" class="btn-primary">
+                    Read the Full Research Programme <span>→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== FEATURED PUBLICATIONS ============== -->
+    <section class="scroll-section">
+        <div class="container-wide">
+            <div class="team-header">
+                <div class="reveal">
+                    <p class="section-label">Selected Recent Work</p>
+                    <h2 class="section-title serif">Featured Publications</h2>
+                </div>
+                <a href="./views/publications.html" style="color: var(--maroon); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; border-bottom: 2px solid var(--maroon); padding-bottom: 4px;">
+                    All 54 Publications →
+                </a>
+            </div>
+            <div id="featured-pubs" class="pub-grid">
+                <div class="py-20 text-center" style="grid-column: 1 / -1;">
+                    <div class="inline-block animate-spin rounded-full h-6 w-6 border-b-2 border-[#4D407D]"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== MILESTONES / NEWS ============== -->
+    <section id="news" class="scroll-section" style="background-color: var(--bg-alt); border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border);">
+        <div class="container-wide">
+            <div class="reveal" style="max-width: 720px;">
+                <p class="section-label">Lab Updates</p>
+                <h2 class="section-title serif">Laboratory Milestones</h2>
+                <p class="section-sub">
+                    Recent recognitions, doctoral completions, and notable awards from the
+                    Medishetty Group.
+                </p>
+            </div>
+            <div id="milestone-container" class="milestone-list">
+                <div class="py-20 text-center">
+                    <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-[#4D407D] mb-4"></div>
+                    <p class="opacity-50 italic">Synchronizing with laboratory records…</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== TEAM PREVIEW ============== -->
+    <section class="scroll-section team-section">
+        <div class="container-wide">
+            <div class="team-header">
+                <div class="reveal">
+                    <p class="section-label">The Group</p>
+                    <h2 class="section-title serif">Researchers in residence</h2>
+                </div>
+                <a href="./views/people.html" style="color: var(--maroon); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; border-bottom: 2px solid var(--maroon); padding-bottom: 4px;">
+                    Meet the Full Team →
+                </a>
+            </div>
+            <div id="team-preview" class="team-grid">
+                <div class="py-12 text-center" style="grid-column: 1 / -1;">
+                    <div class="inline-block animate-spin rounded-full h-6 w-6 border-b-2 border-[#4D407D]"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== CTA / JOIN ============== -->
+    <section class="scroll-section cta-section">
+        <div class="container-wide">
+            <div class="cta-inner">
+                <div>
+                    <p class="section-label" style="color: var(--maroon);">Prospective Scholars</p>
+                    <h2 class="cta-title">Interested in joining the lab?</h2>
+                    <p class="cta-sub">
+                        We are continually seeking motivated PhD candidates, postdoctoral
+                        researchers, and Master's students with a strong foundation in
+                        chemistry, materials science, or physics — especially those drawn to
+                        the structure–property interplay of functional crystalline materials.
+                    </p>
+                    <a href="./views/contact.html" class="btn-primary">Get in touch <span>→</span></a>
+                </div>
+                <div class="cta-contact-block">
+                    <div class="cta-contact-label">Office</div>
+                    <div class="cta-contact-value">Science Building (SD1)<br>Level 3, Room 411 · IIT Bhilai</div>
+                    <div class="cta-contact-label">Email</div>
+                    <div class="cta-contact-value">raghavender@iitbhilai.ac.in</div>
+                    <div class="cta-contact-label">Phone</div>
+                    <div class="cta-contact-value">+91 771 255 1300 · Ext. 6142</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer id="footer"></footer>
-    
+
     <script>
-        // --- DATA FETCHER (LOCAL JSON) ---
-        async function loadMilestones() {
+        // ============ LOTTIE PAGE LOADER ============
+        (function initPageLoader() {
             try {
-                const response = await fetch('./src/achievements-data.json');
-                const data = await response.json();
-                const container = document.getElementById('milestone-container');
-                container.innerHTML = ''; // Clear loader
+                if (window.lottie) {
+                    lottie.loadAnimation({
+                        container: document.getElementById('lottie-loader'),
+                        renderer: 'svg',
+                        loop: true,
+                        autoplay: true,
+                        path: './assets/animations/lab-effect.json'
+                    });
+                }
+            } catch (e) { console.warn('Lottie init failed', e); }
 
-                // Combine recent achievements and faculty achievements
-                const milestones = [
-                    ...data.recentAchievements.map(item => ({
-                        id: item.id,
-                        date: item.date,
-                        category: item.category,
-                        title: item.title,
-                        description: item.description,
-                        link: '#',
-                        isPublication: false
-                    })),
-                    ...data.facultyAchievements.map((item, index) => ({
-                        id: data.recentAchievements.length + index + 1,
-                        date: '2024-2026',
-                        category: 'Achievement',
-                        title: item.title,
-                        description: item.description,
-                        link: '#',
-                        isPublication: false
-                    }))
-                ];
-
-                milestones.forEach(item => {
-                    const article = document.createElement('article');
-                    article.className = 'news-card';
-                    article.innerHTML = `
-                        <div class="date-box">
-                            <span class="text-4xl font-bold serif" style="color: var(--maroon)">${item.id}</span>
-                            <span class="text-[10px] uppercase tracking-widest opacity-50 font-bold">${item.date}</span>
-                        </div>
-                        <div class="p-10">
-                            <span class="text-[10px] font-bold uppercase tracking-widest" style="color: var(--maroon)">${item.category}</span>
-                            <h3 class="serif text-2xl mt-4 mb-4">${item.title}</h3>
-                            <p class="opacity-70 text-sm font-light leading-relaxed mb-6">${item.description}</p>
-                            <a href="${item.link}" class="text-[10px] font-bold uppercase border-b-2 pb-1" style="border-color: var(--maroon)">
-                                ${item.isPublication ? 'Read Publication' : 'Learn More'}
-                            </a>
-                        </div>
-                    `;
-                    container.appendChild(article);
-                });
-            } catch (error) {
-                console.error("Error loading milestones:", error);
-                document.getElementById('milestone-container').innerHTML = "<p class='opacity-50'>Records temporarily unavailable.</p>";
+            function hideLoader() {
+                const loader = document.getElementById('page-loader');
+                if (loader) loader.classList.add('is-hidden');
+                document.body.classList.remove('is-loading');
             }
-        }
+            window.addEventListener('load', () => setTimeout(hideLoader, 900));
+            setTimeout(hideLoader, 4500); // hard cap fallback
+        })();
 
-        // --- COMPONENT LOADER ---
+        // ============ COMPONENT LOADER ============
         function loadComponent(id, path) {
             fetch(path)
                 .then(r => r.text())
                 .then(data => {
                     document.getElementById(id).innerHTML = data;
-                    if(id === 'navbar') initThemeEngine();
+                    if (id === 'navbar') initThemeEngine();
                 });
         }
 
-        // --- THEME ENGINE ---
+        // ============ THEME ENGINE ============
         function initThemeEngine() {
             const savedTheme = localStorage.getItem('lab-theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
-            
             const btns = [document.getElementById('themeBtn'), document.getElementById('themeBtnMobile')];
             btns.forEach(btn => {
-                if(btn) {
+                if (btn) {
                     btn.addEventListener('click', () => {
                         const current = document.documentElement.getAttribute('data-theme');
                         const target = current === 'light' ? 'dark' : 'light';
@@ -242,41 +1101,164 @@
             });
             updateIcons(savedTheme);
         }
-
         function updateIcons(theme) {
             const btns = [document.getElementById('themeBtn'), document.getElementById('themeBtnMobile')];
             const sunIcon = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>`;
             const moonIcon = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
-            btns.forEach(btn => { if(btn) btn.innerHTML = (theme === 'dark' ? sunIcon : moonIcon); });
+            btns.forEach(btn => { if (btn) btn.innerHTML = (theme === 'dark' ? sunIcon : moonIcon); });
         }
 
-        // --- SCROLL EFFECTS ---
+        // ============ SCROLL NAV ============
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 80) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
         });
 
+        // ============ FEATURED PUBLICATIONS ============
+        async function loadFeaturedPublications() {
+            try {
+                const res = await fetch('./src/publications.json');
+                const pubs = await res.json();
+                const container = document.getElementById('featured-pubs');
+                container.innerHTML = '';
+                const total = pubs.length;
+                pubs.slice(0, 3).forEach((p, i) => {
+                    const doiLink = p.doi ? `https://doi.org/${p.doi}` : '#';
+                    const num = String(total - i).padStart(2, '0');
+                    const card = document.createElement('a');
+                    card.href = doiLink;
+                    card.target = '_blank';
+                    card.className = 'pub-card reveal';
+                    const rawImg = p.image || '';
+                    const imgSrc = rawImg
+                        ? rawImg.replace(/^(\.\.\/)+/, './').replace(/^\/+/, './')
+                        : './assets/facilities/image.png';
+                    card.innerHTML = `
+                        <div class="pub-media">
+                            <img src="${imgSrc}" alt="${p.title}" class="pub-img" onerror="this.onerror=null;this.src='./assets/facilities/image.png'">
+                            <span class="pub-book-badge"><img src="./assets/facilities/image.png" alt="The BE Book"></span>
+                        </div>
+                        <div class="pub-body">
+                            <div class="pub-meta">
+                                <span>${p.journal}</span>
+                                <span>#${num} · ${p.year}</span>
+                            </div>
+                            <h3 class="pub-title">${p.title}</h3>
+                            <p class="pub-authors">${p.authors}</p>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+                observeReveals();
+            } catch (e) {
+                console.error('Featured pubs failed', e);
+            }
+        }
+
+        // ============ MILESTONES ============
+        async function loadMilestones() {
+            try {
+                const response = await fetch('./src/achievements-data.json');
+                const data = await response.json();
+                const container = document.getElementById('milestone-container');
+                container.innerHTML = '';
+
+                const milestones = [
+                    ...data.recentAchievements.map(item => ({
+                        id: item.id,
+                        date: item.date,
+                        category: item.category,
+                        title: item.title,
+                        description: item.description
+                    })),
+                    ...data.facultyAchievements.map((item, index) => ({
+                        id: data.recentAchievements.length + index + 1,
+                        date: '2024–2026',
+                        category: 'Faculty Recognition',
+                        title: item.title,
+                        description: item.description
+                    }))
+                ];
+
+                milestones.forEach(item => {
+                    const article = document.createElement('article');
+                    article.className = 'news-card reveal';
+                    article.innerHTML = `
+                        <div class="news-date-box">
+                            <span class="num">${String(item.id).padStart(2, '0')}</span>
+                            <span class="date-text">${item.date}</span>
+                        </div>
+                        <div class="news-body">
+                            <div class="news-category">${item.category}</div>
+                            <h3 class="news-title">${item.title}</h3>
+                            <p class="news-desc">${item.description}</p>
+                        </div>
+                        <div class="news-arrow">→</div>
+                    `;
+                    container.appendChild(article);
+                });
+                observeReveals();
+            } catch (error) {
+                console.error('Milestones failed', error);
+                document.getElementById('milestone-container').innerHTML = "<p class='opacity-50'>Records temporarily unavailable.</p>";
+            }
+        }
+
+        // ============ TEAM PREVIEW ============
+        async function loadTeamPreview() {
+            try {
+                const res = await fetch('./src/people-data.json');
+                const data = await res.json();
+                const container = document.getElementById('team-preview');
+                container.innerHTML = '';
+                const previewPeople = data.phdStudents.slice(0, 4);
+                previewPeople.forEach(p => {
+                    const card = document.createElement('div');
+                    card.className = 'team-card reveal';
+                    card.innerHTML = `
+                        <div class="team-name">${p.name}</div>
+                        <div class="team-role">${p.type}${p.fellowship ? ' · ' + p.fellowship : ''}</div>
+                        <div class="team-research">${p.research || p.education || ''}</div>
+                    `;
+                    container.appendChild(card);
+                });
+                observeReveals();
+            } catch (e) {
+                console.error('Team preview failed', e);
+            }
+        }
+
+        // ============ SCROLL REVEAL ============
+        function observeReveals() {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        e.target.classList.add('is-visible');
+                        io.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+            document.querySelectorAll('.reveal:not(.is-visible)').forEach(el => io.observe(el));
+        }
+
+        // ============ INIT ============
         loadComponent('navbar', './components/navbar.html');
         loadComponent('footer', './components/footer.html');
+        loadFeaturedPublications();
         loadMilestones();
+        loadTeamPreview();
+        observeReveals();
 
-        // --- MOBILE MENU HANDLER ---
-        document.addEventListener("click", function(e){
-            // OPEN / CLOSE MENU
-            if(e.target.id === "mobile-toggle-trigger"){
+        // ============ MOBILE MENU ============
+        document.addEventListener("click", function (e) {
+            if (e.target.id === "mobile-toggle-trigger") {
                 const menu = document.getElementById("mobile-menu");
-                if(menu){
-                    menu.classList.toggle("active");
-                }
+                if (menu) menu.classList.toggle("active");
             }
-
-            // CLOSE MENU WHEN LINK CLICKED
-            if(e.target.closest("#mobile-menu a")){
+            if (e.target.closest("#mobile-menu a")) {
                 const menu = document.getElementById("mobile-menu");
-                if(menu){
-                    menu.classList.remove("active");
-                }
+                if (menu) menu.classList.remove("active");
             }
         });
     </script>

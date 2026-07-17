@@ -11,42 +11,47 @@
   <meta property="og:url" content="https://yourwebsite.com/views/research.html">
   <title>Research - Medishetty's (SOMO) Laboratory</title>
   <link rel="icon" href="https://via.placeholder.com/32?text=ML" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
   <style>
     body {
-      font-family: 'Open Sans', sans-serif;
-      color: #333333;
-      background-color: #F5F5F5;
+      font-family: 'Inter', sans-serif;
+      color: #111418;
+      background-color: #FFFFFF;
       margin: 0;
+      -webkit-font-smoothing: antialiased;
     }
     /* Navbar Styling */
     .navbar {
-      background: #FFFFFF;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 2px 12px rgba(45, 35, 80, 0.08);
+      border-bottom: 1px solid #E6E4F0;
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       z-index: 1000;
       padding: 0.75rem 0;
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
     }
     /* Main Content */
     h2 {
-      font-family: 'Lato', sans-serif;
-      font-size: 2rem;
+      font-family: 'Crimson Pro', serif;
+      font-size: 2.6rem;
       font-weight: 700;
-      color: #B31B1B;
+      letter-spacing: -0.02em;
+      color: #4D407D;
       margin-bottom: 1.5rem;
       text-align: center;
     }
     .intro-text {
       font-size: 1.125rem;
-      color: #333333;
-      margin-bottom: 2rem;
+      color: #5E5A72;
+      margin-bottom: 3rem;
       max-width: 800px;
-      line-height: 1.6;
+      line-height: 1.7;
       text-align: center;
       margin-left: auto;
       margin-right: auto;
@@ -54,23 +59,30 @@
     /* Research Section */
     .research-section {
       background-color: #FFFFFF;
-      border-radius: 8px;
-      padding: 1.5rem;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      margin-bottom: 2rem;
+      border: 1px solid #E6E4F0;
+      border-top: 3px solid #4D407D;
+      border-radius: 10px;
+      padding: 2.25rem 2.5rem;
+      box-shadow: 0 18px 40px -24px rgba(45, 35, 80, 0.18);
+      margin-bottom: 2.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .research-section:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 26px 50px -26px rgba(45, 35, 80, 0.28);
     }
     .research-section h3 {
-      font-family: 'Lato', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #B31B1B;
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #4D407D;
       margin-bottom: 1rem;
     }
     .research-description {
       font-size: 1rem;
-      color: #666666;
+      color: #5E5A72;
       margin-bottom: 1rem;
-      line-height: 1.5;
+      line-height: 1.7;
     }
     .research-image {
       width: 100%;
@@ -86,22 +98,22 @@
     }
     .publication-item {
       font-size: 1rem;
-      color: #333333;
+      color: #111418;
       margin-bottom: 0.75rem;
-      line-height: 1.5;
+      line-height: 1.6;
     }
     .publication-number {
       display: inline-block;
-      font-family: 'Lato', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 1rem;
       font-weight: 700;
-      color: #B31B1B;
+      color: #4D407D;
       margin-right: 0.5rem;
     }
     a.doi-link {
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 0.9rem;
-      color: #005588;
+      color: #6C5FA0;
       text-decoration: none;
       transition: text-decoration 0.3s ease;
     }
@@ -110,14 +122,15 @@
     }
     a.doi-link::after {
       content: ' →';
-      color: #005588;
+      color: #6C5FA0;
     }
     /* Footer */
     footer {
-      background-color: #333333;
+      background: linear-gradient(180deg, #131020 0%, #0F0D16 100%);
       color: #FFFFFF;
       padding: 2rem 1rem;
       text-align: center;
+      border-top: 3px solid #4D407D;
     }
     /* Responsive Adjustments */
     @media (max-width: 767px) {
@@ -168,7 +181,7 @@
       </p>
       <img src="../assets/research/photo-chemistry.jpg" alt="Photo-chemistry and Molecular Actuators" class="research-image" loading="lazy" onerror="this.src='../assets/research/default-research.jpg'">
       <div class="publication-list">
-        <h4 class="font-lato text-lg font-semibold text-[#B31B1B] mb-2">Selected Publications:</h4>
+        <h4 class="font-lato text-lg font-semibold text-[#4D407D] mb-2">Selected Publications:</h4>
         <p class="publication-item"><span class="publication-number">1.</span> A. Ekka, U. Kurakula, A. Choudhury, A. Mishra, A. Faye, N. R. Halcovitch and R. Medishetty*, <em>Light-driven flagella-like motion of coordination compound single crystals</em>, Chem. Comm., 2023, Advance article, <a href="https://doi.org/10.1039/D3CC00333G" target="_blank" class="doi-link" rel="noopener" aria-label="View publication DOI for Light-driven flagella-like motion">DOI: 10.1039/D3CC00333G</a></p>
         <p class="publication-item"><span class="publication-number">2.</span> S. Khan, S. Naaz, A. Ekka, B. Dutta, S. Roy, R. Medishetty* and M. H. Mir*, <em>Photomechanical effect in Zn(ii) and Cd(ii) 1D coordination polymers: photosalient to non-salient behaviour</em>, Chem. Commun., 2022, 58, 12102-12105, <a href="https://doi.org/10.1039/D2CC04254E" target="_blank" class="doi-link" rel="noopener" aria-label="View publication DOI for Photomechanical effect in Zn(ii) and Cd(ii)">DOI: 10.1039/D2CC04254E</a></p>
         <p class="publication-item"><span class="publication-number">3.</span> R. Medishetty, A. Husain, Z. Bai, T. Runčevski, R. E. Dinnebier, P. Naumov, J. J. Vittal, <em>Single Crystals Popping Under UV Light: A Photosalient Effect Triggered by a [2+2] Cycloaddition Reaction</em>, Angew. Chem. Int. Ed. 53, 5907-5911 (2014), <a href="https://doi.org/10.1002/anie.201402066" target="_blank" class="doi-link" rel="noopener" aria-label="View publication DOI for Single Crystals Popping Under UV Light">DOI: 10.1002/anie.201402066</a></p>

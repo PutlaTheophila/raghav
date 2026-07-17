@@ -20,7 +20,7 @@ All data from https://medishetty.weebly.com/ has been successfully extracted and
 All pages now fetch from **local JSON files** instead of Google Sheets:
 - ✅ `index.html` → `./src/achievements-data.json`
 - ✅ `views/people.html` → `../src/people.json`
-- ✅ `views/raghavendar.html` → `../src/medishetty.json`
+- ✅ `views/raghavender.html` → `../src/medishetty.json`
 - ✅ `views/publications.html` → `../src/publications.json`
 - ✅ `views/lab.html` → `../src/lab.json`
 - ✅ `views/gallery.html` → `../src/gallery.json`
@@ -88,7 +88,7 @@ All pages now fetch from **local JSON files** instead of Google Sheets:
 - [ ] MSc Alumni show: Sweta, Meena, Nalini, Reena with photos
 - [ ] Internship alumni show with photos
 
-### PI Profile Page (`/views/raghavendar.html`):
+### PI Profile Page (`/views/raghavender.html`):
 - [ ] Correct office: SD1, Level 3, Room 411
 - [ ] Correct phone: +91-771-255-1300, Ext 6142
 - [ ] Email: [email protected]
@@ -125,7 +125,7 @@ All pages now fetch from **local JSON files** instead of Google Sheets:
 ├── views/
 │   ├── people.html (Updated to use local JSON)
 │   ├── publications.html (Updated to use local JSON)
-│   ├── raghavendar.html (Updated to use local JSON)
+│   ├── raghavender.html (Updated to use local JSON)
 │   ├── lab.html (Updated to use local JSON)
 │   ├── gallery.html (Updated to use local JSON)
 │   └── contact.html (Updated contact info)

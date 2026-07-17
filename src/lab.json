@@ -1,40 +1,195 @@
 {
-  "instruments": [
+  "overview": "The Medishetty (SOMO) Laboratory at IIT Bhilai is a synthesis-and-characterization facility purpose-built for solid-state photochemistry, crystal engineering, and inorganic materials research. The lab combines in-house instrumentation with shared institutional access to advanced spectroscopy, diffraction, and electron microscopy facilities.",
+  "capabilities": [
+    "Single-crystal growth and recrystallisation",
+    "Photochemical reaction monitoring under controlled wavelengths",
+    "Solid-state structural characterization",
+    "Photo-physical and luminescence measurements",
+    "Electrochemical cycling of battery materials",
+    "Thermal analysis and polymorph studies"
+  ],
+  "categories": [
     {
-      "id": "01",
-      "title": "UV-Vis Spectrophotometer",
-      "description": "Essential for measuring absorbance and transmittance to characterize photoactive materials.",
-      "image": "../assets/machine.png"
+      "id": "analytical",
+      "title": "Analytical Instruments",
+      "description": "Spectroscopy, chromatography, and structure-determination instruments for routine and advanced characterisation.",
+      "icon": "spectroscopy",
+      "instruments": [
+        {
+          "id": "01",
+          "title": "NMR 60MHz",
+          "manufacturer": "Building A, Floor 3",
+          "description": "Capacity: 10 samples/day · Status: Available.",
+          "specs": [
+            "1H NMR spectroscopy",
+            "13C NMR capability",
+            "Variable temperature",
+            "Automated sample changer"
+          ],
+          "image": "../assets/facilities/nmr-60mhz.jpg"
+        },
+        {
+          "id": "02",
+          "title": "FTIR-ATR",
+          "manufacturer": "Building A, Floor 3",
+          "description": "Capacity: 15 samples/day · Status: Available.",
+          "specs": [
+            "Attenuated Total Reflection",
+            "Mid-IR range 4000-400 cm⁻¹",
+            "Diamond crystal",
+            "Minimal sample prep"
+          ],
+          "image": "../assets/facilities/ftir-atr.avif"
+        },
+        {
+          "id": "03",
+          "title": "UV-Vis Spectrometer",
+          "manufacturer": "Building A, Floor 3",
+          "description": "Capacity: 20 samples/day · Status: Available.",
+          "specs": [
+            "190-1100 nm range",
+            "Single & double beam",
+            "Kinetics measurements",
+            "Temperature control"
+          ],
+          "image": "../assets/facilities/uv-vis-spectrometer.avif"
+        },
+        {
+          "id": "04",
+          "title": "GC-MS",
+          "manufacturer": "Building B, Floor 2",
+          "description": "Capacity: 12 samples/day · Status: Available.",
+          "specs": [
+            "Gas chromatography-mass spectrometry",
+            "EI & CI ionization",
+            "Library search",
+            "Quantitative analysis"
+          ],
+          "image": "../assets/facilities/gc-ms.avif"
+        },
+        {
+          "id": "05",
+          "title": "HPLC",
+          "manufacturer": "Building B, Floor 2",
+          "description": "Capacity: 15 samples/day · Status: Available.",
+          "specs": [
+            "High performance liquid chromatography",
+            "UV-Vis detector",
+            "Multiple column types",
+            "Gradient capability"
+          ],
+          "image": "../assets/facilities/hplc.jpg"
+        }
+      ]
     },
     {
-      "id": "02",
-      "title": "High-Speed Centrifuge",
-      "description": "Precision component separation by density, critical for advanced sample preparation.",
-      "image": "../assets/machine.png"
+      "id": "synthesis",
+      "title": "Synthesis Equipment",
+      "description": "Reaction and work-up equipment supporting solution and photochemical synthesis.",
+      "icon": "photochem",
+      "instruments": [
+        {
+          "id": "06",
+          "title": "Rotary Evaporator",
+          "manufacturer": "Building C, Floor 2",
+          "description": "Capacity: 8 setups · Status: Available.",
+          "specs": [
+            "Solvent removal",
+            "Temperature control",
+            "Vacuum regulation",
+            "Glass condensers"
+          ],
+          "image": "../assets/facilities/rotary-evaporator.jpg"
+        },
+        {
+          "id": "07",
+          "title": "Photo Reactor",
+          "manufacturer": "Building C, Floor 2",
+          "description": "Capacity: 4 reactions · Status: Available.",
+          "specs": [
+            "UV-LED light source",
+            "Temperature control",
+            "Gas purging",
+            "Multiple wavelengths"
+          ],
+          "image": "../assets/facilities/photo-reactor.jpg"
+        }
+      ]
     },
     {
-      "id": "03",
-      "title": "Precision Analytical Balance",
-      "description": "Provides mass measurements with sub-milligram accuracy for reagent handling.",
-      "image": "../assets/machine.png"
+      "id": "general-equipment",
+      "title": "General Equipment",
+      "description": "Shared bench equipment available across all labs.",
+      "icon": "general",
+      "instruments": [
+        {
+          "id": "08",
+          "title": "Single Crystal XRD",
+          "manufacturer": "All labs",
+          "description": "Capacity: Large chamber · Status: Available.",
+          "specs": [
+            "Temperature up to 300°C",
+            "Forced air circulation",
+            "Digital controller",
+            "Safety features"
+          ],
+          "image": "../assets/facilities/single-crystal-xrd.jpg"
+        },
+        {
+          "id": "09",
+          "title": "Analytical Balance",
+          "manufacturer": "All labs",
+          "description": "Capacity: Continuous use · Status: Available.",
+          "specs": [
+            "0.1 mg precision",
+            "Internal calibration",
+            "Anti-vibration table",
+            "Data logging"
+          ],
+          "image": "../assets/facilities/analytical-balance.avif"
+        },
+        {
+          "id": "10",
+          "title": "Ultrasonic Cleaner",
+          "manufacturer": "All labs",
+          "description": "Capacity: Various sizes · Status: Available.",
+          "specs": [
+            "Multiple frequencies",
+            "Digital timer",
+            "Temperature control",
+            "Degassing function"
+          ],
+          "image": "../assets/facilities/ultrasonic-cleaner.jpg"
+        }
+      ]
     },
     {
-      "id": "04",
-      "title": "Controlled Fume Hood",
-      "description": "High-ventilation workspace for safe chemical handling and vapor management.",
-      "image": "../assets/machine.png"
-    },
-    {
-      "id": "05",
-      "title": "Advanced Microscopy",
-      "description": "Detailed structural observation of crystals at molecular and cellular scales.",
-      "image": "../assets/machine.png"
-    },
-    {
-      "id": "06",
-      "title": "Magnetic Stirring Systems",
-      "description": "Uniform solution mixing using regulated magnetic fields for consistent reaction kinetics.",
-      "image": "../assets/machine.png"
+      "id": "utility",
+      "title": "Utility Equipment",
+      "description": "Supporting utility systems for purification and process work.",
+      "icon": "energy",
+      "instruments": [
+        {
+          "id": "11",
+          "title": "Automated Flash Chromatography",
+          "manufacturer": "Utility room",
+          "description": "Capacity: 30 L/hour · Status: Available.",
+          "specs": [
+            "Type I ultrapure water",
+            "Online monitoring",
+            "UV sterilization",
+            "Storage tank"
+          ],
+          "image": "../assets/facilities/automated-flash-chromatography.avif"
+        }
+      ]
     }
+  ],
+  "sharedFacilities": [
+    "Central NMR Facility — IIT Bhilai",
+    "Scanning Electron Microscopy (SEM) / EDX",
+    "High-Resolution Mass Spectrometry (HRMS)",
+    "Inductively Coupled Plasma (ICP) Analysis",
+    "Atomic Force Microscopy (AFM)"
   ]
 }

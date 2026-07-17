@@ -3,85 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Seminars, lectures, and programs hosted by Medishetty's (SOMO) Laboratory at IIT Bhilai.">
     <title>Events | Medishetty's (SOMO) Laboratory</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
+        :root {
+            --primary: #4D407D;
+            --secondary: #6C5FA0;
+            --light: #8A83AC;
+            --accent: #C5C2D7;
+            --text-main: #111418;
+            --text-muted: #5E5A72;
+            --card-border: #E6E4F0;
+            --maroon: #4D407D;
+            --card-bg: #FFFFFF;
+        }
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f5f7fa;
-            padding-top: 80px; /* Offset for fixed navbar */
-            color: #2d3748;
+            font-family: 'Inter', sans-serif;
+            background-color: #FFFFFF;
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
         }
-        .header-top {
-            background-color: #1A2A44;
+        .serif { font-family: 'Crimson Pro', serif; letter-spacing: -0.01em; }
+
+        .hero-events {
+            background: linear-gradient(135deg, #131020 0%, #2A2540 55%, #4D407D 130%);
+            padding: 150px 0 90px;
             color: white;
-            padding: 10px 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
         }
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 0.85rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 1.25rem;
+        }
+        .hero-eyebrow::before {
+            content: '';
+            width: 36px; height: 1px;
+            background-color: var(--accent);
+        }
+
         .event-card {
-            background-color: #ffffff;
-            padding: 2rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            margin-bottom: 2rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #FFFFFF;
+            border: 1px solid var(--card-border);
+            border-left: 3px solid var(--primary);
+            padding: 2.25rem 2.5rem;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
         }
         .event-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -4px rgba(0, 0, 0, 0.05);
+            transform: translateY(-4px);
+            border-left-color: var(--secondary);
+            box-shadow: 0 22px 45px -22px rgba(45,35,80,0.28);
         }
         .event-date {
-            font-size: 1.25rem;
+            display: inline-block;
+            font-size: 0.7rem;
             font-weight: 600;
-            color: #2b6cb0;
-            margin-bottom: 0.5rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--primary);
+            background: rgba(77,64,125,0.08);
+            border: 1px solid rgba(77,64,125,0.15);
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
         }
         .event-title {
-            font-size: 1.5rem;
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.6rem;
             font-weight: 700;
-            color: #1a202c;
-            margin-bottom: 0.75rem;
+            line-height: 1.25;
+            color: var(--text-main);
+            margin-bottom: 0.9rem;
         }
         .event-details {
-            font-size: 1.1rem;
-            line-height: 1.75rem;
-            color: #718096;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text-muted);
         }
-        h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1a202c;
-        }
+        .event-details strong { color: var(--text-main); font-weight: 600; }
+
         @media (max-width: 768px) {
-            .event-card {
-                padding: 1.5rem;
-            }
-            .event-title {
-                font-size: 1.25rem;
-            }
-            h2 {
-                font-size: 2rem;
-            }
+            .event-card { padding: 1.5rem; }
+            .event-title { font-size: 1.3rem; }
         }
     </style>
 </head>
-<body class="bg-gray-100">
+<body>
     <!-- Header -->
-    <header id="navbar"></header>
+    <header id="navbar" class="fixed top-0 w-full z-50" style="background: rgba(19,16,32,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); color:#fff; height:80px;"></header>
+
+    <!-- Hero -->
+    <section class="hero-events text-center">
+        <div class="container mx-auto px-6">
+            <span class="hero-eyebrow">Lab Calendar</span>
+            <h1 class="serif text-5xl md:text-6xl font-bold mb-5">Events</h1>
+            <p class="text-lg max-w-3xl mx-auto font-light" style="color: rgba(255,255,255,0.75);">
+                Stay updated with the latest seminars, lectures, and programs hosted by Medishetty's (SOMO) Laboratory at IIT Bhilai.
+            </p>
+        </div>
+    </section>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-4 py-12">
-        <h2 class="text-4xl font-bold mb-8 text-center">Events</h2>
-        <p class="text-center text-lg mb-10 max-w-3xl mx-auto">
-            Stay updated with the latest seminars, lectures, and programs hosted by Medishetty's (SOMO) Laboratory at IIT Bhilai.
-        </p>
-
-        <!-- Events List -->
-        <div class="grid grid-cols-1 gap-10">
+    <main class="container max-w-4xl mx-auto px-6 py-20">
+        <div class="grid grid-cols-1 gap-8">
             <div class="event-card">
                 <div class="event-date">Sep 5, 2025</div>
                 <div class="event-title">Seminar Series: CRISPR-based Diagnostics: Gross Errors, Useful Specificity, and Microfluidic Assays</div>
@@ -149,51 +183,37 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-sm">&copy; 2025 Medishetty's (SOMO) Laboratory, IIT Bhilai. All rights reserved.</p>
-            <p class="text-xs mt-2">Last updated: August 18, 2025, 12:17 AM IST</p>
-        </div>
-    </footer>
+    <footer id="footer"></footer>
 
     <script>
-        // Load navbar
-        fetch('../components/navbar.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar').innerHTML = data;
-                // Initialize mobile menu toggle
-                document.querySelector('.mobile-menu-button').addEventListener('click', function() {
-                    document.querySelector('.mobile-menu-content').classList.toggle('active');
-                });
-                // Initialize mobile dropdown toggle
-                document.querySelectorAll('.mobile-dropdown-toggle').forEach(function(toggle) {
-                    toggle.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const dropdownContent = this.nextElementSibling;
-                        dropdownContent.classList.toggle('active');
-                    });
-                });
-            });
-
-    // --- MOBILE MENU HANDLER ---
-    document.addEventListener("click", function(e){
-        // OPEN / CLOSE MENU
-        if(e.target.id === "mobile-toggle-trigger"){
-            const menu = document.getElementById("mobile-menu");
-            if(menu){
-                menu.classList.toggle("active");
-            }
+        // Load shared components
+        function loadComponent(id, path) {
+            fetch(path)
+                .then(r => r.ok ? r.text() : Promise.reject())
+                .then(html => { document.getElementById(id).innerHTML = html; })
+                .catch(() => {});
         }
+        loadComponent('navbar', '../components/navbar.html');
+        loadComponent('footer', '../components/footer.html');
 
-        // CLOSE MENU WHEN LINK CLICKED
-        if(e.target.closest("#mobile-menu a")){
-            const menu = document.getElementById("mobile-menu");
-            if(menu){
-                menu.classList.remove("active");
+        // --- MOBILE MENU HANDLER ---
+        document.addEventListener("click", function(e){
+            // OPEN / CLOSE MENU
+            if(e.target.id === "mobile-toggle-trigger"){
+                const menu = document.getElementById("mobile-menu");
+                if(menu){
+                    menu.classList.toggle("active");
+                }
             }
-        }
-    });
+
+            // CLOSE MENU WHEN LINK CLICKED
+            if(e.target.closest("#mobile-menu a")){
+                const menu = document.getElementById("mobile-menu");
+                if(menu){
+                    menu.classList.remove("active");
+                }
+            }
+        });
     </script>
 </body>
 </html>

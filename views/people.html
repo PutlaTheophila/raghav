@@ -3,106 +3,440 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Meet the researchers of Professor Raghavendar's Lab at IIT Bhilai.">
-  <title>People | Medishetty Lab</title>
-  
+  <meta name="description" content="Researchers, scholars, and alumni of the Medishetty (SOMO) Laboratory at IIT Bhilai.">
+  <title>People | Medishetty Group · IIT Bhilai</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  
+
   <style>
-    /* --- THEME ENGINE VARIABLES --- */
     :root[data-theme="light"] {
-        --bg-color: #FCFCFA;
-        --text-main: #1F2937;
-        --text-muted: #4B5563;
+        --bg-color: #FFFFFF;
+        --bg-alt: #F5F4FA;
+        --text-main: #111418;
+        --text-muted: #5E5A72;
         --card-bg: #FFFFFF;
-        --card-border: #E5E7EB;
-        --nav-bg: rgba(255, 255, 255, 0.95);
-        --nav-text: #1F2937;
-        --maroon: #A31F34;
-        --hero-bg: linear-gradient(to right, #111, #222);
-        --nav-text-top: #FFFFFF;
+        --card-border: #E6E4F0;
+        --nav-bg: rgba(255, 255, 255, 0.92);
+        --maroon: #4D407D;
+        --maroon-soft: rgba(77, 64, 125, 0.08);
+        --hero-text: #FFFFFF;
+        --grid-line: rgba(0,0,0,0.04);
     }
-
     :root[data-theme="dark"] {
-        --bg-color: #0F0F10;
-        --text-main: #EEEEEE;
-        --text-muted: #AAAAAA;
-        --card-bg: #1A1A1B;
-        --card-border: #2A2A2B;
-        --nav-bg: rgba(15, 15, 16, 0.95);
-        --nav-text: #FFFFFF;
-        --maroon: #C52B44;
-        --hero-bg: linear-gradient(to right, #000, #111);
-        --nav-text-top: #FFFFFF;
+        --bg-color: #0F0D16;
+        --bg-alt: #151221;
+        --text-main: #ECECEC;
+        --text-muted: #A29DB8;
+        --card-bg: #181525;
+        --card-border: #2A2540;
+        --nav-bg: rgba(15, 13, 22, 0.92);
+        --maroon: #8A83AC;
+        --maroon-soft: rgba(138, 131, 172, 0.14);
+        --hero-text: #FFFFFF;
+        --grid-line: rgba(255,255,255,0.04);
     }
 
+    * { box-sizing: border-box; }
     body {
-      font-family: 'Public Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
       background-color: var(--bg-color);
       color: var(--text-main);
       transition: background-color 0.4s ease, color 0.4s ease;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
     }
+    h1, h2, h3, .serif { font-family: 'Crimson Pro', serif; letter-spacing: -0.01em; }
 
-    h1, h2, h3, .serif { font-family: 'Crimson Pro', serif; }
-
-    /* --- NAVBAR (Synchronized) --- */
+    /* === NAVBAR === */
     #navbar {
       position: fixed; top: 0; width: 100%; height: 80px;
-      z-index: 1000; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      color: var(--nav-text-top);
+      z-index: 1000; transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      color: var(--hero-text);
     }
-
     #navbar.scrolled {
       background-color: var(--nav-bg);
-      height: 70px;
-      color: var(--nav-text) !important;
-      box-shadow: 0 4px 30px rgba(0,0,0,0.05);
-      backdrop-filter: blur(10px);
+      height: 66px;
+      color: var(--text-main) !important;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--card-border);
     }
+    #navbar.scrolled a, #navbar.scrolled button { color: var(--text-main) !important; }
 
-    #navbar.scrolled a, #navbar.scrolled button { color: var(--nav-text) !important; }
-    #navbar a, #navbar button { color: inherit; transition: color 0.3s; }
-
-    /* Page Header */
+    /* === HERO HEADER === */
     .page-header {
-      background: var(--hero-bg);
-      padding: 140px 0 80px;
+      position: relative;
+      background: linear-gradient(135deg, #0F0D16 0%, #1A1729 50%, #221D33 100%);
+      padding: 160px 0 90px;
       border-bottom: 5px solid var(--maroon);
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .page-header::after {
+      content: '';
+      position: absolute;
+      bottom: -50px; right: -50px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(77,64,125,0.3), transparent 70%);
+      pointer-events: none;
+    }
+    .header-inner {
+      position: relative; z-index: 2;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 3rem;
+      color: #fff;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 0.85rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 1.5rem;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 36px; height: 1px;
+      background-color: var(--maroon);
+    }
+    .page-title {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: 1;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -0.035em;
+    }
+    .page-title em {
+      font-style: italic;
+      font-weight: 400;
+      opacity: 0.9;
+    }
+    .page-subtitle {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 640px;
+      font-weight: 300;
+      line-height: 1.65;
+      margin-bottom: 2rem;
+    }
+    .header-stats {
+      display: flex; flex-wrap: wrap;
+      gap: 3rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    .header-stat-num {
+      font-family: 'Crimson Pro', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--maroon);
+      line-height: 1;
+    }
+    .header-stat-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-top: 0.4rem;
+      font-weight: 600;
     }
 
-    /* Person Card */
-    .person-detail-card {
-      display: flex; flex-direction: row; align-items: flex-start; gap: 2rem;
-      background: var(--card-bg); 
-      border: 1px solid var(--card-border); 
-      padding: 2rem; margin-bottom: 2rem; transition: all 0.3s ease;
+    /* === FILTER BAR === */
+    .filter-bar {
+      position: sticky;
+      top: 66px;
+      z-index: 50;
+      background-color: var(--bg-color);
+      border-bottom: 1px solid var(--card-border);
+      backdrop-filter: blur(10px);
+      padding: 1rem 0;
     }
-    .person-detail-card:hover { border-color: var(--maroon); box-shadow: 0 10px 25px -10px rgba(0,0,0,0.2); }
-    .person-detail-card img { width: 180px; height: 220px; object-fit: cover; flex-shrink: 0; border: 1px solid var(--card-border); }
-    
-    /* Intern Grid */
-    .intern-card { 
-        background: var(--card-bg); 
-        border: 1px solid var(--card-border); 
-        text-align: center; transition: 0.3s; 
-        overflow: hidden;
+    .filter-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 3rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
-    .intern-card:hover { border-color: var(--maroon); }
-    .intern-card img { width: 100%; height: 200px; object-fit: cover; }
-    .intern-card .info { padding: 1rem; }
+    .filter-pill {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.55rem 1.1rem;
+      border: 1px solid var(--card-border);
+      background-color: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: 0.25s;
+    }
+    .filter-pill:hover { color: var(--maroon); border-color: var(--maroon); }
+    .filter-pill.is-active {
+      background-color: var(--maroon);
+      color: #fff;
+      border-color: var(--maroon);
+    }
+    .filter-search {
+      flex: 1;
+      min-width: 200px;
+      max-width: 320px;
+      margin-left: auto;
+      position: relative;
+    }
+    .filter-search input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--card-border);
+      padding: 0.55rem 0.5rem 0.55rem 1.75rem;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      outline: none;
+      transition: border-color 0.25s;
+      font-family: inherit;
+    }
+    .filter-search input:focus { border-bottom-color: var(--maroon); }
+    .filter-search::before {
+      content: '⌕';
+      position: absolute;
+      left: 0; top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
 
-    .section-title {
-      font-size: 2.2rem; font-weight: 700; color: var(--text-main);
-      margin: 4rem 0 2rem; border-left: 4px solid var(--maroon); padding-left: 1.5rem;
+    /* === SECTION === */
+    .section-block { padding: 5rem 0 1rem; }
+    .container-wide {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+    .section-head {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      gap: 1rem; flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .section-head-title {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .section-head-count {
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--maroon);
+      font-family: 'Inter', sans-serif;
     }
 
-    @media (max-width: 640px) {
-      .person-detail-card { flex-direction: column; text-align: center; align-items: center; }
+    /* === FULL PERSON CARD (Postdoc, PhD, MSc) === */
+    .person-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    .person-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      transition: 0.4s cubic-bezier(0.4,0,0.2,1);
+      position: relative;
+      overflow: hidden;
+    }
+    .person-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 0; height: 3px;
+      background-color: var(--maroon);
+      transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+    .person-card:hover::before { width: 100%; }
+    .person-card:hover {
+      border-color: var(--maroon);
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px -20px rgba(0,0,0,0.18);
+    }
+    .person-card-photo {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      background-color: var(--bg-alt);
+      border-right: 1px solid var(--card-border);
+      min-height: 220px;
+    }
+    .person-card-body {
+      padding: 1.5rem 1.75rem;
+      display: flex; flex-direction: column;
+      min-width: 0;
+    }
+    .person-name {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 0.4rem;
+    }
+    .person-degree {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--maroon);
+      margin-bottom: 0.85rem;
+    }
+    .person-research {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 1rem;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .person-meta-row {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 0.75rem;
+      margin-top: auto;
+      padding-top: 0.85rem;
+      border-top: 1px dashed var(--card-border);
+    }
+    .person-pub-count {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .person-pub-count strong {
+      color: var(--maroon);
+      font-family: 'Crimson Pro', serif;
+      font-size: 1rem;
+    }
+    .person-view-link {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--maroon);
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      transition: gap 0.3s;
+    }
+    .person-card:hover .person-view-link { gap: 0.7rem; }
+
+    /* === INTERN GRID === */
+    .intern-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+    .intern-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      overflow: hidden;
+      transition: 0.4s;
+    }
+    .intern-card:hover {
+      border-color: var(--maroon);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px -16px rgba(0,0,0,0.18);
+    }
+    .intern-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      background-color: var(--bg-alt);
+    }
+    .intern-body { padding: 1.1rem 1.2rem; }
+    .intern-name {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 0.3rem;
+    }
+    .intern-meta {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* === ALUMNI DIVIDER === */
+    .alumni-divider {
+      margin: 6rem 0 0;
+      padding: 5rem 0 0;
+      border-top: 1px solid var(--card-border);
+      text-align: center;
+    }
+    .alumni-divider .label {
+      font-size: 0.7rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--maroon);
+      margin-bottom: 0.75rem;
+    }
+    .alumni-divider .title {
+      font-family: 'Crimson Pro', serif;
+      font-size: clamp(2.4rem, 5vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .alumni-divider .title em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    /* === ANIMATIONS === */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    .empty-state {
+      text-align: center; padding: 5rem 2rem;
+      color: var(--text-muted);
+      font-style: italic;
+      border: 1px dashed var(--card-border);
+    }
+
+    @media (max-width: 1024px) {
+      .person-grid { grid-template-columns: 1fr; }
+      .intern-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .container-wide, .header-inner, .filter-inner { padding: 0 1.5rem; }
+      .page-header { padding: 130px 0 60px; }
+      .header-stats { gap: 1.5rem; }
+      .person-card { grid-template-columns: 1fr; }
+      .person-card-photo { aspect-ratio: 4 / 3; height: auto; min-height: 0; border-right: none; border-bottom: 1px solid var(--card-border); }
+      .intern-grid { grid-template-columns: repeat(2, 1fr); }
+      .filter-bar { position: relative; top: 0; }
     }
   </style>
 </head>
@@ -110,18 +444,60 @@
 
   <nav id="navbar" class="flex items-center"></nav>
 
+  <!-- ============ HERO ============ -->
   <header class="page-header">
-    <div class="container max-w-6xl mx-auto px-6">
-      <div class="inline-block px-3 py-1 bg-[#A31F34] text-white text-[10px] font-bold tracking-widest uppercase mb-4">Research Team</div>
-      <h1 class="text-5xl md:text-6xl text-white font-bold serif">People</h1>
-      <p class="text-gray-400 mt-4 max-w-2xl italic">Live data synced from laboratory records.</p>
+    <div class="header-inner">
+      <p class="eyebrow">Research Team · IIT Bhilai</p>
+      <h1 class="page-title serif">The people behind <em>the science.</em></h1>
+      <p class="page-subtitle">
+        A multidisciplinary team of postdoctoral fellows, doctoral candidates, Master's
+        scholars, and visiting interns advancing the frontiers of solid-state photochemistry,
+        crystal engineering, and energy materials.
+      </p>
+      <div class="header-stats" id="header-stats">
+        <div>
+          <div class="header-stat-num" id="stat-postdoc">0</div>
+          <div class="header-stat-label">Postdoctoral Fellows</div>
+        </div>
+        <div>
+          <div class="header-stat-num" id="stat-phd">0</div>
+          <div class="header-stat-label">PhD Scholars</div>
+        </div>
+        <div>
+          <div class="header-stat-num" id="stat-msc">0</div>
+          <div class="header-stat-label">MSc Researchers</div>
+        </div>
+        <div>
+          <div class="header-stat-num" id="stat-alumni">0</div>
+          <div class="header-stat-label">Lab Alumni</div>
+        </div>
+      </div>
     </div>
   </header>
 
-  <main class="container max-w-6xl mx-auto px-6 py-12">
+  <!-- ============ FILTER BAR ============ -->
+  <div class="filter-bar">
+    <div class="filter-inner">
+      <button class="filter-pill is-active" data-filter="all">All</button>
+      <button class="filter-pill" data-filter="postdoc">Postdocs</button>
+      <button class="filter-pill" data-filter="phd">PhD</button>
+      <button class="filter-pill" data-filter="msc">MSc</button>
+      <button class="filter-pill" data-filter="intern">Interns</button>
+      <button class="filter-pill" data-filter="alumni">Alumni</button>
+      <div class="filter-search">
+        <input type="text" id="search-input" placeholder="Search by name or research…" autocomplete="off">
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MAIN ============ -->
+  <main>
     <div id="people-list">
-      <div class="py-20 text-center">
-        <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-[#A31F34] mb-4"></div>
+      <div class="container-wide" style="padding-top: 5rem; padding-bottom: 5rem;">
+        <div class="text-center">
+          <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-[#4D407D] mb-4"></div>
+          <p class="opacity-50 italic">Synchronizing laboratory records…</p>
+        </div>
       </div>
     </div>
   </main>
@@ -129,24 +505,21 @@
   <footer id="footer"></footer>
 
 <script>
-    // --- COMPONENT LOADER & THEME SYNC ---
     function loadComponent(id, path) {
-      fetch(path)
-        .then(r => r.ok ? r.text() : Promise.reject())
+      fetch(path).then(r => r.ok ? r.text() : Promise.reject())
         .then(html => {
           document.getElementById(id).innerHTML = html;
-          if(id === 'navbar') initThemeEngine();
+          if (id === 'navbar') initThemeEngine();
         });
     }
 
     function initThemeEngine() {
       const savedTheme = localStorage.getItem('lab-theme') || 'light';
       document.documentElement.setAttribute('data-theme', savedTheme);
-      
       const btns = [document.getElementById('themeBtn'), document.getElementById('themeBtnMobile')];
       btns.forEach(btn => {
-        if(btn) {
-          btn.replaceWith(btn.cloneNode(true)); // Remove old listeners
+        if (btn) {
+          btn.replaceWith(btn.cloneNode(true));
           const newBtn = document.getElementById(btn.id);
           newBtn.addEventListener('click', () => {
             const current = document.documentElement.getAttribute('data-theme');
@@ -164,97 +537,210 @@
       const btns = [document.getElementById('themeBtn'), document.getElementById('themeBtnMobile')];
       const sun = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>`;
       const moon = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
-      btns.forEach(btn => { if(btn) btn.innerHTML = (theme === 'dark' ? sun : moon); });
+      btns.forEach(btn => { if (btn) btn.innerHTML = (theme === 'dark' ? sun : moon); });
     }
 
-    // --- SCROLL LOGIC ---
     window.addEventListener('scroll', () => {
       const nav = document.getElementById('navbar');
       if (window.scrollY > 50) nav.classList.add('scrolled');
       else nav.classList.remove('scrolled');
     });
 
-    // --- LOCAL JSON LOGIC ---
+    // ============ REVEAL OBSERVER ============
+    function observeReveals() {
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal:not(.is-visible)').forEach(el => io.observe(el));
+    }
+
+    // ============ CARD BUILDERS ============
+    function createFullCard(p) {
+      const card = document.createElement('div');
+      card.className = 'person-card reveal';
+      card.dataset.name = (p.name || '').toLowerCase();
+      card.dataset.research = (p.research || p.description || '').toLowerCase();
+
+      const pubCount = Array.isArray(p.publications) ? p.publications.length : 0;
+      card.innerHTML = `
+        <img src="${p.image || '../assets/peerson.png'}" alt="${p.name}" class="person-card-photo" loading="lazy" onerror="this.src='../assets/peerson.png'">
+        <div class="person-card-body">
+          <h3 class="person-name">${p.name}</h3>
+          <div class="person-degree">${p.degree || 'Researcher'}</div>
+          <p class="person-research">${p.research || p.description || 'Researcher at Medishetty Lab.'}</p>
+          <div class="person-meta-row">
+            <span class="person-pub-count">${pubCount > 0 ? `<strong>${pubCount}</strong> publication${pubCount > 1 ? 's' : ''}` : 'Researcher'}</span>
+            <a href="./person-details.html?id=${p.id}" class="person-view-link">View Profile <span>→</span></a>
+          </div>
+        </div>
+      `;
+      return card;
+    }
+
+    function createInternCard(p) {
+      const card = document.createElement('a');
+      card.href = `./person-details.html?id=${p.id}`;
+      card.className = 'intern-card reveal';
+      card.dataset.name = (p.name || '').toLowerCase();
+      card.dataset.research = (p['Current position'] || '').toLowerCase();
+      card.innerHTML = `
+        <img src="${p.image || '../assets/peerson.png'}" alt="${p.name}" class="intern-photo" loading="lazy" onerror="this.src='../assets/peerson.png'">
+        <div class="intern-body">
+          <div class="intern-name">${p.name}</div>
+          <div class="intern-meta">${p['Current position'] || 'Research Intern'}</div>
+        </div>
+      `;
+      return card;
+    }
+
+    function internYear(p) {
+      const matches = (p['Current position'] || '').match(/20\d{2}/g);
+      return matches ? matches[matches.length - 1] : null;
+    }
+
+    function renderInternsByYear(container, titlePrefix, items, opts = {}) {
+      if (!items || items.length === 0) return;
+      const groups = {};
+      items.forEach(p => {
+        const year = internYear(p) || 'Earlier';
+        (groups[year] = groups[year] || []).push(p);
+      });
+      Object.keys(groups)
+        .sort((a, b) => {
+          if (a === 'Earlier') return 1;
+          if (b === 'Earlier') return -1;
+          return Number(b) - Number(a);
+        })
+        .forEach(year => {
+          renderSection(container, `${titlePrefix} — ${year}`, groups[year], { intern: true, filterGroup: opts.filterGroup });
+        });
+    }
+
+    function renderSection(container, title, items, opts = {}) {
+      if (!items || items.length === 0) return;
+      const section = document.createElement('section');
+      section.className = 'section-block';
+      section.dataset.filterGroup = opts.filterGroup || '';
+      const inner = document.createElement('div');
+      inner.className = 'container-wide';
+
+      inner.innerHTML = `
+        <div class="section-head reveal">
+          <h2 class="section-head-title serif">${title}</h2>
+          <span class="section-head-count">${items.length} ${items.length === 1 ? 'Member' : 'Members'}</span>
+        </div>
+      `;
+
+      const grid = document.createElement('div');
+      grid.className = opts.intern ? 'intern-grid' : 'person-grid';
+      items.forEach(p => {
+        grid.appendChild(opts.intern ? createInternCard(p) : createFullCard(p));
+      });
+
+      inner.appendChild(grid);
+      section.appendChild(inner);
+      container.appendChild(section);
+    }
+
+    // ============ DATA LOAD ============
     async function loadPeople() {
       const container = document.getElementById('people-list');
       try {
-        const response = await fetch('../src/people.json');
-        const data = await response.json();
-        
-        container.innerHTML = ''; 
+        const res = await fetch('../src/people.json');
+        const data = await res.json();
+        container.innerHTML = '';
 
-        const createFullCard = (p) => {
-          const edu = [];
-          if (p.education?.bsc) edu.push(`<strong>BSc:</strong> ${p.education.bsc}`);
-          if (p.education?.msc) edu.push(`<strong>MSc:</strong> ${p.education.msc}`);
-          if (p.education?.phd) edu.push(`<strong>PhD:</strong> ${p.education.phd}`);
+        // Stats
+        const post = (data['Postdoctoral Fellows'] || []).length;
+        const phd = (data['PhD Students'] || []).length;
+        const msc = (data['MSc Students'] || []).length;
+        const intern = (data['Internship Students'] || []).length;
+        const alumni = Object.values(data.Alumni || {}).reduce((sum, arr) => sum + (arr?.length || 0), 0);
+        document.getElementById('stat-postdoc').textContent = post;
+        document.getElementById('stat-phd').textContent = phd;
+        document.getElementById('stat-msc').textContent = msc;
+        document.getElementById('stat-alumni').textContent = alumni;
 
-          const card = document.createElement('div');
-          card.className = 'person-detail-card';
-          card.innerHTML = `
-            <img src="${p.image || '../assets/peerson.png'}" alt="${p.name}" loading="lazy">
-            <div class="info">
-              <h4 class="serif text-3xl font-bold">${p.name}</h4>
-              ${p.email ? `<p style="color: var(--maroon)" class="font-bold text-sm mb-2">${p.email}</p>` : ''}
-              <p class="font-semibold opacity-80 mb-2">${p.degree || ''}</p>
-              ${edu.length ? `<div class="text-sm opacity-60 mb-4">${edu.join('<br>')}</div>` : ''}
-              ${p.research ? `<p class="text-sm mb-3"><strong>Research Focus:</strong> ${p.research}</p>` : ''}
-              <p class="text-sm opacity-70 italic mb-6">"${p.description || 'Researcher at Medishetty Lab'}"</p>
-              <a href="./person-details.html?id=${p.id}" style="color: var(--maroon); border-color: var(--maroon)" class="inline-block text-xs font-bold uppercase tracking-widest border-b-2 pb-1 hover:bg-[#A31F34] hover:text-white hover:px-3 hover:py-2 hover:border-transparent transition-all">View Full Profile</a>
+        renderSection(container, 'Postdoctoral Fellows', data['Postdoctoral Fellows'], { filterGroup: 'postdoc' });
+        renderSection(container, 'Doctoral Scholars', data['PhD Students'], { filterGroup: 'phd' });
+        renderSection(container, "Master's Researchers", data['MSc Students'], { filterGroup: 'msc' });
+        renderInternsByYear(container, 'Research Interns', data['Internship Students'], { filterGroup: 'intern' });
+
+        if (data.Alumni && Object.values(data.Alumni).some(arr => arr?.length)) {
+          const divider = document.createElement('div');
+          divider.className = 'container-wide';
+          divider.innerHTML = `
+            <div class="alumni-divider reveal">
+              <p class="label">Lineage</p>
+              <h2 class="title">Lab <em>Alumni</em></h2>
             </div>
           `;
-          return card;
-        };
-
-        const createInternCard = (p) => {
-          const card = document.createElement('div');
-          card.className = 'intern-card';
-          card.innerHTML = `
-            <img src="${p.image || '../assets/peerson.png'}" alt="${p.name}">
-            <div class="info">
-              <h4 class="serif text-xl font-bold">${p.name}</h4>
-              <p class="text-xs opacity-60 uppercase tracking-tighter">${p['Current position'] || 'Intern'}</p>
-            </div>
-          `;
-          return card;
-        };
-
-        const renderSection = (title, items, isIntern = false) => {
-          if (!items || items.length === 0) return;
-          const sec = document.createElement('div');
-          sec.innerHTML = `<h3 class="section-title">${title}</h3>`;
-          const contentWrapper = document.createElement('div');
-          
-          if (isIntern) {
-            contentWrapper.className = 'grid grid-cols-2 md:grid-cols-4 gap-6';
-            items.forEach(p => contentWrapper.appendChild(createInternCard(p)));
-          } else {
-            items.forEach(p => contentWrapper.appendChild(createFullCard(p)));
-          }
-          sec.appendChild(contentWrapper);
-          container.appendChild(sec);
-        };
-
-        renderSection('Postdoctoral Fellows', data['Postdoctoral Fellows']);
-        renderSection('PhD Students', data['PhD Students']);
-        renderSection('MSc Students', data['MSc Students']);
-        renderSection('Research Interns', data['Internship Students'], true);
-
-        if (data.Alumni) {
-          const divider = document.createElement('h2');
-          divider.className = 'text-center text-4xl font-bold serif opacity-30 mt-24 mb-12 border-t pt-16';
-          divider.innerText = "Lab Alumni";
           container.appendChild(divider);
 
-          renderSection('Postdoctoral Alumni', data.Alumni['Postdoctoral Fellows']);
-          renderSection('PhD Alumni', data.Alumni['PhD Students']);
-          renderSection('MSc Alumni', data.Alumni['MSc Students']);
-          renderSection('Past Interns', data.Alumni['Internship Students'], true);
+          renderSection(container, 'Postdoctoral Alumni', data.Alumni['Postdoctoral Fellows'], { filterGroup: 'alumni' });
+          renderSection(container, 'PhD Alumni', data.Alumni['PhD Students'], { filterGroup: 'alumni' });
+          renderSection(container, 'MSc Alumni', data.Alumni['MSc Students'], { filterGroup: 'alumni' });
+          renderSection(container, 'Visiting Researchers', data.Alumni['Visiting Researchers'], { filterGroup: 'alumni' });
+          renderInternsByYear(container, 'Past Interns', data.Alumni['Internship Students'], { filterGroup: 'alumni' });
         }
+
+        wireFilters();
+        observeReveals();
 
       } catch (err) {
         console.error("Sync error:", err);
-        container.innerHTML = `<p class="text-center py-20 opacity-50">Sync Failed. Please check records later.</p>`;
+        container.innerHTML = `<div class="container-wide"><div class="empty-state">Sync failed. Please refresh or try again later.</div></div>`;
+      }
+    }
+
+    // ============ FILTERS + SEARCH ============
+    let activeFilter = 'all';
+    let activeQuery = '';
+
+    function applyFilters() {
+      const sections = document.querySelectorAll('[data-filter-group]');
+      sections.forEach(sec => {
+        const group = sec.dataset.filterGroup;
+        const groupMatch = (activeFilter === 'all') || (group === activeFilter);
+
+        const cards = sec.querySelectorAll('.person-card, .intern-card');
+        let anyVisible = false;
+        cards.forEach(card => {
+          const name = card.dataset.name || '';
+          const research = card.dataset.research || '';
+          const queryMatch = !activeQuery || name.includes(activeQuery) || research.includes(activeQuery);
+          const visible = groupMatch && queryMatch;
+          card.style.display = visible ? '' : 'none';
+          if (visible) anyVisible = true;
+        });
+        sec.style.display = anyVisible ? '' : 'none';
+      });
+
+      const divider = document.querySelector('.alumni-divider');
+      if (divider) {
+        const anyAlumniVisible = Array.from(document.querySelectorAll('[data-filter-group="alumni"]'))
+          .some(sec => sec.style.display !== 'none');
+        divider.parentElement.style.display = anyAlumniVisible ? '' : 'none';
+      }
+    }
+
+    function wireFilters() {
+      document.querySelectorAll('.filter-pill').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          activeFilter = btn.dataset.filter;
+          applyFilters();
+        });
+      });
+      const search = document.getElementById('search-input');
+      if (search) {
+        search.addEventListener('input', e => {
+          activeQuery = e.target.value.trim().toLowerCase();
+          applyFilters();
+        });
       }
     }
 
@@ -262,23 +748,16 @@
     loadComponent('footer', '../components/footer.html');
     document.addEventListener('DOMContentLoaded', loadPeople);
 
-    // --- MOBILE MENU HANDLER ---
+    // Mobile menu
     document.addEventListener("click", function(e){
-        // OPEN / CLOSE MENU
-        if(e.target.id === "mobile-toggle-trigger"){
-            const menu = document.getElementById("mobile-menu");
-            if(menu){
-                menu.classList.toggle("active");
-            }
-        }
-
-        // CLOSE MENU WHEN LINK CLICKED
-        if(e.target.closest("#mobile-menu a")){
-            const menu = document.getElementById("mobile-menu");
-            if(menu){
-                menu.classList.remove("active");
-            }
-        }
+      if (e.target.id === "mobile-toggle-trigger") {
+        const menu = document.getElementById("mobile-menu");
+        if (menu) menu.classList.toggle("active");
+      }
+      if (e.target.closest("#mobile-menu a")) {
+        const menu = document.getElementById("mobile-menu");
+        if (menu) menu.classList.remove("active");
+      }
     });
 </script>
 </body>

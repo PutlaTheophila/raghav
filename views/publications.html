@@ -15,27 +15,27 @@
   <style>
     /* --- THEME ENGINE VARIABLES --- */
     :root[data-theme="light"] {
-        --bg-color: #FCFCFA;
+        --bg-color: #FFFFFF;
         --text-main: #1F2937;
         --text-muted: #4B5563;
         --card-bg: #FFFFFF;
         --card-border: #E5E7EB;
         --nav-bg: rgba(255, 255, 255, 0.95);
-        --maroon: #A31F34;
-        --hero-bg: linear-gradient(to right, #111, #222);
-        --img-bg: #fcfcfc;
+        --maroon: #4D407D;
+        --hero-bg: linear-gradient(135deg, #131020 0%, #2A2540 55%, #4D407D 130%);
+        --img-bg: #FFFFFF;
         --nav-text-top: #FFFFFF; /* White text at top of hero */
     }
 
     :root[data-theme="dark"] {
-        --bg-color: #0F0F10;
+        --bg-color: #0F0D16;
         --text-main: #EEEEEE;
         --text-muted: #AAAAAA;
-        --card-bg: #1A1A1B;
-        --card-border: #2A2A2B;
-        --nav-bg: rgba(15, 15, 16, 0.95);
-        --maroon: #C52B44;
-        --hero-bg: linear-gradient(to right, #000, #111);
+        --card-bg: #181525;
+        --card-border: #2A2540;
+        --nav-bg: rgba(15, 13, 22, 0.95);
+        --maroon: #8A83AC;
+        --hero-bg: linear-gradient(135deg, #0A0812 0%, #1A1729 60%, #2A2540 130%);
         --img-bg: #ffffff;
         --nav-text-top: #FFFFFF;
     }
@@ -71,106 +71,117 @@
       border-bottom: 5px solid var(--maroon);
     }
 
-    /* Publication Card */
+    /* Publication Card — academic reference layout */
     .publication-card {
-      position: relative;
       background-color: var(--card-bg);
       border: 1px solid var(--card-border);
-      display: flex;
-      flex-direction: row;
-      overflow: visible;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 6px;
+      overflow: hidden;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     .publication-card:hover {
       border-color: var(--maroon);
-      box-shadow: 0 12px 24px -10px rgba(0,0,0,0.2);
-      transform: translateY(-4px);
+      box-shadow: 0 14px 30px -18px rgba(45,35,80,0.25);
     }
 
-    /* Numbered badge over each card */
-    .pub-number {
-      position: absolute;
-      top: -18px;
-      left: -18px;
-      width: 56px;
-      height: 56px;
+    /* Journal citation strip */
+    .pub-journal-strip {
       display: flex;
       align-items: center;
-      justify-content: center;
-      background-color: var(--maroon);
-      color: #FFFFFF;
+      gap: 0.7rem;
+      padding: 0.85rem 2.25rem;
+      background-color: rgba(138,131,172,0.10);
+      border-bottom: 1px solid var(--card-border);
+      color: var(--maroon);
+    }
+    .pub-journal-ref {
       font-family: 'Crimson Pro', serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      border: 3px solid var(--bg-color);
-      box-shadow: 0 6px 14px -4px rgba(163, 31, 52, 0.45);
-      z-index: 2;
-      letter-spacing: 0.02em;
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--maroon);
+      letter-spacing: 0.01em;
     }
+    .pub-journal-ref:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-    .publication-card:hover .pub-number {
-      transform: scale(1.08) rotate(-3deg);
-    }
-
-    @media (max-width: 850px) {
-      .pub-number {
-        top: -16px;
-        left: 16px;
-        width: 48px;
-        height: 48px;
-        font-size: 1.15rem;
-      }
+    /* Main body: text + figure left, cover right */
+    .pub-main {
+      display: flex;
+      gap: 2.5rem;
+      padding: 2rem 2.25rem 2.25rem;
     }
 
     .pub-content {
-      flex: 1.2;
-      padding: 2.5rem;
+      flex: 1;
+      min-width: 0;
       display: flex;
       flex-direction: column;
-      justify-content: center;
     }
 
-    .pub-image-container {
-      flex: 0.8;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-      background-color: var(--img-bg);
-      border-left: 1px solid var(--card-border);
+    .pub-title {
+      font-size: 1.45rem;
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+    }
+    .pub-title a {
+      color: var(--maroon);
+      transition: opacity 0.25s ease;
+    }
+    .pub-title a:hover { opacity: 0.8; }
+
+    .pub-authors {
+      margin-top: 0.75rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
     }
 
-    .pub-image-container img {
-      width: 100%;
-      height: auto;
-      max-height: 220px;
+    .pub-abstract {
+      display: block;
+      margin: 1.75rem auto;
+      max-width: 88%;
+      max-height: 300px;
       object-fit: contain;
     }
 
-    .pub-year-badge {
-      font-size: 0.75rem;
-      font-weight: 800;
-      color: var(--maroon);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
+    /* Journal / book cover on the right */
+    .pub-cover {
+      flex-shrink: 0;
+      width: 185px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pub-cover img {
+      width: 100%;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 5px;
+      background-color: #fff;
+      box-shadow: 0 10px 24px -14px rgba(19,16,32,0.3);
     }
 
     .read-link {
+      margin-top: auto;
+      align-self: flex-start;
       font-size: 0.8rem;
       font-weight: 700;
       color: var(--maroon);
       text-transform: uppercase;
+      letter-spacing: 0.08em;
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
     }
+    .read-link:hover { text-decoration: underline; text-underline-offset: 4px; }
 
     @media (max-width: 850px) {
-      .publication-card { flex-direction: column; }
-      .pub-image-container { border-left: none; border-top: 1px solid var(--card-border); }
+      .pub-main { flex-direction: column-reverse; gap: 1.5rem; }
+      .pub-cover { width: 140px; margin: 0 auto; }
+      .pub-journal-strip { padding: 0.85rem 1.5rem; }
+      .pub-main { padding: 1.5rem; }
+      .pub-title { font-size: 1.2rem; }
     }
   </style>
 </head>
@@ -180,7 +191,7 @@
 
   <header class="page-header">
     <div class="container max-w-6xl mx-auto px-6">
-      <div class="inline-block px-3 py-1 bg-[#A31F34] text-white text-[10px] font-bold tracking-widest uppercase mb-4">Scientific Contributions</div>
+      <div class="inline-block px-3 py-1 bg-[#4D407D] text-white text-[10px] font-bold tracking-widest uppercase mb-4">Scientific Contributions</div>
       <h1 class="text-5xl md:text-6xl text-white font-bold serif">Publications</h1>
       <p class="text-gray-400 mt-6 max-w-2xl text-lg leading-relaxed italic">
         "A chronicle of our research journey in crystal engineering and photomechanical materials."
@@ -191,7 +202,7 @@
   <main class="container max-w-6xl mx-auto px-6 py-20">
     <div id="publications-list" class="flex flex-col gap-10">
       <div class="py-20 text-center">
-        <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-[#A31F34] mb-4"></div>
+        <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-[#4D407D] mb-4"></div>
         <p class="opacity-50 italic">Synchronizing publication database...</p>
       </div>
     </div>
@@ -260,20 +271,22 @@
           const doiLink = p.doi ? `https://doi.org/${p.doi}` : '#';
           const pubNumber = total - i;
           card.innerHTML = `
-            <div class="pub-number">${pubNumber}</div>
-            <div class="pub-content">
-              <span class="pub-year-badge">${p.year}</span>
-              <h3 class="pub-title serif text-2xl font-bold mb-4">
-                <a href="${doiLink}" target="_blank" class="hover:text-[var(--maroon)] transition-colors">${p.title}</a>
-              </h3>
-              <p class="pub-authors">${p.authors}</p>
-              <p class="text-sm italic opacity-60 mb-6">${p.journal}, ${p.year}</p>
-              <div class="mt-auto">
+            <div class="pub-journal-strip">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <a href="${doiLink}" target="_blank" class="pub-journal-ref">${p.journal}, ${p.year}</a>
+            </div>
+            <div class="pub-main">
+              <div class="pub-content">
+                <h3 class="pub-title serif">
+                  <a href="${doiLink}" target="_blank">${pubNumber}. ${p.title}</a>
+                </h3>
+                <p class="pub-authors">${p.authors}</p>
+                ${p.image ? `<img class="pub-abstract" src="${p.image}" alt="Graphical abstract" loading="lazy" onerror="this.remove()">` : ''}
                 <a href="${doiLink}" target="_blank" class="read-link">View Full Article <span>→</span></a>
               </div>
-            </div>
-            <div class="pub-image-container">
-              <img src="${p.image || '/medishetty/assets/default-pub.png'}" alt="Abstract" onerror="this.style.display='none'">
+              <div class="pub-cover">
+                <img src="../assets/facilities/image.png" alt="Journal cover" loading="lazy">
+              </div>
             </div>
           `;
           list.appendChild(card);

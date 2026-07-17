@@ -1,0 +1,159 @@
+{
+  "facilities": [
+    {
+      "name": "NMR 60MHz",
+      "category": "Analytical Instrument",
+      "location": "Building A, Floor 3",
+      "status": "Available",
+      "capacity": "10 samples/day",
+      "features": [
+        "1H NMR spectroscopy",
+        "13C NMR capability",
+        "Variable temperature",
+        "Automated sample changer"
+      ],
+      "image": "../assets/facilities/nmr-60mhz.jpg"
+    },
+    {
+      "name": "Single Crystal XRD",
+      "category": "General Equipment",
+      "location": "All labs",
+      "status": "Available",
+      "capacity": "Large chamber",
+      "features": [
+        "Temperature up to 300\u00b0C",
+        "Forced air circulation",
+        "Digital controller",
+        "Safety features"
+      ],
+      "image": "../assets/facilities/single-crystal-xrd.jpg"
+    },
+    {
+      "name": "FTIR-ATR",
+      "category": "Analytical Instrument",
+      "location": "Building A, Floor 3",
+      "status": "Available",
+      "capacity": "15 samples/day",
+      "features": [
+        "Attenuated Total Reflection",
+        "Mid-IR range 4000-400 cm\u207b\u00b9",
+        "Diamond crystal",
+        "Minimal sample prep"
+      ],
+      "image": "../assets/facilities/ftir-atr.avif"
+    },
+    {
+      "name": "UV-Vis Spectrometer",
+      "category": "Analytical Instrument",
+      "location": "Building A, Floor 3",
+      "status": "Available",
+      "capacity": "20 samples/day",
+      "features": [
+        "190-1100 nm range",
+        "Single & double beam",
+        "Kinetics measurements",
+        "Temperature control"
+      ],
+      "image": "../assets/facilities/uv-vis-spectrometer.avif"
+    },
+    {
+      "name": "GC-MS",
+      "category": "Analytical Instrument",
+      "location": "Building B, Floor 2",
+      "status": "Available",
+      "capacity": "12 samples/day",
+      "features": [
+        "Gas chromatography-mass spectrometry",
+        "EI & CI ionization",
+        "Library search",
+        "Quantitative analysis"
+      ],
+      "image": "../assets/facilities/gc-ms.avif"
+    },
+    {
+      "name": "HPLC",
+      "category": "Analytical Instrument",
+      "location": "Building B, Floor 2",
+      "status": "Available",
+      "capacity": "15 samples/day",
+      "features": [
+        "High performance liquid chromatography",
+        "UV-Vis detector",
+        "Multiple column types",
+        "Gradient capability"
+      ],
+      "image": "../assets/facilities/hplc.jpg"
+    },
+    {
+      "name": "Rotary Evaporator",
+      "category": "Synthesis Equipment",
+      "location": "Building C, Floor 2",
+      "status": "Available",
+      "capacity": "8 setups",
+      "features": [
+        "Solvent removal",
+        "Temperature control",
+        "Vacuum regulation",
+        "Glass condensers"
+      ],
+      "image": "../assets/facilities/rotary-evaporator.jpg"
+    },
+    {
+      "name": "Photo Reactor",
+      "category": "Synthesis Equipment",
+      "location": "Building C, Floor 2",
+      "status": "Available",
+      "capacity": "4 reactions",
+      "features": [
+        "UV-LED light source",
+        "Temperature control",
+        "Gas purging",
+        "Multiple wavelengths"
+      ],
+      "image": "../assets/facilities/photo-reactor.jpg"
+    },
+    {
+      "name": "Analytical Balance",
+      "category": "General Equipment",
+      "location": "All labs",
+      "status": "Available",
+      "capacity": "Continuous use",
+      "features": [
+        "0.1 mg precision",
+        "Internal calibration",
+        "Anti-vibration table",
+        "Data logging"
+      ],
+      "image": "../assets/facilities/analytical-balance.avif"
+    },
+    {
+      "name": "Ultrasonic Cleaner",
+      "category": "General Equipment",
+      "location": "All labs",
+      "status": "Available",
+      "capacity": "Various sizes",
+      "features": [
+        "Multiple frequencies",
+        "Digital timer",
+        "Temperature control",
+        "Degassing function"
+      ],
+      "image": "../assets/facilities/ultrasonic-cleaner.jpg"
+    },
+    {
+      "name": "Automated Flash Chromatography",
+      "category": "Utility Equipment",
+      "location": "Utility room",
+      "status": "Available",
+      "capacity": "30 L/hour",
+      "features": [
+        "Type I ultrapure water",
+        "Online monitoring",
+        "UV sterilization",
+        "Storage tank"
+      ],
+      "image": "../assets/facilities/automated-flash-chromatography.avif"
+    }
+  ],
+  "source": "https://www.ganapathygroup.org/facilities"
+}

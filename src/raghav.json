@@ -1,8 +1,8 @@
 {
-  "name": "Raghavendar Medishetty",
+  "name": "Dr. Raghavender Medishetty",
   "title": "Assistant Professor, Department of Chemistry",
   "role": "Principal Investigator",
-  "email": "raghavendar@iitbhilai.ac.in",
+  "email": "raghavender@iitbhilai.ac.in",
   "image": "../assets/raghav.png",
   "institution": "IIT Bhilai",
   "tags": [
@@ -11,7 +11,7 @@
     "Molecular Crystals"
   ],
   "biography": [
-    "Professor Raghavendar Medishetty is a leading researcher in the field of functional molecular crystals. His work focuses on how light-driven structural transformations can be harnessed for mechanical motion and tunable optical properties.",
+    "Dr. Raghavender Medishetty is a leading researcher in the field of functional molecular crystals. His work focuses on how light-driven structural transformations can be harnessed for mechanical motion and tunable optical properties.",
     "At IIT Bhilai, he leads the Medishetty Group, mentoring a diverse team of PhD and Master’s scholars. His research contributions have been widely recognized in journals like Chemical Communications and Inorganic Chemistry."
   ],
   "education": [
@@ -24,10 +24,10 @@
       "university": "University of Liverpool, UK"
     }
   ],
-  "professionalappointments":[
+  "professionalappointments": [
     {
-        "place":"IIT Bhilai",
-        "position":"Professor"
+      "place": "IIT Bhilai",
+      "position": "Assistant Professor"
     }
   ],
   "researchFocus": [

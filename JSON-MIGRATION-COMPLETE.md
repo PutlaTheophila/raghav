@@ -8,7 +8,7 @@ All website pages now fetch data from **local JSON files** instead of Google She
 
 ### HTML Pages Modified:
 1. **index.html** - Now uses `./src/achievements-data.json`
-2. **views/raghavendar.html** - Now uses `../src/medishetty.json`
+2. **views/raghavender.html** - Now uses `../src/medishetty.json`
 3. **views/people.html** - Now uses `../src/people.json`
 4. **views/publications.html** - Now uses `../src/publications.json`
 5. **views/lab.html** - Now uses `../src/lab.json`

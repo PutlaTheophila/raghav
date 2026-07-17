@@ -3,160 +3,444 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Researcher profile at Professor Raghavendar's Lab, IIT Bhilai.">
-  <title>Profile | Medishetty Lab</title>
-  
+  <meta name="description" content="Researcher profile · Medishetty (SOMO) Laboratory, IIT Bhilai.">
+  <title>Profile | Medishetty Group · IIT Bhilai</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  
+
   <style>
-    /* --- THEME ENGINE VARIABLES --- */
     :root[data-theme="light"] {
-        --bg-color: #FCFCFA;
-        --text-main: #1F2937;
-        --text-muted: #4B5563;
+        --bg-color: #FFFFFF;
+        --bg-alt: #F5F4FA;
+        --text-main: #111418;
+        --text-muted: #5E5A72;
         --card-bg: #FFFFFF;
-        --card-border: #E5E7EB;
-        --nav-bg: rgba(255, 255, 255, 0.95);
-        --nav-text: #1F2937;
-        --maroon: #A31F34;
-        --hero-bg: linear-gradient(to right, #111, #222);
-        --nav-text-top: #FFFFFF;
+        --card-border: #E6E4F0;
+        --nav-bg: rgba(255, 255, 255, 0.92);
+        --maroon: #4D407D;
+        --maroon-soft: rgba(77, 64, 125, 0.08);
+        --hero-text: #FFFFFF;
     }
-
     :root[data-theme="dark"] {
-        --bg-color: #0F0F10;
-        --text-main: #EEEEEE;
-        --text-muted: #AAAAAA;
-        --card-bg: #1A1A1B;
-        --card-border: #2A2A2B;
-        --nav-bg: rgba(15, 15, 16, 0.95);
-        --nav-text: #FFFFFF;
-        --maroon: #C52B44;
-        --hero-bg: linear-gradient(to right, #000, #111);
-        --nav-text-top: #FFFFFF;
+        --bg-color: #0F0D16;
+        --bg-alt: #151221;
+        --text-main: #ECECEC;
+        --text-muted: #A29DB8;
+        --card-bg: #181525;
+        --card-border: #2A2540;
+        --nav-bg: rgba(15, 13, 22, 0.92);
+        --maroon: #8A83AC;
+        --maroon-soft: rgba(138, 131, 172, 0.14);
+        --hero-text: #FFFFFF;
     }
 
+    * { box-sizing: border-box; }
     body {
-      font-family: 'Public Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
       background-color: var(--bg-color);
       color: var(--text-main);
       transition: background-color 0.4s ease, color 0.4s ease;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
     }
+    h1, h2, h3, .serif { font-family: 'Crimson Pro', serif; letter-spacing: -0.01em; }
 
-    h1, h2, h3, .serif { font-family: 'Crimson Pro', serif; }
-
-    /* --- NAVBAR (Synchronized) --- */
+    /* === NAVBAR === */
     #navbar {
       position: fixed; top: 0; width: 100%; height: 80px;
-      z-index: 1000; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      color: var(--nav-text-top);
+      z-index: 1000; transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      color: var(--hero-text);
     }
-
     #navbar.scrolled {
       background-color: var(--nav-bg);
-      height: 70px;
-      color: var(--nav-text) !important;
-      box-shadow: 0 4px 30px rgba(0,0,0,0.05);
-      backdrop-filter: blur(10px);
+      height: 66px;
+      color: var(--text-main) !important;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--card-border);
     }
+    #navbar.scrolled a, #navbar.scrolled button { color: var(--text-main) !important; }
 
-    #navbar.scrolled a, #navbar.scrolled button { color: var(--nav-text) !important; }
-    #navbar a, #navbar button { color: inherit; transition: color 0.3s; }
-
-    /* Profile Header */
+    /* === PROFILE HEADER === */
     .profile-header {
-      background: var(--hero-bg);
-      padding: 140px 0 60px;
+      position: relative;
+      background: linear-gradient(135deg, #0F0D16 0%, #1A1729 50%, #221D33 100%);
+      padding: 150px 0 100px;
       color: white;
       border-bottom: 5px solid var(--maroon);
+      overflow: hidden;
+    }
+    .profile-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .profile-header::after {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(77,64,125,0.28), transparent 70%);
+      pointer-events: none;
+    }
+    .profile-header-inner {
+      position: relative; z-index: 2;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+    .breadcrumb {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 2.5rem;
+      transition: 0.3s;
+    }
+    .breadcrumb:hover { color: #fff; transform: translateX(-4px); }
+    .breadcrumb::before {
+      content: '←';
+      color: var(--maroon);
+      font-size: 1rem;
+    }
+    .profile-hero-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+    .profile-portrait-wrap {
+      position: relative;
+      aspect-ratio: 4 / 5;
+    }
+    .profile-portrait-wrap::before {
+      content: '';
+      position: absolute;
+      top: 1rem; left: 1rem;
+      width: 100%; height: 100%;
+      border: 1px solid var(--maroon);
+      z-index: 0;
+    }
+    .profile-portrait {
+      position: relative;
+      z-index: 1;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      background-color: #181525;
+    }
+    .profile-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.85rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 1.25rem;
+    }
+    .profile-eyebrow::before {
+      content: '';
+      width: 36px; height: 1px;
+      background-color: var(--maroon);
+    }
+    .profile-name {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      margin-bottom: 0.85rem;
+    }
+    .profile-degree {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.25rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 2rem;
+      line-height: 1.4;
+    }
+    .profile-contact-row {
+      display: flex; flex-wrap: wrap; gap: 0.85rem;
+      margin-bottom: 2rem;
+    }
+    .contact-chip {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background-color: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 0.7rem 1.1rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: #fff;
+      transition: 0.25s;
+      text-decoration: none;
+    }
+    .contact-chip:hover {
+      background-color: var(--maroon);
+      border-color: var(--maroon);
+      transform: translateY(-2px);
+    }
+    .contact-chip svg { width: 14px; height: 14px; }
+
+    .profile-tags {
+      display: flex; flex-wrap: wrap; gap: 0.6rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    .tag {
+      font-size: 0.7rem;
+      padding: 0.3rem 0.85rem;
+      background-color: rgba(77, 64, 125, 0.18);
+      color: #C5C2D7;
+      border: 1px solid rgba(77, 64, 125, 0.35);
+      font-weight: 600;
+      letter-spacing: 0.05em;
     }
 
-    .profile-img {
-      width: 240px; height: 280px;
-      object-fit: cover; border: 4px solid white;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    /* === MAIN LAYOUT === */
+    .main-section {
+      padding: 5rem 0;
+    }
+    .container-wide {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 4rem;
+      align-items: start;
     }
 
-    /* Content Cards */
-    .content-card {
-      background: var(--card-bg);
+    .section-label {
+      display: inline-flex; align-items: center; gap: 0.85rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--maroon);
+      margin-bottom: 1.25rem;
+    }
+    .section-label::before {
+      content: '';
+      width: 28px; height: 1px;
+      background-color: var(--maroon);
+    }
+    .section-title {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    .bio-text {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--text-main);
+      font-weight: 300;
+    }
+    .bio-text p { margin-bottom: 1.25rem; }
+
+    /* === SIDEBAR === */
+    .sidebar {
+      position: sticky;
+      top: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .info-card {
+      background-color: var(--card-bg);
       border: 1px solid var(--card-border);
       padding: 2rem;
-      transition: all 0.3s ease;
     }
-
-    .pub-card {
-      border-left: 3px solid var(--card-border);
-      padding-left: 1.5rem;
-      margin-bottom: 2rem;
-      transition: all 0.3s ease;
-    }
-    .pub-card:hover { border-left-color: var(--maroon); }
-
-    .back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
+    .info-card-title {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.25rem;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      font-size: 0.75rem;
-      color: var(--maroon);
-      transition: all 0.3s ease;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid var(--card-border);
+      letter-spacing: -0.01em;
     }
-    .back-btn:hover { transform: translateX(-5px); }
+    .edu-item {
+      display: flex; flex-direction: column;
+      padding: 0.85rem 0;
+      border-bottom: 1px dashed var(--card-border);
+    }
+    .edu-item:last-child { border-bottom: none; }
+    .edu-degree {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--maroon);
+      margin-bottom: 0.3rem;
+    }
+    .edu-place {
+      font-size: 0.95rem;
+      color: var(--text-main);
+      line-height: 1.45;
+    }
+    .quick-fact {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 0.65rem 0;
+      border-bottom: 1px dashed var(--card-border);
+      font-size: 0.85rem;
+    }
+    .quick-fact:last-child { border-bottom: none; }
+    .quick-fact-label { color: var(--text-muted); }
+    .quick-fact-value {
+      font-weight: 600;
+      color: var(--text-main);
+      text-align: right;
+    }
 
-    /* Loading Pulse Fix */
-    .pulse-bg { background-color: rgba(255,255,255,0.1); }
+    /* === PUBLICATIONS === */
+    .pub-section { margin-top: 5rem; }
+    .pub-item {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 1.5rem;
+      padding: 1.75rem 0;
+      border-bottom: 1px solid var(--card-border);
+      transition: 0.3s;
+    }
+    .pub-item:hover { background-color: var(--maroon-soft); padding-left: 1rem; padding-right: 1rem; }
+    .pub-item:first-of-type { border-top: 1px solid var(--card-border); }
+    .pub-num {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--maroon);
+      line-height: 1;
+    }
+    .pub-content { min-width: 0; }
+    .pub-authors {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      line-height: 1.55;
+      font-style: italic;
+    }
+    .pub-title-text {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.005em;
+    }
+    .pub-journal {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .pub-journal strong { color: var(--maroon); font-weight: 700; }
+
+    /* === ANIMATIONS === */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 1024px) {
+      .profile-hero-grid { grid-template-columns: 220px 1fr; gap: 2.5rem; }
+      .content-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .sidebar { position: static; }
+    }
+    @media (max-width: 768px) {
+      .profile-header { padding: 120px 0 60px; }
+      .profile-header-inner, .container-wide { padding: 0 1.5rem; }
+      .profile-hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .profile-portrait-wrap { max-width: 240px; }
+      .pub-item { grid-template-columns: 40px 1fr; gap: 1rem; }
+      .pub-num { font-size: 1.4rem; }
+    }
+
+    .not-found {
+      text-align: center;
+      padding: 8rem 2rem;
+    }
+    .not-found h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
   </style>
 </head>
 <body>
 
   <nav id="navbar" class="flex items-center"></nav>
 
+  <!-- ============ HEADER ============ -->
   <header class="profile-header">
-    <div class="container max-w-6xl mx-auto px-6">
-      <div id="header-content" class="flex flex-col md:flex-row items-center gap-10">
-        <div class="animate-pulse pulse-bg w-48 h-60 rounded-sm"></div>
+    <div class="profile-header-inner">
+      <a href="./people.html" class="breadcrumb">Back to People</a>
+      <div id="header-content">
+        <div class="animate-pulse" style="background: rgba(255,255,255,0.06); height: 350px;"></div>
       </div>
     </div>
   </header>
 
-  <main class="container max-w-6xl mx-auto px-6 py-16">
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-      
-      <div class="lg:col-span-2">
-        <section class="mb-12">
-          <h2 class="text-3xl font-bold serif mb-6 border-b pb-2" style="border-color: var(--card-border)">Biography</h2>
-          <p id="person-bio" class="opacity-80 leading-relaxed text-lg italic">
-            Loading biography...
-          </p>
-        </section>
+  <!-- ============ MAIN ============ -->
+  <main class="main-section">
+    <div class="container-wide">
+      <div class="content-grid">
 
-        <section id="publications-section" class="hidden">
-          <h2 class="text-3xl font-bold serif mb-6 border-b pb-2" style="border-color: var(--card-border)">Selected Publications</h2>
-          <div id="publications-list" class="space-y-6"></div>
-        </section>
-      </div>
+        <!-- Bio + Publications -->
+        <div>
+          <section class="reveal">
+            <p class="section-label">Biography</p>
+            <h2 class="section-title serif">About the Researcher</h2>
+            <div id="person-bio" class="bio-text">
+              <p style="opacity: 0.5; font-style: italic;">Loading biography…</p>
+            </div>
+          </section>
 
-      <div class="lg:col-span-1">
-        <div class="content-card sticky top-32">
-          <h3 class="text-xl font-bold serif mb-4 border-b pb-2" style="border-color: var(--card-border)">Academic Background</h3>
-          <ul id="education-list" class="space-y-4 text-sm opacity-80">
-            </ul>
-          
-          <div class="mt-10 pt-6 border-t" style="border-color: var(--card-border)">
-            <a href="people.html" class="back-btn">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
-              Back to People
+          <section id="publications-section" class="pub-section reveal" style="display:none;">
+            <p class="section-label">Authored Work</p>
+            <h2 class="section-title serif">Selected Publications</h2>
+            <div id="publications-list"></div>
+          </section>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <div class="info-card reveal" id="education-card" style="display:none;">
+            <h3 class="info-card-title">Academic Background</h3>
+            <div id="education-list"></div>
+          </div>
+
+          <div class="info-card reveal" id="quick-facts-card" style="display:none;">
+            <h3 class="info-card-title">At a Glance</h3>
+            <div id="quick-facts"></div>
+          </div>
+
+          <div class="info-card reveal" style="background: var(--maroon-soft); border-color: rgba(77,64,125,0.25);">
+            <h3 class="info-card-title" style="color: var(--maroon); border-color: rgba(77,64,125,0.25);">Medishetty Lab</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.25rem;">
+              The Medishetty Group at IIT Bhilai investigates light-responsive molecular crystals
+              and inorganic materials for actuation and energy applications.
+            </p>
+            <a href="./people.html" style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--maroon); border-bottom: 2px solid var(--maroon); padding-bottom: 4px;">
+              Meet the Team →
             </a>
           </div>
-        </div>
+        </aside>
       </div>
     </div>
   </main>
@@ -164,23 +448,20 @@
   <footer id="footer"></footer>
 
   <script>
-    // --- COMPONENT LOADER & THEME SYNC ---
     function loadComponent(id, path) {
-      fetch(path)
-        .then(r => r.ok ? r.text() : Promise.reject())
+      fetch(path).then(r => r.ok ? r.text() : Promise.reject())
         .then(html => {
           document.getElementById(id).innerHTML = html;
-          if(id === 'navbar') initThemeEngine();
+          if (id === 'navbar') initThemeEngine();
         });
     }
 
     function initThemeEngine() {
       const savedTheme = localStorage.getItem('lab-theme') || 'light';
       document.documentElement.setAttribute('data-theme', savedTheme);
-      
       const btns = [document.getElementById('themeBtn'), document.getElementById('themeBtnMobile')];
       btns.forEach(btn => {
-        if(btn) {
+        if (btn) {
           btn.replaceWith(btn.cloneNode(true));
           const newBtn = document.getElementById(btn.id);
           newBtn.addEventListener('click', () => {
@@ -199,119 +480,219 @@
       const btns = [document.getElementById('themeBtn'), document.getElementById('themeBtnMobile')];
       const sun = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>`;
       const moon = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
-      btns.forEach(btn => { if(btn) btn.innerHTML = (theme === 'dark' ? sun : moon); });
+      btns.forEach(btn => { if (btn) btn.innerHTML = (theme === 'dark' ? sun : moon); });
     }
 
-    // --- SCROLL LOGIC ---
     window.addEventListener('scroll', () => {
       const nav = document.getElementById('navbar');
       if (window.scrollY > 50) nav.classList.add('scrolled');
       else nav.classList.remove('scrolled');
     });
 
-    // --- DATA LOGIC ---
+    function observeReveals() {
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal:not(.is-visible)').forEach(el => io.observe(el));
+    }
+
+    // ============ ICONS ============
+    const ICON_MAIL = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>`;
+    const ICON_INST = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/><path d="M9 9v.01M9 12v.01M9 15v.01M9 18v.01"/></svg>`;
+    const ICON_SCHOLAR = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>`;
+
+    // ============ DATA LOAD ============
     const params = new URLSearchParams(window.location.search);
     const personId = params.get('id');
+
+    function deriveRoleTag(degree) {
+      if (!degree) return 'Researcher';
+      const d = degree.toLowerCase();
+      if (d.includes('postdoc')) return 'Postdoctoral Fellow';
+      if (d.includes('phd') || d.includes('ph.d') || d.includes('msc-phd')) return 'Doctoral Scholar';
+      if (d.includes('msc') || d.includes('m.sc')) return "Master's Researcher";
+      if (d.includes('intern')) return 'Research Intern';
+      return 'Researcher';
+    }
 
     fetch('../src/people.json')
       .then(r => r.ok ? r.json() : Promise.reject())
       .then(data => {
         let person = null;
+        let parentCategory = '';
 
-        function findPerson(obj) {
+        function walk(obj, parentKey = '') {
           for (const key in obj) {
-            if (Array.isArray(obj[key])) {
-              const found = obj[key].find(p => String(p.id) === String(personId));
-              if (found) { person = found; return; }
-            } else if (typeof obj[key] === 'object' && obj[key] !== null) {
-              findPerson(obj[key]);
+            const val = obj[key];
+            if (Array.isArray(val)) {
+              const found = val.find(p => String(p.id) === String(personId));
+              if (found) { person = found; parentCategory = key; return; }
+            } else if (val && typeof val === 'object') {
+              walk(val, key);
             }
             if (person) return;
           }
         }
-        findPerson(data);
+        walk(data);
 
         if (!person) {
-          document.querySelector('main').innerHTML = `<div class="text-center py-40"><h1 class="text-4xl serif">Profile Not Found</h1><a href="people.html" class="text-maroon underline mt-4 block" style="color: var(--maroon)">Return to Team Page</a></div>`;
+          document.querySelector('main').innerHTML = `
+            <div class="not-found">
+              <h1 class="serif">Profile Not Found</h1>
+              <p style="color: var(--text-muted); margin-bottom: 2rem;">We couldn't locate this researcher in the lab records.</p>
+              <a href="./people.html" style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--maroon); border-bottom: 2px solid var(--maroon); padding-bottom: 4px;">Return to People →</a>
+            </div>`;
+          document.querySelector('.profile-header').style.display = 'none';
           return;
         }
 
-        // Populate Header
+        // ===== HEADER =====
+        const role = parentCategory || deriveRoleTag(person.degree);
+        const tags = [];
+        if (person.research) {
+          person.research.split(/[,;]\s*/).forEach(t => t && tags.push(t.trim()));
+        }
+
+        const contacts = [];
+        if (person.email) {
+          contacts.push(`<a href="mailto:${person.email}" class="contact-chip">${ICON_MAIL}<span>${person.email}</span></a>`);
+        }
+        contacts.push(`<a href="https://www.iitbhilai.ac.in" target="_blank" rel="noopener" class="contact-chip">${ICON_INST}<span>IIT Bhilai</span></a>`);
+
         document.getElementById('header-content').innerHTML = `
-          <img src="${person.image || '../assets/peerson.png'}" alt="${person.name}" class="profile-img">
-          <div class="text-center md:text-left">
-            <h1 class="text-5xl md:text-6xl font-bold serif text-white">${person.name}</h1>
-            <p class="text-xl text-gray-400 serif italic mt-2">${person.degree || 'Research Member'}</p>
-            ${person.email ? `<p class="mt-6 text-sm font-bold tracking-widest uppercase text-white bg-[#A31F34] inline-block px-4 py-1">${person.email}</p>` : ''}
+          <div class="profile-hero-grid">
+            <div class="profile-portrait-wrap">
+              <img src="${person.image || '../assets/peerson.png'}" alt="${person.name}" class="profile-portrait" onerror="this.src='../assets/peerson.png'">
+            </div>
+            <div>
+              <p class="profile-eyebrow">${role}</p>
+              <h1 class="profile-name serif">${person.name}</h1>
+              <p class="profile-degree">${person.degree || person['Current position'] || 'Member, Medishetty Lab'}</p>
+              <div class="profile-contact-row">${contacts.join('')}</div>
+              ${tags.length ? `<div class="profile-tags">${tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>` : ''}
+            </div>
           </div>
         `;
 
-        // Populate Bio
-        document.getElementById('person-bio').textContent = person.description || "A dedicated researcher at IIT Bhilai focusing on advanced crystal engineering and solid-state photochemistry.";
+        // ===== BIO =====
+        const bioContainer = document.getElementById('person-bio');
+        const bioText = person.description || `A dedicated member of the Medishetty Group at IIT Bhilai, contributing to research at the interface of solid-state photochemistry, crystal engineering, and functional materials.`;
+        const paragraphs = bioText.split(/\n+|(?<=\.)\s{2,}/).filter(Boolean);
+        bioContainer.innerHTML = paragraphs.map(p => `<p>${p}</p>`).join('');
 
-        // Populate Education
+        // ===== EDUCATION =====
         const eduList = document.getElementById('education-list');
-        if (person.education) {
-          const eduKeys = { 'bsc': 'B.Sc.', 'msc': 'M.Sc.', 'phd': 'Ph.D.' };
+        const eduCard = document.getElementById('education-card');
+        if (person.education && typeof person.education === 'object') {
+          const eduKeys = {
+            'phd': 'Ph.D.',
+            'msc': 'M.Sc.',
+            'bsc': 'B.Sc.',
+            'postdoc': 'Postdoctoral',
+            'other': 'Additional'
+          };
+          let hasEdu = false;
           Object.keys(eduKeys).forEach(key => {
             if (person.education[key]) {
-              const li = document.createElement('li');
-              li.innerHTML = `<span class="block font-bold" style="color: var(--text-main)">${eduKeys[key]}</span> ${person.education[key]}`;
-              eduList.appendChild(li);
+              hasEdu = true;
+              const item = document.createElement('div');
+              item.className = 'edu-item';
+              item.innerHTML = `
+                <span class="edu-degree">${eduKeys[key]}</span>
+                <span class="edu-place">${person.education[key]}</span>
+              `;
+              eduList.appendChild(item);
             }
           });
+          if (hasEdu) eduCard.style.display = '';
         }
 
-        // Populate Publications
-        if (person.publications && person.publications.length > 0) {
+        // ===== QUICK FACTS =====
+        const facts = [];
+        if (person.research) facts.push(['Research Focus', person.research]);
+        if (Array.isArray(person.publications) && person.publications.length) {
+          facts.push(['Publications', person.publications.length]);
+        }
+        if (person['Current position']) facts.push(['Current Position', person['Current position']]);
+        if (parentCategory) facts.push(['Category', parentCategory]);
+
+        const factsBox = document.getElementById('quick-facts');
+        const factsCard = document.getElementById('quick-facts-card');
+        if (facts.length) {
+          factsBox.innerHTML = facts.map(([l, v]) =>
+            `<div class="quick-fact"><span class="quick-fact-label">${l}</span><span class="quick-fact-value">${v}</span></div>`
+          ).join('');
+          factsCard.style.display = '';
+        }
+
+        // ===== PUBLICATIONS =====
+        if (Array.isArray(person.publications) && person.publications.length > 0) {
           const pubSection = document.getElementById('publications-section');
           const pubList = document.getElementById('publications-list');
-          pubSection.classList.remove('hidden');
+          pubSection.style.display = '';
 
-          person.publications.forEach((pub, index) => {
-            const div = document.createElement('div');
-            div.className = 'pub-card';
-            // Handle both string and object formats
+          person.publications.forEach((pub, idx) => {
+            const num = String(person.publications.length - idx).padStart(2, '0');
+            const item = document.createElement('div');
+            item.className = 'pub-item';
+
             if (typeof pub === 'string') {
-              div.innerHTML = `
-                <p class="text-sm mb-1" style="color: var(--maroon); font-weight: 600;">${index + 1}.</p>
-                <p class="text-sm leading-relaxed" style="color: var(--text-main)">${pub}</p>
+              const parts = pub.split(', ');
+              const doiMatch = pub.match(/DOI:\s*([^\s,]+)/i);
+              const link = doiMatch ? `https://doi.org/${doiMatch[1]}` : '#';
+              const cleanText = pub.replace(/DOI:.*$/i, '').trim();
+
+              item.innerHTML = `
+                <div class="pub-num">${num}</div>
+                <div class="pub-content">
+                  <p class="pub-title-text">
+                    ${link !== '#'
+                      ? `<a href="${link}" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">${cleanText}</a>`
+                      : cleanText}
+                  </p>
+                  ${doiMatch ? `<p class="pub-journal"><strong>DOI:</strong> ${doiMatch[1]}</p>` : ''}
+                </div>
               `;
             } else {
-              div.innerHTML = `
-                <p class="text-xs opacity-60 mb-1">${pub.authors}</p>
-                <a href="${pub.link}" target="_blank" class="text-lg font-bold serif hover:text-maroon transition-colors leading-tight block" style="color: var(--text-main)">
-                  ${pub.title}
-                </a>
-                <p class="text-sm opacity-50 mt-2 font-medium italic">${pub.journal}</p>
+              item.innerHTML = `
+                <div class="pub-num">${num}</div>
+                <div class="pub-content">
+                  ${pub.authors ? `<p class="pub-authors">${pub.authors}</p>` : ''}
+                  <p class="pub-title-text">
+                    ${pub.link
+                      ? `<a href="${pub.link}" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">${pub.title}</a>`
+                      : pub.title}
+                  </p>
+                  ${pub.journal ? `<p class="pub-journal"><strong>${pub.journal}</strong>${pub.year ? ' · ' + pub.year : ''}</p>` : ''}
+                </div>
               `;
             }
-            pubList.appendChild(div);
+            pubList.appendChild(item);
           });
         }
+
+        observeReveals();
       })
-      .catch(err => console.error("Fetch Error:", err));
+      .catch(err => {
+        console.error("Fetch Error:", err);
+        document.querySelector('main').innerHTML = `<div class="not-found"><h1 class="serif">Unable to Load Profile</h1><p style="color: var(--text-muted);">Please try again later.</p></div>`;
+      });
 
     loadComponent('navbar', '../components/navbar.html');
     loadComponent('footer', '../components/footer.html');
 
-    // --- MOBILE MENU HANDLER ---
+    // Mobile menu
     document.addEventListener("click", function(e){
-        // OPEN / CLOSE MENU
-        if(e.target.id === "mobile-toggle-trigger"){
-            const menu = document.getElementById("mobile-menu");
-            if(menu){
-                menu.classList.toggle("active");
-            }
-        }
-
-        // CLOSE MENU WHEN LINK CLICKED
-        if(e.target.closest("#mobile-menu a")){
-            const menu = document.getElementById("mobile-menu");
-            if(menu){
-                menu.classList.remove("active");
-            }
-        }
+      if (e.target.id === "mobile-toggle-trigger") {
+        const menu = document.getElementById("mobile-menu");
+        if (menu) menu.classList.toggle("active");
+      }
+      if (e.target.closest("#mobile-menu a")) {
+        const menu = document.getElementById("mobile-menu");
+        if (menu) menu.classList.remove("active");
+      }
     });
   </script>
 </body>

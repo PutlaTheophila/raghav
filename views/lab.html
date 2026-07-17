@@ -3,184 +3,589 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Explore the state-of-the-art facilities at Medishetty Lab, IIT Bhilai.">
-  <title>Facilities | Medishetty Lab</title>
-  
+  <meta name="description" content="Research facilities and instrumentation at the Medishetty (SOMO) Laboratory, IIT Bhilai — diffraction, spectroscopy, photochemistry, and energy electrochemistry.">
+  <title>Facilities | Medishetty Group · IIT Bhilai</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  
+
   <style>
     :root[data-theme="light"] {
-        --bg-color: #FCFCFA;
-        --text-main: #1F2937;
-        --text-muted: #4B5563;
+        --bg-color: #FFFFFF;
+        --bg-alt: #F5F4FA;
+        --text-main: #111418;
+        --text-muted: #5E5A72;
         --card-bg: #FFFFFF;
-        --card-border: #E5E7EB;
-        --nav-bg: rgba(255, 255, 255, 0.95);
-        --nav-text: #1F2937;
-        --maroon: #A31F34;
-        --hero-bg: linear-gradient(to right, #111, #222);
-        --nav-text-top: #FFFFFF;
+        --card-border: #E6E4F0;
+        --nav-bg: rgba(255, 255, 255, 0.92);
+        --maroon: #4D407D;
+        --maroon-soft: rgba(77, 64, 125, 0.08);
+        --hero-text: #FFFFFF;
+        --grid-line: rgba(0,0,0,0.04);
     }
-
     :root[data-theme="dark"] {
-        --bg-color: #0F0F10;
-        --text-main: #EEEEEE;
-        --text-muted: #AAAAAA;
-        --card-bg: #1A1A1B;
-        --card-border: #2A2A2B;
-        --nav-bg: rgba(15, 15, 16, 0.95);
-        --nav-text: #FFFFFF;
-        --maroon: #C52B44;
-        --hero-bg: linear-gradient(to right, #000, #111);
-        --nav-text-top: #FFFFFF;
+        --bg-color: #0F0D16;
+        --bg-alt: #151221;
+        --text-main: #ECECEC;
+        --text-muted: #A29DB8;
+        --card-bg: #181525;
+        --card-border: #2A2540;
+        --nav-bg: rgba(15, 13, 22, 0.92);
+        --maroon: #8A83AC;
+        --maroon-soft: rgba(138, 131, 172, 0.14);
+        --hero-text: #FFFFFF;
+        --grid-line: rgba(255,255,255,0.04);
     }
 
+    * { box-sizing: border-box; }
     body {
-      font-family: 'Public Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
       background-color: var(--bg-color);
       color: var(--text-main);
       transition: background-color 0.4s ease, color 0.4s ease;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
     }
+    h1, h2, h3, .serif { font-family: 'Crimson Pro', serif; letter-spacing: -0.01em; }
 
-    h1, h2, h3, .serif { font-family: 'Crimson Pro', serif; }
-
+    /* === NAVBAR === */
     #navbar {
       position: fixed; top: 0; width: 100%; height: 80px;
-      z-index: 1000; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      color: var(--nav-text-top);
+      z-index: 1000; transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      color: var(--hero-text);
     }
-
     #navbar.scrolled {
       background-color: var(--nav-bg);
-      height: 70px;
-      color: var(--nav-text) !important;
-      box-shadow: 0 4px 30px rgba(0,0,0,0.05);
-      backdrop-filter: blur(10px);
+      height: 66px;
+      color: var(--text-main) !important;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--card-border);
     }
+    #navbar.scrolled a, #navbar.scrolled button { color: var(--text-main) !important; }
 
-    #navbar.scrolled a, #navbar.scrolled button { color: var(--nav-text) !important; }
-
+    /* === PAGE HEADER === */
     .page-header {
-      background: var(--hero-bg);
-      padding: 140px 0 80px;
+      position: relative;
+      background: linear-gradient(135deg, #0F0D16 0%, #1A1729 50%, #221D33 100%);
+      padding: 160px 0 90px;
       border-bottom: 5px solid var(--maroon);
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .page-header::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(77,64,125,0.28), transparent 70%);
+      pointer-events: none;
+    }
+    .header-inner {
+      position: relative; z-index: 2;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 3rem;
+      color: #fff;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 0.85rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 1.5rem;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 36px; height: 1px;
+      background-color: var(--maroon);
+    }
+    .page-title {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: 1;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -0.035em;
+      max-width: 900px;
+    }
+    .page-title em { font-style: italic; font-weight: 400; opacity: 0.9; }
+    .page-subtitle {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 700px;
+      font-weight: 300;
+      line-height: 1.65;
     }
 
-    .equipment-card {
-      background: var(--card-bg);
+    /* === OVERVIEW BLOCK === */
+    .overview-section { padding: 6rem 0; }
+    .container-wide {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .section-label {
+      display: inline-flex; align-items: center; gap: 0.85rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--maroon);
+      margin-bottom: 1.25rem;
+    }
+    .section-label::before {
+      content: '';
+      width: 28px; height: 1px;
+      background-color: var(--maroon);
+    }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    .lead {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--text-main);
+      font-weight: 300;
+    }
+    .capability-card {
+      background-color: var(--card-bg);
       border: 1px solid var(--card-border);
-      padding: 1.5rem;
+      padding: 2.25rem;
+    }
+    .capability-card h3 {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .capability-list { list-style: none; padding: 0; margin: 0; }
+    .capability-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      padding: 0.6rem 0;
+      font-size: 0.93rem;
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+    .capability-list li::before {
+      content: '';
+      flex-shrink: 0;
+      margin-top: 0.55rem;
+      width: 8px; height: 8px;
+      background-color: var(--maroon);
+      transform: rotate(45deg);
+    }
+
+    /* === CATEGORY NAV === */
+    .cat-nav {
+      position: sticky;
+      top: 66px;
+      z-index: 50;
+      background-color: var(--bg-color);
+      border-top: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--card-border);
+      backdrop-filter: blur(10px);
+    }
+    .cat-nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1rem 3rem;
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .cat-nav-inner::-webkit-scrollbar { display: none; }
+    .cat-pill {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.55rem 1rem;
+      border: 1px solid var(--card-border);
+      background: transparent;
+      color: var(--text-muted);
+      white-space: nowrap;
+      cursor: pointer;
+      transition: 0.25s;
+      text-decoration: none;
+    }
+    .cat-pill:hover, .cat-pill.is-active {
+      background-color: var(--maroon);
+      color: #fff;
+      border-color: var(--maroon);
+    }
+
+    /* === CATEGORY SECTION === */
+    .cat-block { padding: 5rem 0; }
+    .cat-block:nth-child(even) { background-color: var(--bg-alt); }
+    .cat-head {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 2rem;
+      align-items: start;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .cat-icon {
+      width: 80px; height: 80px;
+      background-color: var(--maroon-soft);
+      border: 1px solid rgba(77,64,125,0.2);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--maroon);
+    }
+    .cat-icon svg { width: 40px; height: 40px; }
+    .cat-num {
+      font-family: 'Crimson Pro', serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      color: var(--maroon);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .cat-title {
+      font-family: 'Crimson Pro', serif;
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+    .cat-desc {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      max-width: 720px;
+    }
+
+    /* === INSTRUMENT GRID === */
+    .inst-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    .inst-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 2rem;
+      transition: 0.4s cubic-bezier(0.4,0,0.2,1);
+      position: relative;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
-      transition: all 0.3s ease;
-      height: 100%;
     }
-    .equipment-card:hover {
+    .inst-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 0; height: 3px;
+      background-color: var(--maroon);
+      transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+    .inst-card:hover::before { width: 100%; }
+    .inst-card:hover {
       border-color: var(--maroon);
-      box-shadow: 0 10px 30px -15px rgba(0,0,0,0.3);
       transform: translateY(-4px);
+      box-shadow: 0 18px 40px -20px rgba(0,0,0,0.18);
     }
-    .equipment-number { font-size: 0.7rem; font-weight: 800; color: var(--maroon); letter-spacing: 0.1em; margin-bottom: 0.5rem; }
-    .equipment-title { font-size: 1.4rem; font-weight: 700; line-height: 1.2; margin-bottom: 0.75rem; }
-    .equipment-image { width: 100%; height: 200px; object-fit: cover; margin-top: auto; padding-top: 1.5rem; }
-    
-    .section-divider { width: 60px; height: 3px; background: var(--maroon); margin-bottom: 2rem; }
+    .inst-photo {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border: 1px solid var(--card-border);
+      background-color: #fff;
+      margin-bottom: 1.5rem;
+      transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+    .inst-card:hover .inst-photo { transform: scale(1.02); }
+    .inst-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .inst-num {
+      font-family: 'Crimson Pro', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--maroon);
+      letter-spacing: -0.04em;
+      flex-shrink: 0;
+    }
+    .inst-title-block { min-width: 0; flex: 1; }
+    .inst-title {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.01em;
+    }
+    .inst-mfr {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+    .inst-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+      flex: 1;
+    }
+    .inst-specs {
+      list-style: none; padding: 0; margin: 0;
+      padding-top: 1rem;
+      border-top: 1px dashed var(--card-border);
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+    }
+    .inst-specs li {
+      font-size: 0.72rem;
+      padding: 0.35rem 0.8rem;
+      background-color: var(--maroon-soft);
+      color: var(--maroon);
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    /* === SHARED FACILITIES === */
+    .shared-section {
+      background-color: var(--bg-alt);
+      border-top: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--card-border);
+      padding: 6rem 0;
+    }
+    .shared-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+    .shared-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 1.5rem 1.75rem;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: 0.3s;
+      position: relative;
+      padding-left: 2.75rem;
+    }
+    .shared-card::before {
+      content: '';
+      position: absolute;
+      left: 1.25rem; top: 50%;
+      transform: translateY(-50%);
+      width: 8px; height: 8px;
+      background-color: var(--maroon);
+      border-radius: 50%;
+    }
+    .shared-card:hover { border-color: var(--maroon); transform: translateX(4px); }
+
+    /* === ANIMATIONS === */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 1024px) {
+      .overview-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .inst-grid { grid-template-columns: 1fr; }
+      .shared-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .container-wide, .header-inner, .cat-nav-inner { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .page-header { padding: 130px 0 60px; }
+      .overview-section, .cat-block, .shared-section { padding: 4rem 0; }
+      .cat-head { grid-template-columns: 1fr; gap: 1rem; }
+      .cat-icon { width: 60px; height: 60px; }
+      .cat-icon svg { width: 30px; height: 30px; }
+      .shared-grid { grid-template-columns: 1fr; }
+      .inst-card-header { flex-direction: column; gap: 0.5rem; }
+      .cat-nav { position: relative; top: 0; }
+    }
   </style>
 </head>
 <body>
 
   <nav id="navbar" class="flex items-center"></nav>
 
+  <!-- ============ HEADER ============ -->
   <header class="page-header">
-    <div class="container max-w-6xl mx-auto px-6">
-      <div class="inline-block px-3 py-1 bg-[#A31F34] text-white text-[10px] font-bold tracking-widest uppercase mb-4">Laboratory Infrastructure</div>
-      <h1 class="text-5xl md:text-6xl text-white font-bold serif">Facilities & Equipment</h1>
-      <p class="text-gray-400 mt-6 max-w-2xl text-lg italic">
-        "Advanced instrumentation for characterization and synthesis of photoactive materials."
+    <div class="header-inner">
+      <p class="eyebrow">Laboratory Infrastructure · IIT Bhilai</p>
+      <h1 class="page-title serif">Facilities for <em>materials that respond.</em></h1>
+      <p class="page-subtitle">
+        A purpose-built environment combining in-house synthesis and characterisation
+        infrastructure with shared institutional access to advanced diffraction, microscopy,
+        and spectroscopy resources — engineered around the demands of solid-state photochemistry
+        and energy materials research.
       </p>
     </div>
   </header>
 
-  <main class="container max-w-6xl mx-auto px-6 py-20">
-    <div class="mb-16">
-      <div class="section-divider"></div>
-      <h2 class="text-3xl font-bold serif mb-6">Research Environment</h2>
-      <p style="color: var(--text-muted)" class="leading-relaxed max-w-4xl">
-        Our laboratory is equipped with precision instruments to investigate the mechanical and optical properties of molecular crystals.
-      </p>
-    </div>
-
-    <section id="equipment-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="col-span-full py-20 text-center">
-        <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-[#A31F34] mb-4"></div>
-        <p class="opacity-50 italic">Syncing with lab records...</p>
+  <!-- ============ OVERVIEW ============ -->
+  <section class="overview-section">
+    <div class="container-wide">
+      <div class="overview-grid">
+        <div class="reveal">
+          <p class="section-label">Research Environment</p>
+          <h2 class="section-title serif">Equipped for the full <em>structure–property–function</em> loop.</h2>
+          <p id="overview-text" class="lead">Loading laboratory overview…</p>
+        </div>
+        <div class="capability-card reveal">
+          <h3>Core Capabilities</h3>
+          <ul id="capabilities-list" class="capability-list">
+            <li style="opacity: 0.5; font-style: italic;">Loading capabilities…</li>
+          </ul>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <div class="mt-20 pt-10 border-t border-[var(--card-border)] flex justify-between items-center">
-      <p class="text-sm opacity-50 italic">Live Sync active.</p>
-      <a href="../index.html" class="text-xs font-bold uppercase tracking-widest hover:underline" style="color: var(--maroon)">Return to Overview</a>
+  <!-- ============ CATEGORY NAV ============ -->
+  <nav class="cat-nav" id="cat-nav" style="display:none;">
+    <div class="cat-nav-inner" id="cat-nav-inner"></div>
+  </nav>
+
+  <!-- ============ CATEGORIES ============ -->
+  <main id="categories-root">
+    <div class="container-wide" style="padding: 5rem 0; text-align: center;">
+      <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-[#4D407D] mb-4"></div>
+      <p class="opacity-50 italic">Syncing facility records…</p>
     </div>
   </main>
 
+  <!-- ============ SHARED FACILITIES ============ -->
+  <section class="shared-section" id="shared-section" style="display:none;">
+    <div class="container-wide">
+      <div class="reveal" style="max-width: 720px;">
+        <p class="section-label">Institutional Access</p>
+        <h2 class="section-title serif">Shared facilities at IIT Bhilai.</h2>
+        <p class="lead">
+          Beyond the dedicated lab instrumentation, the group draws upon central characterisation
+          facilities — providing seamless access to electron microscopy, NMR, and mass spectrometry.
+        </p>
+      </div>
+      <div id="shared-grid" class="shared-grid"></div>
+    </div>
+  </section>
+
   <footer id="footer"></footer>
 
+  <!-- ============ SVG ICON LIBRARY ============ -->
+  <svg width="0" height="0" style="position: absolute;">
+    <defs>
+      <symbol id="icon-diffraction" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="24" cy="24" r="4"/>
+        <circle cx="24" cy="24" r="10"/>
+        <circle cx="24" cy="24" r="16"/>
+        <circle cx="24" cy="24" r="21"/>
+        <line x1="24" y1="3" x2="24" y2="9"/>
+        <line x1="24" y1="39" x2="24" y2="45"/>
+        <line x1="3" y1="24" x2="9" y2="24"/>
+        <line x1="39" y1="24" x2="45" y2="24"/>
+      </symbol>
+      <symbol id="icon-spectroscopy" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 24 Q12 8, 18 24 T32 24 T44 24"/>
+        <line x1="4" y1="36" x2="44" y2="36"/>
+        <line x1="4" y1="36" x2="4" y2="40"/>
+        <line x1="14" y1="36" x2="14" y2="40"/>
+        <line x1="24" y1="36" x2="24" y2="40"/>
+        <line x1="34" y1="36" x2="34" y2="40"/>
+        <line x1="44" y1="36" x2="44" y2="40"/>
+      </symbol>
+      <symbol id="icon-thermal" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 6 v22 a4 4 0 1 0 4 0 V6 a2 2 0 1 0 -4 0z"/>
+        <line x1="22" y1="12" x2="18" y2="12"/>
+        <line x1="22" y1="18" x2="18" y2="18"/>
+        <line x1="22" y1="24" x2="18" y2="24"/>
+      </symbol>
+      <symbol id="icon-photochem" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="24" cy="24" r="8"/>
+        <line x1="24" y1="2" x2="24" y2="8"/>
+        <line x1="24" y1="40" x2="24" y2="46"/>
+        <line x1="2" y1="24" x2="8" y2="24"/>
+        <line x1="40" y1="24" x2="46" y2="24"/>
+        <line x1="9" y1="9" x2="13" y2="13"/>
+        <line x1="35" y1="35" x2="39" y2="39"/>
+        <line x1="9" y1="39" x2="13" y2="35"/>
+        <line x1="35" y1="13" x2="39" y2="9"/>
+      </symbol>
+      <symbol id="icon-energy" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="10" y="14" width="28" height="22" rx="2"/>
+        <line x1="20" y1="10" x2="20" y2="14"/>
+        <line x1="28" y1="10" x2="28" y2="14"/>
+        <path d="M22 20 L18 26 H24 L20 32"/>
+      </symbol>
+      <symbol id="icon-general" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 6 V20 L8 38 a3 3 0 0 0 3 5 H37 a3 3 0 0 0 3 -5 L30 20 V6"/>
+        <line x1="15" y1="6" x2="33" y2="6"/>
+        <circle cx="20" cy="32" r="1.5"/>
+        <circle cx="26" cy="36" r="1.5"/>
+      </symbol>
+    </defs>
+  </svg>
+
   <script>
-    async function loadFacilities() {
-      const grid = document.getElementById('equipment-grid');
-      try {
-        const response = await fetch('../src/lab.json');
-        const data = await response.json();
-        
-        grid.innerHTML = ''; 
-
-        if (data.instruments) {
-            data.instruments.forEach(item => {
-              const card = document.createElement('div');
-              card.className = 'equipment-card';
-              card.innerHTML = `
-                <span class="equipment-number">INSTRUMENT ${item.id}</span>
-                <h3 class="equipment-title serif">${item.title}</h3>
-                <p class="text-sm opacity-70 leading-relaxed">${item.description}</p>
-                <img src="${item.image || '../assets/machine.png'}" alt="${item.title}" class="equipment-image">
-              `;
-              grid.appendChild(card);
-            });
-        }
-      } catch (error) {
-        console.error("Sync error:", error);
-        grid.innerHTML = `<p class="col-span-full text-center py-20 opacity-50">Sync Failed. Please check records later.</p>`;
-      }
-    }
-
-    // --- SHARED LOGIC ---
     function loadComponent(id, path) {
-      fetch(path).then(r => r.text()).then(html => {
-        document.getElementById(id).innerHTML = html;
-        if(id === 'navbar') initThemeEngine();
-      });
+      fetch(path).then(r => r.ok ? r.text() : Promise.reject())
+        .then(html => {
+          document.getElementById(id).innerHTML = html;
+          if (id === 'navbar') initThemeEngine();
+        });
     }
 
     function initThemeEngine() {
       const savedTheme = localStorage.getItem('lab-theme') || 'light';
       document.documentElement.setAttribute('data-theme', savedTheme);
       updateToggleIcons(savedTheme);
-      
       const setupBtn = (id) => {
-          const btn = document.getElementById(id);
-          if(btn) {
-              btn.onclick = () => {
-                  const current = document.documentElement.getAttribute('data-theme');
-                  const target = current === 'light' ? 'dark' : 'light';
-                  document.documentElement.setAttribute('data-theme', target);
-                  localStorage.setItem('lab-theme', target);
-                  updateToggleIcons(target);
-              };
-          }
+        const btn = document.getElementById(id);
+        if (btn) {
+          btn.replaceWith(btn.cloneNode(true));
+          const newBtn = document.getElementById(id);
+          newBtn.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const target = current === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', target);
+            localStorage.setItem('lab-theme', target);
+            updateToggleIcons(target);
+          });
+        }
       };
       setupBtn('themeBtn'); setupBtn('themeBtnMobile');
     }
@@ -188,9 +593,9 @@
     function updateToggleIcons(theme) {
       const sun = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>`;
       const moon = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
-      ['themeBtn', 'themeBtnMobile'].forEach(id => { 
-          const btn = document.getElementById(id);
-          if(btn) btn.innerHTML = (theme === 'dark' ? sun : moon); 
+      ['themeBtn', 'themeBtnMobile'].forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) btn.innerHTML = (theme === 'dark' ? sun : moon);
       });
     }
 
@@ -200,28 +605,142 @@
       else nav.classList.remove('scrolled');
     });
 
-    // Initialize
+    function observeReveals() {
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal:not(.is-visible)').forEach(el => io.observe(el));
+    }
+
+    async function loadFacilities() {
+      try {
+        const res = await fetch('../src/lab.json');
+        const data = await res.json();
+
+        // Overview
+        document.getElementById('overview-text').textContent = data.overview || '';
+
+        // Capabilities
+        const capList = document.getElementById('capabilities-list');
+        if (data.capabilities) {
+          capList.innerHTML = data.capabilities.map(c => `<li>${c}</li>`).join('');
+        }
+
+        // Category nav
+        const catNav = document.getElementById('cat-nav');
+        const catNavInner = document.getElementById('cat-nav-inner');
+        if (data.categories && data.categories.length) {
+          catNav.style.display = '';
+          catNavInner.innerHTML = data.categories.map(cat =>
+            `<a href="#${cat.id}" class="cat-pill">${cat.title}</a>`
+          ).join('');
+        }
+
+        // Categories
+        const root = document.getElementById('categories-root');
+        root.innerHTML = '';
+
+        (data.categories || []).forEach((cat, idx) => {
+          const section = document.createElement('section');
+          section.className = 'cat-block';
+          section.id = cat.id;
+
+          const inner = document.createElement('div');
+          inner.className = 'container-wide';
+
+          const instrumentsHtml = (cat.instruments || []).map(inst => `
+            <article class="inst-card reveal">
+              ${inst.image ? `<img src="${inst.image}" alt="${inst.title}" class="inst-photo" loading="lazy" onerror="this.remove()">` : ''}
+              <div class="inst-card-header">
+                <div class="inst-num">${inst.id}</div>
+                <div class="inst-title-block">
+                  <h3 class="inst-title">${inst.title}</h3>
+                  ${inst.manufacturer ? `<div class="inst-mfr">${inst.manufacturer}</div>` : ''}
+                </div>
+              </div>
+              <p class="inst-desc">${inst.description}</p>
+              ${inst.specs && inst.specs.length ? `
+                <ul class="inst-specs">
+                  ${inst.specs.map(s => `<li>${s}</li>`).join('')}
+                </ul>
+              ` : ''}
+            </article>
+          `).join('');
+
+          inner.innerHTML = `
+            <div class="cat-head reveal">
+              <div class="cat-icon">
+                <svg><use href="#icon-${cat.icon || 'general'}"/></svg>
+              </div>
+              <div>
+                <div class="cat-num">Category ${String(idx + 1).padStart(2, '0')}</div>
+                <h2 class="cat-title">${cat.title}</h2>
+                <p class="cat-desc">${cat.description}</p>
+              </div>
+            </div>
+            <div class="inst-grid">${instrumentsHtml}</div>
+          `;
+
+          section.appendChild(inner);
+          root.appendChild(section);
+        });
+
+        // Shared facilities
+        if (data.sharedFacilities && data.sharedFacilities.length) {
+          document.getElementById('shared-section').style.display = '';
+          document.getElementById('shared-grid').innerHTML =
+            data.sharedFacilities.map(f => `<div class="shared-card reveal">${f}</div>`).join('');
+        }
+
+        wireCatNav();
+        observeReveals();
+      } catch (error) {
+        console.error("Sync error:", error);
+        document.getElementById('categories-root').innerHTML =
+          `<div class="container-wide"><p class="text-center py-20 opacity-50">Records temporarily unavailable.</p></div>`;
+      }
+    }
+
+    function wireCatNav() {
+      const pills = document.querySelectorAll('.cat-pill');
+      const sections = Array.from(document.querySelectorAll('.cat-block'));
+
+      pills.forEach(pill => {
+        pill.addEventListener('click', e => {
+          e.preventDefault();
+          const id = pill.getAttribute('href').replace('#', '');
+          const target = document.getElementById(id);
+          if (target) window.scrollTo({ top: target.offsetTop - 130, behavior: 'smooth' });
+        });
+      });
+
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            const id = e.target.id;
+            pills.forEach(p => p.classList.toggle('is-active', p.getAttribute('href') === '#' + id));
+          }
+        });
+      }, { rootMargin: '-30% 0px -55% 0px' });
+
+      sections.forEach(s => io.observe(s));
+    }
+
     loadComponent('navbar', '../components/navbar.html');
     loadComponent('footer', '../components/footer.html');
     document.addEventListener('DOMContentLoaded', loadFacilities);
 
-    // --- MOBILE MENU HANDLER ---
     document.addEventListener("click", function(e){
-        // OPEN / CLOSE MENU
-        if(e.target.id === "mobile-toggle-trigger"){
-            const menu = document.getElementById("mobile-menu");
-            if(menu){
-                menu.classList.toggle("active");
-            }
-        }
-
-        // CLOSE MENU WHEN LINK CLICKED
-        if(e.target.closest("#mobile-menu a")){
-            const menu = document.getElementById("mobile-menu");
-            if(menu){
-                menu.classList.remove("active");
-            }
-        }
+      if (e.target.id === "mobile-toggle-trigger") {
+        const menu = document.getElementById("mobile-menu");
+        if (menu) menu.classList.toggle("active");
+      }
+      if (e.target.closest("#mobile-menu a")) {
+        const menu = document.getElementById("mobile-menu");
+        if (menu) menu.classList.remove("active");
+      }
     });
   </script>
 </body>

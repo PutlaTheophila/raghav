@@ -20,7 +20,7 @@
 
 ---
 
-### 2. PI Profile Page (/views/raghavendar.html)
+### 2. PI Profile Page (/views/raghavender.html)
 **Fetches from:** `../src/medishetty.json`
 
 **Updated with:**
@@ -85,7 +85,7 @@
 Go to each page and verify the new data:
 
 - [ ] **People page** → Should show Dr. Anupama Sahu, Aditya Choudhary, Uma Kurakula, etc.
-- [ ] **Raghavendar page** → Should show Room 411, correct phone number
+- [ ] **Raghavender page** → Should show Room 411, correct phone number
 - [ ] **Homepage** → Should show recent achievements
 - [ ] **Footer** → Should show SD1-411, correct contact info
 
